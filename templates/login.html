@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>欢迎登陆</title>
+    <link type="text/css" rel="stylesheet" href="static/styles/reset.css">
+    <link type="text/css" rel="stylesheet" href="static/styles/login.css">
+    <script type="text/javascript" src="static/scripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="static/scripts/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="static/scripts/additional-methods.min.js"></script>
+    <script type="text/javascript" src="static/scripts/messages_zh.min.js"></script>
+    <script type="text/javascript" src="static/scripts/jquery.form.js"></script>
+    <script type="text/javascript" src="static/scripts/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="static/scripts/login.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <div class="login_wrap">
+        <div class="head">
+            <a href="/" class="login_logo"></a>
+            <a href="/" class="welcome_text"></a>
+        </div>
+        <div class="main" style="height: 440px">
+            <div class="fl">
+                <img src="static/images/ad_img.jpg" width="370" height="353">
+            </div>
+            <div class="login_form" id="mob_login">
+                <form id="loginForm" method="post" action="ajax/loginuser">
+                    <h3>
+                        登陆校园购<a href="register.html" class="fr red_f">注册</a>
+                    </h3>
+                    <div class="login_list">
+                        <p class="login_box">
+                            <input class="login_txt" id="mlsUser" name="mlsUser" type="text" placeholder="昵称" value="">
+                            <span></span>
+                            <span class="user_icon"></span>
+                        </p>
+                    </div>
+                    <div class="login_list">
+                        <p class="login_box">
+                            <input class="login_txt" id="password" name="password" type="password" placeholder="密码" onkeypress="enter_login(event);">
+                            <span></span>
+                            <span class="pwd_icon"></span>
+                        </p>
+                    </div>
+                    <div class="loginErrorMessage none_f"></div>
+                    <div class="login_btn_wrap">
+                        <input type="submit" class="login_btn" value="立即登陆">
+                    </div>
+                    <div class="agree_login">
+                        <input type="checkbox" id="agreement" name="agreement">记住我
+                        <a href="/user/findPwd" target="_blank">忘记密码？</a>
+                    </div>
+                </form>
+                <div class="fast_login">
+                    <h3>无需注册，即可登录</h3>
+                    <div class="fast_way">
+                        <a href="/connect/auth/qzone" class="qq_way"></a>
+                        <a href="/connect/auth/weibo" class="sina_way"></a>
+                        <a href="/connect/auth/weixin" class="weixin_way"></a>
+                    </div>
+                </div>
+                <div class="more_way_wrap">
+                    <h4 onselectstart="return false;">更多登陆方式>></h4>
+                    <div class="more_way none_f" style="display: none;">
+                        <a href="/connect/auth/txweibo" class="txweibo"></a>
+                        <a href="/connect/auth/douban" class="douban"></a>
+                        <a href="/connect/auth/renren" class="renren"></a>
+                        <a href="/connect/auth/baidu" class="baidu"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

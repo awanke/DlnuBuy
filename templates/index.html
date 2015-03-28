@@ -1,0 +1,747 @@
+{#{% static 'url'%}#}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>校园购</title>
+    <link type="text/css" rel="stylesheet" href="static/styles/reset.css">
+    <link type="text/css" rel="stylesheet" href="static/styles/index.css">
+    <script type="text/javascript" src="static/scripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="static/scripts/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="static/scripts/index.js"></script>
+</head>
+<body>
+<div class="headerBar">
+    <div class="topBar">
+        <div class="comWidth">
+            <div class="leftArea">
+                <a href="#" class="collection">收藏校园购</a>
+            </div>
+            <div class="rightArea">
+                欢迎来到校园购！ <a id="loginTags" href="login.html">[登陆]</a><a href="register.html"> [免费注册]</a>
+            </div>
+        </div>
+    </div>
+    <div class="logoBar">
+        <div class="comWidth">
+            <div class="logo fl">
+                <a href="#"><img src="static/images/logo2.png" alt="校园购"></a>
+            </div>
+            <div class="search_box fl">
+                <input type="text" class="search_text fl">
+                <input type="button" value="搜 索" class="search_btn fr">
+            </div>
+            <div class="shopCar fr">
+                <span class="shopText fl"></span><a href="#"> 购物车</a>
+                <span class="shopNum fr"></span><a href="#" class="fr">10</a>
+            </div>
+        </div>
+    </div>
+    <div class="navBox">
+        <div class="comWidth">
+            <div class="shopClass fl">
+                <h3>全部商品分类<i></i></h3>
+            </div>
+            <ul class="nav fl">
+                <li><a href="product_list.html" class="active">图书教辅</a></li>
+                <li><a href="#">生活百货</a></li>
+                <li><a href="#">遗弃猫狗</a></li>
+                <li><a href="#">户外健身</a></li>
+                <li><a href="#">工艺品</a></li>
+                <li><a href="#">一起购</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="container" style=" margin-left: auto; margin-right: auto;">
+    <div id="list" style="left: -2000px; background: #f89406">
+        <img src="static/images/lunbo55_2000_420.jpg" alt="1" width="1700">
+        <img src="static/images/lunbo11_2000_420.jpg" alt="1">
+        <img src="static/images/lunbo22_2000_420.jpg" alt="2">
+        <img src="static/images/lunbo33_2000_420.jpg" alt="3">
+        <img src="static/images/lunbo44_2000_420.jpg" alt="4">
+        <img src="static/images/lunbo55_2000_420.jpg" alt="5">
+        <img src="static/images/lunbo11_2000_420.jpg" alt="5">
+    </div>
+    <div id="buttons">
+        <span index="1" class="on"></span>
+        <span index="2"></span>
+        <span index="3"></span>
+        <span index="4"></span>
+        <span index="5"></span>
+    </div>
+    <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+    <a href="javascript:;" id="next" class="arrow">&gt;</a>
+    <div class="banner">
+        <a href="#"><img src="static/images/right1_200_139.jpg"></a>
+        <a href="#"><img src="static/images/right2_200_139.jpg"></a>
+        <a href="#"><img src="static/images/right3_200_139.jpg"></a>
+        <a href="#"><img src="static/images/right4_200_139.jpg"></a>
+    </div>
+</div>
+<div class="attr_box">
+    <ul class="sec_attr">
+        <li class="list">
+            <div class="list_cont">
+                <h3 class="nav_tle">
+                    <a href="#" target="_blank">
+                        <span class="nav_ico"></span>最热
+                    </a>
+                </h3>
+                <p class="listP">
+                    <a class="red_f" href="#" target="_blank">今夏新款</a>
+                    <a href="#" target="_blank">T恤</a>
+                    <a href="#" target="_blank">活力运动鞋</a>
+                    <a href="#" target="_blank">连衣裙</a>
+                    <a class="red_f" href="#" target="_blank">至in牛仔裤</a>
+                    <a href="#" target="_blank">单肩包</a>
+                    <a href="#" target="_blank">外套</a>
+                    <a href="#" target="_blank">甜美小单鞋</a>
+                    <a class="red_f" href="#" target="_blank">超人气套装</a>
+                </p>
+                <samp class="corner">&gt;</samp>
+            </div>
+            <ul class="nav_list" style="display: none;">
+                <li>
+                    <h4><a href="#" target="_blank">本季最in风尚</a></h4>
+                    <p>
+                        <a href="#" target="_blank">早春新款</a>
+                        <a href="#" target="_blank">T恤</a>
+                        <a href="#" target="_blank">连衣裙</a>
+                        <a href="#" target="_blank">时髦牛仔裤</a>
+                        <a href="#" target="_blank">卫衣</a>
+                    </p>
+                </li>
+                <li>
+                    <h4><a href="#" target="_blank">最受欢迎大集合</a></h4>
+                    <p>
+                        <a href="#" target="_blank">至in太空棉</a>
+                        <a href="#" target="_blank">甜美复古风</a>
+                        <a href="#" target="_blank">梦幻连衣裙</a>
+                        <a href="#" target="_blank">秀恩爱必备</a>
+                    </p>
+                </li>
+                <li>
+                    <h4><a href="#" target="_blank">百变の风格</a></h4>
+                    <p>
+                        <a href="#" target="_blank">萌妹的衣橱</a>
+                        <a href="#" target="_blank">窈窕淑女</a>
+                        <a href="#" target="_blank">甜美佳人</a>
+                        <a href="#" target="_blank">韩系style</a>
+                    </p>
+                </li>
+            </ul>
+        </li>
+        <li class="list">
+            <div class="list_cont">
+                <h3 class="nav_tle">
+                    <a href="#" target="_blank">
+                        <span class="nav_ico"></span>衣服
+                    </a>
+                </h3>
+                <p class="listP">
+                    <a class="red_f" href="#" target="_blank">卫衣</a>
+                    <a href="#" target="_blank">开衫</a>
+                    <a href="#" target="_blank">大衣</a>
+                    <a class="red_f" href="#" target="_blank">连衣裙</a>
+                    <a class="red_f" href="#" target="_blank">牛仔裤</a>
+                    <a href="#" target="_blank">半身裙</a>
+                    <a href="#" target="_blank">小脚裤</a>
+                    <a href="#" target="_blank">打底裤</a>
+                    <a href="#" target="_blank">打底衫</a>
+                    <a href="#" target="_blank">情侣装</a>
+                    <a href="#" target="_blank">韩系美裙</a>
+                </p>
+                <samp class="corner">&gt;</samp>
+            </div>
+            <ul class="nav_list" style="display: none;">
+                <li>
+                    <h4><a href="#" target="_blank">上衣</a></h4>
+                    <p>
+                        <a class="red_f" href="#" target="_blank">外套</a>
+                        <a href="#" target="_blank">毛衣</a>
+                        <a href="#" target="_blank">打底衫</a>
+                        <a class="red_f" href="#" target="_blank">大衣</a>
+                        <a class="red_f" href="#" target="_blank">卫衣</a>
+                        <a class="red_f" href="#" target="_blank">最新上衣榜单</a>
+                        <a class="red_f" href="#" target="_blank">棉衣</a>
+                        <a href="#" target="_blank">套装</a>
+                        <a href="#" target="_blank">棒球外套</a>
+                        <a class="red_f" href="#" target="_blank">长袖T恤</a>
+                        <a class="red_f" href="#" target="_blank">情侣装</a>
+                        <a class="red_f" href="#" target="_blank">衬衫</a>
+                    </p>
+                </li>
+                <li>
+                    <h4><a href="#" target="_blank">裙子</a></h4>
+                    <p>
+                        <a class="red_f" href="#" target="_blank">早春美裙</a>
+                        <a href="#" target="_blank">连衣裙</a>
+                        <a href="#" target="_blank">半身裙</a>
+                        <a href="#" target="_blank">包臀裙</a>
+                        <a class="red_f" href="#" target="_blank">最受欢迎裙子榜</a>
+                        <a href="#" target="_blank">衣裙套装</a>
+                        <a href="#" target="_blank">短裙</a>
+                        <a href="#" target="_blank">蕾丝连衣裙</a>
+                        <a href="#" target="_blank">打底裙</a>
+                        <a href="#" target="_blank">牛仔裙</a>
+                        <a href="#" target="_blank">韩系美裙</a>
+                    </p>
+                </li>
+                <li>
+                    <h4><a href="#" target="_blank">裤子</a></h4>
+                    <p>
+                        <a class="red_f" href="#" target="_blank">最受欢迎裤子榜</a>
+                        <a class="red_f" href="#" target="_blank">牛仔裤</a>
+                        <a href="#" target="_blank">哈伦裤</a>
+                        <a class="red_f" href="#" target="_blank">打底裤</a>
+                        <a class="red_f" href="#" target="_blank">小脚裤</a>
+                        <a href="#" target="_blank">西装裤</a>
+                        <a class="red_f" href="#" target="_blank">铅笔裤</a>
+                        <a href="#" target="_blank">连体裤</a>
+                        <a href="#" target="_blank">运动裤</a>
+                    </p>
+                </li>
+                <li>
+                    <h4><a href="#" target="_blank">内衣</a></h4>
+                    <p>
+                        <a class="red_f" href="#" target="_blank">泳衣</a>
+                        <a class="red_f" href="#" target="_blank">睡衣</a>
+                        <a href="#" target="_blank">内裤</a>
+                        <a href="#" target="_blank">家居服</a>
+                        <a class="red_f" href="#" target="_blank">内衣套装</a>
+                        <a href="#" target="_blank">文胸</a>
+                        <a href="#" target="_blank">本命年内衣</a>
+                    </p>
+                </li>
+            </ul>
+        </li>
+        <li class="list">
+            <div class="list_cont">
+                <h3 class="nav_tle">
+                    <a href="#" target="_blank">
+                        <span class="nav_ico"></span>鞋子
+                    </a>
+                </h3>
+                <p class="listP">
+                    <a class="red_f" href="#" target="_blank">运动鞋</a>
+                    <a class="red_f" href="#" target="_blank">早春鞋履</a>
+                    <a href="#" target="_blank">短靴</a>
+                    <a class="red_f" href="#" target="_blank">高跟鞋</a>
+                    <a href="#" target="_blank">帆布鞋</a>
+                    <a href="#" target="_blank">平底鞋</a>
+                    <a href="#" target="_blank">优质热销鞋履</a>
+                    <a href="#" target="_blank">马丁靴</a>
+                </p>
+                <samp class="corner">&gt;</samp>
+            </div>
+            <ul class="nav_list" style="display: none;">
+                <li>
+                    <h4><a href="#" target="_blank">春季新品</a></h4>
+                    <p>
+                        <a href="#" target="_blank">运动鞋</a>
+                        <a href="#" target="_blank">单鞋</a>
+                        <a href="#" target="_blank">早春鞋履</a>
+                        <a href="#" target="_blank">高跟鞋</a>
+                        <a href="#" target="_blank">帆布鞋</a>
+                        <a href="#" target="_blank">短靴</a>
+                    </p>
+                </li>
+                <li>
+                    <h4><a href="#" target="_blank">买手推荐</a></h4>
+                    <p>
+                        <a href="#" target="_blank">厚底运动鞋</a>
+                        <a href="#" target="_blank">马丁靴</a>
+                        <a href="#" target="_blank">切尔西靴</a>
+                        <a href="#" target="_blank">细跟高跟鞋</a>
+                        <a href="#" target="_blank">平底单鞋</a>
+                        <a href="#" target="_blank">潮流热卖</a>
+                    </p>
+                </li>
+                <li>
+                    <h4><a href="#" target="_blank">亲民潮款</a></h4>
+                    <p>
+                        <a href="#" target="_blank">豆豆鞋</a>
+                        <a href="#" target="_blank">松糕鞋</a>
+                        <a href="#" target="_blank">高帮鞋</a>
+                        <a href="#" target="_blank">踝带鞋</a>
+                        <a href="#" target="_blank">优质热销鞋履</a>
+                    </p>
+                </li>
+                <li>
+                    <h4><a href="#" target="_blank">穿搭必备</a></h4>
+                    <p>
+                        <a href="#" target="_blank">厚底鞋</a>
+                        <a href="#" target="_blank">平底鞋</a>
+                        <a href="#" target="_blank">粗跟鞋</a>
+                        <a href="#" target="_blank">尖头鞋</a>
+                        <a href="#" target="_blank">乐福鞋</a>
+                        <a href="#" target="_blank">休闲鞋</a>
+                    </p>
+                </li>
+            </ul>
+        </li>
+        <li class="list">
+            <div class="list_cont">
+                <h3 class="nav_tle">
+                    <a href="#" target="_blank">
+                        <span class="nav_ico"></span>包包
+                    </a>
+                </h3>
+                <p class="listP">
+                    <a class="red_f" href="#" target="_blank">单肩包</a>
+                    <a href="#" target="_blank">双肩包</a>
+                    <a href="#" target="_blank">大包</a>
+                    <a href="#" target="_blank">手提包</a>
+                    <a class="red_f" href="#" target="_blank">2015早春新款包包</a>
+                    <a href="#" target="_blank">斜挎包</a>
+                    <a class="red_f" href="#" target="_blank">手拿包</a>
+                    <a href="#" target="_blank">行李箱</a>
+                    <a href="#" target="_blank">学院双肩包</a>
+                    <a href="#" target="_blank">小包</a>
+                </p>
+                <samp class="corner">&gt;</samp>
+            </div>
+            <ul class="nav_list" style="display: none;">
+                <li>
+                    <h4><a href="#" target="_blank">买手推荐</a></h4>
+                    <p>
+                        <a class="red_f" href="#" target="_blank">买手精选</a>
+                        <a href="#" target="_blank">欧美风包包</a>
+                        <a class="red_f" href="#" target="_blank">2015早春新款包包</a>
+                        <a href="#" target="_blank">百元热卖包包</a>
+                        <a class="red_f" href="#" target="_blank">超高人气必败潮包</a>
+                        <a href="#" target="_blank">24小时最热新款</a>
+                    </p>
+                </li>
+                <li>
+                    <h4><a href="#" target="_blank">最热包款</a></h4>
+                    <p>
+                        <a class="red_f" href="#" target="_blank">双肩大包</a>
+                        <a class="red_f" href="#" target="_blank">流苏包</a>
+                        <a class="red_f" href="#" target="_blank">小包</a>
+                        <a href="#" target="_blank">复古包</a>
+                        <a href="#" target="_blank">邮差包</a>
+                        <a href="#" target="_blank">机车包</a>
+                    </p>
+                </li>
+                <li>
+                    <h4><a href="#" target="_blank">基本包型</a></h4>
+                    <p>
+                        <a class="red_f" href="#" target="_blank">双肩包</a>
+                        <a href="#" target="_blank">单肩包</a>
+                        <a class="red_f" href="#" target="_blank">斜挎包</a>
+                        <a href="#" target="_blank">手提包</a>
+                        <a class="red_f" href="#" target="_blank">大包</a>
+                        <a href="#" target="_blank">钱包</a>
+                    </p>
+                </li>
+                <li>
+                    <h4><a href="#" target="_blank">任性の哒</a></h4>
+                    <p>
+                        <a class="red_f" href="#" target="_blank">少女搭</a>
+                        <a href="#" target="_blank">女王搭</a>
+                        <a class="red_f" href="#" target="_blank">萌萌搭</a>
+                        <a href="#" target="_blank">白领搭</a>
+                        <a href="#" target="_blank">趴girl搭</a>
+                        <a href="#" target="_blank">森女搭</a>
+                        <a class="red_f" href="#" target="_blank">潮人搭</a>
+                    </p>
+                </li>
+            </ul>
+        </li>
+        <li class="list last">
+            <div class="list_cont list_cont_last">
+                <h3 class="nav_tle">
+                    <a href="#" target="_blank">
+                        <span class="nav_ico"></span>配饰
+                    </a>
+                </h3>
+                <p class="listP">
+                    <a href="#" target="_blank">帽子</a>
+                    <a class="red_f" href="#" target="_blank">项链</a>
+                    <a href="#" target="_blank">手机壳</a>
+                    <a class="red_f" href="#" target="_blank">耳钉</a>
+                    <a href="#" target="_blank">手链</a>
+                    <a class="red_f" href="#" target="_blank">发箍</a>
+                    <a href="#" target="_blank">手表</a>
+                    <a class="red_f" href="#" target="_blank">连裤袜</a>
+                    <a href="#" target="_blank">袜子</a>
+                    <a href="#" target="_blank">丝巾</a>
+                    <a class="red_f" href="#" target="_blank">腰带</a>
+                </p>
+                <samp class="corner">&gt;</samp>
+            </div>
+            <ul class="nav_list" style="display: none;">
+                <li>
+                    <h4><a href="#" target="_blank">春季新品</a></h4>
+                    <p>
+                        <a class="red_f" href="#" target="_blank">墨镜</a>
+                        <a href="#" target="_blank">耳钉</a>
+                        <a class="red_f" href="#" target="_blank">手表</a>
+                        <a href="#" target="_blank">项链</a>
+                        <a class="red_f" href="#" target="_blank">帽子</a>
+                        <a class="red_f" href="#" target="_blank">连裤袜</a>
+                        <a href="#" target="_blank">手机壳</a>
+                        <a href="#" target="_blank">堆堆袜</a>
+                    </p>
+                </li>
+                <li>
+                    <h4><a href="#" target="_blank">买手推荐</a></h4>
+                    <p>
+                        <a href="#" target="_blank">最受欢迎配饰榜</a>
+                        <a href="#" target="_blank">买手精选榜</a>
+                    </p>
+                </li>
+                <li>
+                    <h4><a href="#" target="_blank">爱美装扮</a></h4>
+                    <p>
+                        <a href="#" target="_blank">发饰</a>
+                        <a href="#" target="_blank">发箍</a>
+                        <a href="#" target="_blank">腰带</a>
+                        <a href="#" target="_blank">袜子</a>
+                        <a href="#" target="_blank">丝巾</a>
+                        <a href="#" target="_blank">假领子</a>
+                        <a href="#" target="_blank">棒球帽</a>
+                    </p>
+                </li>
+                <li>
+                    <h4><a href="#" target="_blank">精致首饰</a></h4>
+                    <p>
+                        <a href="#" target="_blank">耳环</a>
+                        <a href="#" target="_blank">戒指</a>
+                        <a href="#" target="_blank">手链</a>
+                        <a href="#" target="_blank">锁骨链</a>
+                        <a href="#" target="_blank">毛衣链</a>
+                        <a href="#" target="_blank">珍珠项链</a>
+                    </p>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div style="height: 154px" class="bnr_box">
+    <ul class="pic_attr">
+        <li><a href="#"><img src="static/images/lunboxia1_175_142.jpg"></a></li>
+        <li><a href="#"><img src="static/images/lunboxia2_175_142.jpg"></a></li>
+        <li><a href="#"><img src="static/images/lunboxia3_175_142.jpg"></a></li>
+        <li><a href="#"><img src="static/images/lunboxia4_175_142.jpg"></a></li>
+        <li><a href="#"><img src="static/images/lunboxia5_198_142.jpg"></a></li>
+    </ul>
+</div>
+<div id="main">
+    <div class="pin">
+        <div class="box new_poster">
+            <div class="np_pic">
+                <div class="price">￥121.00</div>
+                <a class="pic_load" href="#" target="_blank">
+                    <img src="static/images/warp/warp_023_226.jpg">
+                </a>
+            </div>
+            <div class="title">
+                <p><a href="#" target="_blank">春装休闲小脚背带裤</a> </p>
+            </div>
+            <div class="clear_f"></div>
+            <div class="comm_num">
+                <a class="fr red_f">正在交易</a>
+                <a class="fl poster_likes likes" href="javascript:void(0)">
+                    <b class="likes_status">喜  欢</b>
+                    <span class="red_f poster_like_num">107</span>
+                </a>
+            </div>
+            <div class="np_share">
+                <a class="avatar32_f trans07" href="#" user_id="" target="_blank">
+                    <img src="static/images/icon/collection.png">
+                </a>
+                <p style="margin-left: 42px;">
+                    <a href="#" target="_blank">用户名</a>
+                </p>
+                <p class="t_idt">         分享了一个宝贝&nbsp;&nbsp;       </p>
+                <div class="clear_f"></div>
+            </div>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box new_poster">
+            <div class="np_pic">
+                <div class="price">￥120.00</div>
+                <a class="pic_load" href="#" target="_blank">
+                    <img src="static/images/warp/warp_001_226.jpg">
+                </a>
+            </div>
+            <div class="title">
+                <p><a href="#" target="_blank">春装休闲小脚背带裤</a> </p>
+            </div>
+            <div class="clear_f"></div>
+            <div class="comm_num twiiter_box">
+                <a class="fr" target="_blank" href="#">出售中...</a>
+                <a class="fl poster_likes likes" href="javascript:void(0)">
+                    <b class="likes_status">
+                        <i class="Im_love2"></i>喜  欢
+                    </b>
+                    <span class="red_f poster_like_num">107</span>
+                </a>
+            </div>
+            <div class="np_share comment_panel">
+                <a class="avatar32_f trans07" href="#" user_id="" target="_blank">
+                    <img src="static/images/icon/collection.png">
+                </a>
+                <p style="margin-left: 42px;">
+                    <a href="#" target="_blank">用户名</a>
+                </p>
+                <p class="t_idt">         分享了一个宝贝&nbsp;&nbsp;       </p>
+                <div class="clear_f"></div>
+            </div>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box new_poster">
+            <div class="np_pic">
+                <div class="price">￥120.00</div>
+                <a class="pic_load" href="#" target="_blank">
+                    <img src="static/images/warp/warp_025_226.jpg">
+                </a>
+            </div>
+            <div class="title">
+                <p><a href="#" target="_blank">春装休闲小脚背带裤</a> </p>
+            </div>
+            <div class="clear_f"></div>
+            <div class="comm_num twiiter_box">
+                <a class="fr" target="_blank" href="#">出售中...</a>
+                <a class="fl poster_likes likes" href="javascript:void(0)">
+                    <b class="likes_status">
+                        <i class="Im_love2"></i>喜  欢
+                    </b>
+                    <span class="red_f poster_like_num">107</span>
+                </a>
+            </div>
+            <div class="np_share comment_panel">
+                <a class="avatar32_f trans07" href="#" user_id="" target="_blank">
+                    <img src="static/images/icon/collection.png">
+                </a>
+                <p style="margin-left: 42px;">
+                    <a href="#" target="_blank">用户名</a>
+                </p>
+                <p class="t_idt">         分享了一个宝贝&nbsp;&nbsp;       </p>
+                <div class="clear_f"></div>
+            </div>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box new_poster">
+            <div class="np_pic">
+                <div class="price">￥120.00</div>
+                <a class="pic_load" href="#" target="_blank">
+                    <img src="static/images/warp/warp_123_226.jpg">
+                </a>
+            </div>
+            <div class="title">
+                <p><a href="#" target="_blank">春装休闲小脚背带裤</a> </p>
+            </div>
+            <div class="clear_f"></div>
+            <div class="comm_num twiiter_box">
+                <a class="fr" target="_blank" href="#">出售中...</a>
+                <a class="fl poster_likes likes" href="javascript:void(0)">
+                    <b class="likes_status">
+                        <i class="Im_love2"></i>喜  欢
+                    </b>
+                    <span class="red_f poster_like_num">107</span>
+                </a>
+            </div>
+            <div class="np_share comment_panel">
+                <a class="avatar32_f trans07" href="#" user_id="" target="_blank">
+                    <img src="static/images/icon/collection.png">
+                </a>
+                <p style="margin-left: 42px;">
+                    <a href="#" target="_blank">用户名</a>
+                </p>
+                <p class="t_idt">         分享了一个宝贝&nbsp;&nbsp;       </p>
+                <div class="clear_f"></div>
+            </div>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box new_poster">
+            <div class="np_pic">
+                <div class="price">￥120.00</div>
+                <a class="pic_load" href="#" target="_blank">
+                    <img src="static/images/warp/warp_044_226.jpg">
+                </a>
+            </div>
+            <div class="title">
+                <p><a href="#" target="_blank">春装休闲小脚背带裤</a> </p>
+            </div>
+            <div class="clear_f"></div>
+            <div class="comm_num twiiter_box">
+                <a class="fr" target="_blank" href="#">出售中...</a>
+                <a class="fl poster_likes likes" href="javascript:void(0)">
+                    <b class="likes_status">
+                        <i class="Im_love2"></i>喜  欢
+                    </b>
+                    <span class="red_f poster_like_num">107</span>
+                </a>
+            </div>
+            <div class="np_share comment_panel">
+                <a class="avatar32_f trans07" href="#" user_id="" target="_blank">
+                    <img src="static/images/icon/collection.png">
+                </a>
+                <p style="margin-left: 42px;">
+                    <a href="#" target="_blank">用户名</a>
+                </p>
+                <p class="t_idt">         分享了一个宝贝&nbsp;&nbsp;       </p>
+                <div class="clear_f"></div>
+            </div>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box new_poster">
+            <div class="np_pic">
+                <div class="price">￥120.00</div>
+                <a class="pic_load" href="#" target="_blank">
+                    <img src="static/images/warp/warp_103_226.jpg">
+                </a>
+            </div>
+            <div class="title">
+                <p><a href="#" target="_blank">春装休闲小脚背带裤</a> </p>
+            </div>
+            <div class="clear_f"></div>
+            <div class="comm_num twiiter_box">
+                <a class="fr" target="_blank" href="#">出售中...</a>
+                <a class="fl poster_likes likes" href="javascript:void(0)">
+                    <b class="likes_status">
+                        <i class="Im_love2"></i>喜  欢
+                    </b>
+                    <span class="red_f poster_like_num">107</span>
+                </a>
+            </div>
+            <div class="np_share comment_panel">
+                <a class="avatar32_f trans07" href="#" user_id="" target="_blank">
+                    <img src="static/images/icon/collection.png">
+                </a>
+                <p style="margin-left: 42px;">
+                    <a href="#" target="_blank">用户名</a>
+                </p>
+                <p class="t_idt">         分享了一个宝贝&nbsp;&nbsp;       </p>
+                <div class="clear_f"></div>
+            </div>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box new_poster">
+            <div class="np_pic">
+                <div class="price">￥120.00</div>
+                <a class="pic_load" href="#" target="_blank">
+                    <img src="static/images/warp/warp_055_226.jpg">
+                </a>
+            </div>
+            <div class="title">
+                <p><a href="#" target="_blank">春装休闲小脚背带裤</a> </p>
+            </div>
+            <div class="clear_f"></div>
+            <div class="comm_num twiiter_box">
+                <a class="fr" target="_blank" href="#">出售中...</a>
+                <a class="fl poster_likes likes" href="javascript:void(0)">
+                    <b class="likes_status">
+                        <i class="Im_love2"></i>喜  欢
+                    </b>
+                    <span class="red_f poster_like_num">107</span>
+                </a>
+            </div>
+            <div class="np_share comment_panel">
+                <a class="avatar32_f trans07" href="#" user_id="" target="_blank">
+                    <img src="static/images/icon/collection.png">
+                </a>
+                <p style="margin-left: 42px;">
+                    <a href="#" target="_blank">用户名</a>
+                </p>
+                <p class="t_idt">         分享了一个宝贝&nbsp;&nbsp;       </p>
+                <div class="clear_f"></div>
+            </div>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box new_poster">
+            <div class="np_pic">
+                <div class="price">￥120.00</div>
+                <a class="pic_load" href="#" target="_blank">
+                    <img src="static/images/warp/warp_066_226.jpg">
+                </a>
+            </div>
+            <div class="title">
+                <p><a href="#" target="_blank">春装休闲小脚背带裤</a> </p>
+            </div>
+            <div class="clear_f"></div>
+            <div class="comm_num twiiter_box">
+                <a class="fr" target="_blank" href="#">出售中...</a>
+                <a class="fl poster_likes likes" href="javascript:void(0)">
+                    <b class="likes_status">
+                        <i class="Im_love2"></i>喜  欢
+                    </b>
+                    <span class="red_f poster_like_num">107</span>
+                </a>
+            </div>
+            <div class="np_share comment_panel">
+                <a class="avatar32_f trans07" href="#" user_id="" target="_blank">
+                    <img src="static/images/icon/collection.png">
+                </a>
+                <p style="margin-left: 42px;">
+                    <a href="#" target="_blank">用户名</a>
+                </p>
+                <p class="t_idt">         分享了一个宝贝&nbsp;&nbsp;       </p>
+                <div class="clear_f"></div>
+            </div>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box new_poster">
+            <div class="np_pic">
+                <div class="price">￥120.00</div>
+                <a class="pic_load" href="#" target="_blank">
+                    <img src="static/images/warp/warp_022_226.jpg">
+                </a>
+            </div>
+            <div class="title">
+                <p><a href="#" target="_blank">春装休闲小脚背带裤</a> </p>
+            </div>
+            <div class="clear_f"></div>
+            <div class="comm_num twiiter_box">
+                <a class="fr" target="_blank" href="#">出售中...</a>
+                <a class="fl poster_likes likes" href="javascript:void(0)">
+                    <b class="likes_status">
+                        <i class="Im_love2"></i>喜  欢
+                    </b>
+                    <span class="red_f poster_like_num">107</span>
+                </a>
+            </div>
+            <div class="np_share comment_panel">
+                <a class="avatar32_f trans07" href="#" user_id="" target="_blank">
+                    <img src="static/images/icon/collection.png">
+                </a>
+                <p style="margin-left: 42px;">
+                    <a href="#" target="_blank">用户名</a>
+                </p>
+                <p class="t_idt">         分享了一个宝贝&nbsp;&nbsp;       </p>
+                <div class="clear_f"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="topBox">
+    <div class="logomin fl">
+        <a href="#"><img src="static/images/icon/logomin.png" alt="校园购"></a>
+    </div>
+    <div class="search_boxmin fl">
+        <input type="text" class="search_text fl">
+        <input type="button" value="搜 索" class="search_btn fr">
+    </div>
+    <div class="returnBox">
+        <div class="returnTop fl" style="padding: 5px; cursor: pointer;">
+            <img src="static/images/icon/returnTop2.png">
+        </div>
+        <div class="tellme fl" style="padding-left: 20px">
+            <img src="static/images/icon/tellme.png">
+        </div>
+    </div>
+</div>
+</body>
+</html>

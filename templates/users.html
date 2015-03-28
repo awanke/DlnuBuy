@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+    <link type="text/css" rel="stylesheet" href="static/styles/reset.css">
+    <link type="text/css" rel="stylesheet" href="static/styles/users.css">
+    <script type="text/javascript" src="static/scripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="static/scripts/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="static/scripts/additional-methods.min.js"></script>
+    <script type="text/javascript" src="static/scripts/messages_zh.min.js"></script>
+    <script type="text/javascript" src="static/scripts/jquery.form.js"></script>
+    <script type="text/javascript" src="static/scripts/String.js"></script>
+    <script type="text/javascript" src="static/scripts/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="static/scripts/ajaxfileupload.js"></script>
+    <script type="text/javascript" src="static/scripts/users.js"></script>
+</head>
+<body>
+<div class="headerBar">
+    <div class="topBar">
+        <div class="comWidth">
+            <div class="leftArea">
+                <a href="#" class="collection">收藏校园购</a>
+            </div>
+            <div class="rightArea">
+                欢迎来到校园购！ <a href="login.html" id="loginTags">[登陆]</a><a href="register.html"> [免费注册]</a>
+            </div>
+        </div>
+    </div>
+    <header class="us-header">
+        <article>
+            <div class="us-logo">
+                <a title="我的主页" href="#" class="us-buylogo">我的主页</a>
+            </div>
+            <nav class="us-nav">
+                <ul id="F_UsMainNav">
+                    <li><a href="#">首  页</a></li>
+                    <li><a href="#">个人主页</a></li>
+                    <li><a href="#">账户设置</a></li>
+                    <li><a href="#ibx-uc">订单信息</a></li>
+                </ul>
+            </nav>
+        </article>
+    </header>
+</div>
+<div class="us-main">
+    <div class="us-panel">
+        <div class="col span_5_1">
+            <div id="ibx-user">
+                <div class="ibx-inner">
+                    <div class="ibx-uc-uimg">
+                        <img class="ibx-uc-img" src="static/images/icon/user.jpg">
+                    </div>
+                    <div class="ibx-uc-unick">
+                        <a class="ibx-uc-nick">fuhuixiang123</a>
+                    </div>
+                    <div class="ibx-uc-utool">
+                        <span class="ibx-uc-utool-cover"></span>
+                        <div class="ibx-uc-itool-phone">联系电话：188888888</div>
+                        <div class="ibx-uc-itool-school">金石滩校区</div>
+                        <div class="ibx-uc-itool-name">这是我的名字</div>
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="col span_5_4">
+            <div class="ibx-cal">
+                <div class="ibx-inner" id="ibx-cal-content3">
+                    <div class="ibx-cal-box clr">
+                        <div class="ibx-cal-box">
+                            <div class="ibx-cal-box-l">
+                                <a href="javascript:void(0)" title="您所在的校区" class="ibx-weather-quality level1"
+                                style="margin-bottom: 40px">金石滩校区</a>
+                                <a href="javascript:void(0)" title="今天的日期" class="ibx-location"
+                                style="margin-bottom: 35px">今天的日期</a>
+                                <div class="ibx-date" id='nowtime'>三月18日</div>
+                            </div>
+                            <div class="ibx-cal-box-r" id="ibx-cal-box-r3">
+                                <div class="ibx-cal-img fl">
+                                    <a href="#" class="ibx-cal-ditem-addbtn" id='mpassword'>修改密码</a>
+                                </div>
+                                <div class="ibx-cal-img fl">
+                                    <a href="#" class="ibx-cal-ditem-addbtn" id='muserinfo'>修改个人信息</a>
+                                </div>
+                                <div class="ibx-cal-img fl">
+                                    <a href="#" class="ibx-cal-ditem-addbtn" id='muserphone'>修改联系电话</a>
+                                </div>
+                                <div class="ibx-cal-img fl">
+                                    <a href="#" class="ibx-cal-ditem-addbtn" id="buyporduct">我要出售宝贝</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="us-panel" id="addproduct" style="display: none">
+        <div class="col span_5_1">
+            <div class="ibx-uc">
+                <div class="ibx-inner">
+                    <div class="ibx-uc-uimg">
+                        <img class="ibx-uc-img" src="static/images/icon/user.jpg">
+                    </div>
+                    <div class="ibx-uc-unick">
+                        <a class="ibx-uc-nick">fuhuixiang123</a>
+                    </div>
+                    <div class="ibx-uc-utool">
+                        <span class="ibx-uc-utool-cover"></span>
+                        <div class="ibx-uc-itool-phone">联系电话：188888888</div>
+                        <div class="ibx-uc-itool-school">金石滩校区</div>
+                        <div class="ibx-uc-itool-name">这是卖家的名字</div>
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="col span_5_4">
+            <div class="ibx-cal">
+                <div class="ibx-inner">
+                    <div class="ibx-cal-box clr">
+                        <form class="ibx-cal-box" method="post" id="AddProductFrom" action="ajax/addproduct">
+                            <div class="ibx-cal-box-l">
+                                <input id="add" type="submit" class="ibx-weather-quality level3" value="确认上架！">
+                                <a id="school" title="状态" class="ibx-location">取消上架</a>
+                                <div class="ibx-lunar clr">
+                                    <span class="ibx-date">上架时间:</span>
+                                    <span class="ibx-lunar-ctx">15-4-5</span>
+                                </div>
+                                <div class="baotext">说明：平台中的宝贝默认都会提供7天的上架时间，当到期之后我们将从货架上下架您的宝贝，由您选择是否再次上架。</div>
+                            </div>
+                            <div class="ibx-cal-box-r">
+                                <div class="ibx-cal-img fl">
+                                    <input type="file" id="img1" name="img1">
+                                    <div class="imgtext">请在这里选择要上传的宝贝照片，每个订单最多选择3张图片，并确保您上传的照片是jpg格式的，并且大小< 5MB</div>
+                                </div>
+                                <div class="ibx-cal-img fl">
+                                    <input type="file" id="img2" name="img2">
+                                    <div class="imgtext">请在这里选择要上传的宝贝照片，每个订单最多选择3张图片，并确保您上传的照片是jpg格式的，并且大小< 5MB</div>
+                                </div>
+                                <div class="ibx-cal-img fl">
+                                    <input type="file" id="img3" name="img3">
+                                    <div class="imgtext">请在这里选择要上传的宝贝照片，每个订单最多选择3张图片，并确保您上传的照片是jpg格式的，并且大小< 5MB</div>
+                                </div>
+                                <div class="ibx-cal-pay">
+                                    <input type="text" name="baomoney" id="baomoney" class="baomoney" placeholder="请输入上架金额">
+                                    <input type="text" name="baoname" id="baoname" class="baoname" placeholder="请输入宝贝名称">
+                                </div>
+                                <div class="ibx-cal-operate">
+                                    <textarea name="buytext" id="buytext" class="buytext">在这里留下您要说的话~</textarea>
+                                </div>
+                                <div class="classification">
+                                    <span>选择宝贝的分类:</span>
+                                    <select id="cf1">
+                                        <option selected value="">请选择大类</option>
+                                    </select>
+                                    <select id="cf2">
+                                        <option selected value="">请选择子类</option>
+                                    </select>
+                                    <select id="cf3">
+                                        <option selected value="">请选择子类</option>
+                                    </select>
+                                    <select id="cf4" name="cf4">
+                                        <option selected value="">请选择子类</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <input id="uid" type="text" value="">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="us-panel">
+        <div class="col span_5_1">
+            <div class="ibx-uc">
+                <div class="ibx-inner">
+                    <div class="ibx-uc-uimg">
+                        <img class="ibx-uc-img" src="static/images/icon/user.jpg">
+                    </div>
+                    <div class="ibx-uc-unick">
+                        <a class="ibx-uc-nick">fuhuixiang123</a>
+                    </div>
+                    <div class="ibx-uc-utool">
+                        <span class="ibx-uc-utool-cover"></span>
+                        <div class="ibx-uc-itool-phone">联系电话：188888888</div>
+                        <div class="ibx-uc-itool-school">金石滩校区</div>
+                        <div class="ibx-uc-itool-name">这是卖家的名字</div>
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="col span_5_4">
+            <div class="ibx-cal">
+                <div class="ibx-inner">
+                    <div class="ibx-cal-box clr">
+                        <div class="ibx-cal-box">
+                            <div class="ibx-cal-box-l">
+                                <a href="#" title="交易状态" class="ibx-weather-quality level2">正在交易</a>
+                                <a href="#" title="交易地点" class="ibx-location">金石滩校区</a>
+                                <div class="ibx-date">剩余3小时</div>
+                                <div class="ibx-lunar clr">
+                                    <span class="ibx-day">开始</span>
+                                    <span class="ibx-lunar-ctx">15-4-5</span>
+                                </div>
+                            </div>
+                            <div class="ibx-cal-box-r">
+                                <div class="ibx-cal-img fl">
+                                    <img src="static/images/warp/warp_002_226.jpg" alt="宝贝展示"/>
+                                </div>
+                                <div class="ibx-cal-img fl">
+                                    <img src="static/images/warp/warp_002_226.jpg" alt="宝贝展示"/>
+                                </div>
+                                <div class="ibx-cal-img fl">
+                                    <img src="static/images/warp/warp_002_226.jpg" alt="宝贝展示"/>
+                                </div>
+                                <div class="ibx-cal-pay">
+                                    <span class="money">150.00</span>
+                                    <span class="ibx-cal-name">伊利纯牛奶</span>
+                                </div>
+                                <div class="ibx-cal-operate">
+                                    <a class="delete" href="#">取消交易</a>
+                                    <span class="ibx-cal-name">买家留言</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="us-panel">
+        <div class="col span_5_1">
+            <div class="ibx-uc">
+                <div class="ibx-inner">
+                    <div class="ibx-uc-uimg">
+                        <img class="ibx-uc-img" src="static/images/icon/user.jpg">
+                    </div>
+                    <div class="ibx-uc-unick">
+                        <a class="ibx-uc-nick">fuhuixiang123</a>
+                    </div>
+                    <div class="ibx-uc-utool">
+                        <span class="ibx-uc-utool-cover"></span>
+                        <div class="ibx-uc-itool-phone">联系电话：188888888</div>
+                        <div class="ibx-uc-itool-school">金石滩校区</div>
+                        <div class="ibx-uc-itool-name">这是卖家的名字</div>
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="col span_5_4">
+            <div class="ibx-cal">
+                <div class="ibx-inner">
+                    <div class="ibx-cal-box clr">
+                        <div class="ibx-cal-box">
+                            <div class="ibx-cal-box-l">
+                                <a href="#" title="交易状态" class="ibx-weather-quality level1">交易已完成</a>
+                                <a href="#" title="交易地点" class="ibx-location">金石滩校区</a>
+                                <div class="ibx-date">2015-4-1</div>
+                                <div class="ibx-lunar clr">
+                                    <span class="ibx-day">开始</span>
+                                    <span class="ibx-lunar-ctx">15-3-30</span>
+                                </div>
+                            </div>
+                            <div class="ibx-cal-box-r">
+                                <div class="ibx-cal-img fl">
+                                    <img src="static/images/warp/warp_002_226.jpg" alt="宝贝展示"/>
+                                </div>
+                                <div class="ibx-cal-img fl">
+                                    <img src="static/images/warp/warp_002_226.jpg" alt="宝贝展示"/>
+                                </div>
+                                <div class="ibx-cal-img fl">
+                                    <img src="static/images/warp/warp_002_226.jpg" alt="宝贝展示"/>
+                                </div>
+                                <div class="ibx-cal-pay">
+                                    <span class="money">150.00</span>
+                                    <span class="ibx-cal-name">伊利纯牛奶</span>
+                                </div>
+                                <div class="ibx-cal-operate">
+                                    <a class="succeed" href="#">交易已完成</a>
+                                    <span class="ibx-cal-name">买家留言</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="us-panel">
+        <div class="col span_5_1">
+            <div class="ibx-uc">
+                <div class="ibx-inner">
+                    <div class="ibx-uc-uimg">
+                        <img class="ibx-uc-img" src="static/images/icon/user.jpg">
+                    </div>
+                    <div class="ibx-uc-unick">
+                        <a class="ibx-uc-nick">fuhuixiang123</a>
+                    </div>
+                    <div class="ibx-uc-utool">
+                        <span class="ibx-uc-utool-cover"></span>
+                        <div class="ibx-uc-itool-phone">联系电话：188888888</div>
+                        <div class="ibx-uc-itool-school">金石滩校区</div>
+                        <div class="ibx-uc-itool-name">这是卖家的名字</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col span_5_4">
+            <div class="ibx-cal">
+                <div class="ibx-inner">
+                    <div class="ibx-cal-box">
+                        <div class="ibx-cal-box">
+                            <div class="ibx-cal-box-l">
+                                <a href="#" title="商品名称" class="ibx-weather-quality level2">正在交易</a>
+                                <a href="#" title="交易地点" class="ibx-location">金石滩校区</a>
+                                <div class="ibx-date">剩余10小时</div>
+                                <div class="ibx-lunar">
+                                    <span class="ibx-day">开始</span>
+                                    <span class="ibx-lunar-ctx">15-4-2</span>
+                                </div>
+                            </div>
+                            <div class="ibx-cal-box-r">
+                                <div class="ibx-cal-img fl">
+                                    <img src="static/images/warp/warp_002_226.jpg" alt="宝贝展示"/>
+                                </div>
+                                <div class="ibx-cal-img fl">
+                                    <img src="static/images/warp/warp_002_226.jpg" alt="宝贝展示"/>
+                                </div>
+                                <div class="ibx-cal-img fl">
+                                    <img src="static/images/warp/warp_002_226.jpg" alt="宝贝展示"/>
+                                </div>
+                                <div class="ibx-cal-pay">
+                                    <span class="money">150.00</span>
+                                    <span class="ibx-cal-name">伊利纯牛奶</span>
+                                </div>
+                                <div class="ibx-cal-operate">
+                                    <a class="delete" href="#">取消交易</a>
+                                    <span class="ibx-cal-name">买家留言</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="us-header-2 headerBar">
+    <article>
+        <div class="us-logo">
+            <a title="我的主页" href="#" class="us-buylogo">我的主页</a>
+        </div>
+        <nav class="us-nav">
+            <ul id="F_UsMainNav@">
+                <li><a href="#">首  页</a></li>
+                <li><a href="#">个人主页</a></li>
+                <li><a href="#">账户设置</a></li>
+                <li><a href="#ibx-uc">订单信息</a></li>
+            </ul>
+        </nav>
+    </article>
+</div>
+</body>
+</html>
