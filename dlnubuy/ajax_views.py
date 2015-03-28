@@ -98,11 +98,27 @@ def modifyPhone(request):
 
 def modifyuserinfo(request):
     rsdic = {}
-    pdb.set_trace()
     uid = int(request.POST['uid'])
     uschool = request.POST['news'].encode('utf-8')
     img = request.FILES['newuserimg']
-    rsdic['ret'] = 'success'
+    import re
+    pattern1 = re.compile(r'开发区')
+    match = pattern1.match(uschool)
+    if match is not None:
+        newschooladd = '开发区校区'
+    else:
+        newschooladd = '金石滩校区'
+
+    userimgadd = write_to_infoimg(img, request.POST['uid'].encode('utf-8'), 'user')
+    try:
+        pdb.set_trace()
+        usernew = models.Users.objects.get(id=uid)
+        usernew.userimg = userimgadd
+        usernew.schoolAddress = newschooladd
+        usernew.save()
+        rsdic['ret'] = 'success'
+    except:
+        rsdic['ret'] = 'error'
     HttpResponse(json.dumps(rsdic))
 
 
@@ -139,8 +155,24 @@ def read_from_cache(user_id):
         data = value
     return data
 
+
 #write cache user id
 def write_to_cache(user_id):
     r = redis.StrictRedis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_DB)
     key = 'user_id_of_' + str(user_id)
     r.set(key, key)
+
+
+# 保存用户上传的图片
+def write_to_infoimg(file, uid, type):
+    pdb.set_trace()
+    if type == 'user':
+        with open('static\\images\\users\\user_'+uid+'.jpg', 'wb+') as destination:
+            for chunk in file.chunks():
+                destination.write(chunk)
+            return 'static/images/users/user_'+uid+'.jpg'
+    if type == 'product':
+        with open('static/images/warp/'+uid+',jpg', 'wb+') as destination:
+            for chunk in file.chunks():
+                destination.write(chunk)
+            return 'static/images/warp/'+uid+',jpg'

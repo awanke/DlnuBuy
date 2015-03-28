@@ -452,8 +452,15 @@ function Modify_the_info () {
     yes.click(function() {
         /* Act on the event */
         var oldp = $('#newuserimg').val();
+        var point = oldp.lastIndexOf(".");
         var news = $('#newschool').val();
         var uid = $.cookie('userid');
+        var type = oldp.substr(point);
+
+        if(type != '.jpg' && type != '.JPG'){
+            alert('(๑¯ω¯๑)请选择jpg的图片格式~');
+            return;
+        }
 
         $.ajaxFileUpload({
             url:'ajax/modifyuserinfo',
