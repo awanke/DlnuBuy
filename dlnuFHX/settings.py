@@ -90,23 +90,15 @@ STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (
       # os.path.join(os.path.dirname(__file__),'templates').replace('\\','/'),
-      os.path.join(BASE_DIR,'templates').replace('\\','/'),
+      os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
 )
 
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django_redis.cache.RedisCache",
-#         "LOCATION": "redis://10.143.8.3:6379/0",
-#         "OPTIONS": {
-#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-#         }
-#     }
-# }
-# REDIS_TIMEOUT = 7*24*60*60
-# CUBES_REDIS_TIMEOUT = 60*60
-# NEVER_REDIS_TIMEOUT = 365*24*60*60
-
-# 下面这些是配置redis的参数
 REDIS_HOST = '127.0.0.1'
 REDIS_PORT = 6379
 REDIS_DB = 0
+
+# 这个路径是用户头像保存的路径
+USERIMG = 'C:\\Users\\Jonny\\Documents\\project\\dlnubuy\\dlnubuy\\static\\images\\users\\'
+
+# 这个路径是用户给宝贝上传的图片路径
+WARP = 'C:\\Users\\Jonny\\Documents\\project\\dlnubuy\\dlnubuy\\static\\images\\warp\\'

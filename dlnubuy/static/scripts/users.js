@@ -468,8 +468,9 @@ function Modify_the_info () {
             data:{uid:uid,news:news},
             secureuri: false,
             fileElementId: 'newuserimg',
-            dataType:'JSON',
+            dataType:'json',
             success:function (data, status) {
+                console.log(data);
                 // body...
                 if(data.ret=='success'){
                     alert('恭喜您！╰(*´︶~信息修改成功!');
@@ -494,13 +495,13 @@ function Modify_the_info () {
     // 返回修改
     function returnm () {
         // body...
-        var mp = $('#oldpassword').parent().empty();
+        var mp = $('#newuserimg').parent().empty();
         var newa = $('<a>').addClass('ibx-cal-ditem-addbtn')
-                        .attr('id','mpassword').text('修改密码')
+                        .attr('id','muserinfo').text('修改个人信息')
                             .css('cursor','pointer').appendTo(mp);
         newa.click(function() {
             /* Act on the event */
-            Modify_the_password ();
+            Modify_the_info ();
         });
     }
 }
