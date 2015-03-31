@@ -60,7 +60,7 @@ function login(){
                    $.cookie('rmb',tag,{path:'/'},{expires:7});
                }
            }else{
-               alert('登录失败，请检查网络后重新登陆！！！');
+               alert('用户名或密码错误，请重新检查后登陆！！！');
            }
        }
 
