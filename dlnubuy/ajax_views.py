@@ -11,7 +11,6 @@ def register(request):
     rsdic = {}
 
     mobile = request.POST[u'mobile']
-    # pdb.set_trace()
     password = request.POST[u'password']
     nickname = request.POST[u'nickname']
     user = models.Users()
@@ -39,7 +38,6 @@ def loginuser (request):
         rsdic['id'] = Uid
     else:
         rsdic['ret'] = 'error'
-        pdb.set_trace()
     return HttpResponse(json.dumps(rsdic))
 
 def loginTag(request):
@@ -61,7 +59,45 @@ def loginTag(request):
 
 
 def addproduct(request):
-    pass
+    rsdic = {}
+    baomoney = request.POST['productmoney']
+    baoname = request.POST['productname']
+    buytext = request.POST['producttext']
+    user_id = request.POST['userid']
+    category = int(request.POST['productcf'])
+    files = request.FILES.getlist('img')
+    i = 0
+    fads = []
+    for f in files:
+        uid = user_id +'_'+str(i)
+        fad = write_to_infoimg(f, uid, 'product')
+        fads.append(fad)
+        i += 1
+    try:
+        products = models.Product()
+        if len(fads) < 4:
+            fads.append('0')
+        products.pdimg = fads[0]
+        if fads[1]!= '0':
+            products.pdimg2 = fads[1]
+        else:
+            products.pdimg2 = fads[0]
+        if fads[2]!='0':
+            products.pdimg3 = fads[2]
+        else:
+            products.pdimg3 = fads[0]
+        products.userid = user_id
+        products.pdname = baoname
+        products.money = baomoney
+        products.description = buytext
+        products.requirement = buytext
+        products.category = category
+        products.save()
+        rsdic['ret'] = 'success'
+    except:
+        rsdic['ret'] = 'error'
+
+    return HttpResponse(json.dumps(rsdic))
 
 
 def modifyPassword(request):
@@ -98,7 +134,6 @@ def modifyPhone(request):
 
 def modifyuserinfo(request):
     rsdic = {}
-    pdb.set_trace()
     uid = int(request.POST['uid'])
     uschool = request.POST['news'].encode('utf-8')
     img = request.FILES['newuserimg']
@@ -167,9 +202,11 @@ def write_to_infoimg(file, uid, type):
         with open(settings.USERIMG + 'user_'+uid+'.jpg', 'wb+') as destination:
             for chunk in file.chunks():
                 destination.write(chunk)
+            destination.close()
             return 'static/images/users/user_'+uid+'.jpg'
     if type == 'product':
         with open(settings.WARP+uid+'.jpg', 'wb+') as destination:
             for chunk in file.chunks():
                 destination.write(chunk)
+            destination.close()
             return 'static/images/warp/'+uid+'.jpg'

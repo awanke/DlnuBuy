@@ -186,15 +186,6 @@ function addproduct(){
             },
             baoname:{
                 required:true
-            },
-            img1:{
-                accept:"jpg"
-            },
-            img2:{
-                accept:"jpg"
-            },
-            img3:{
-                accept:"jpg"
             }
         }
     });
@@ -293,31 +284,81 @@ function addproduct(){
     });
 
     //向后台提交宝贝详情
-    $('#AddProductFrom').submit(function () {
-        function showRequest(formData, jqForm){
-            var form = jqForm[0];
-            if(!form.baoname.value && !form.baomoney.value){
-                return true;
-            }
-            return false;
-            alert('请仔细确认您的信息是否填写正确');
-        }
 
-        function showResponse(data){
-            if(data.ret=='success'){
-                alert('恭喜您！╰(*´︶`*)╯♡宝贝已成功发布~');
-            }else{
-                alert('发布失败（╯‵□′）╯︵┴─┴请仔细检查您提交的宝贝信息');
-            }
-        }
+    $('#add').click(function() {
+        /* Act on the event */
+        var productmoney = $('#baomoney').val();
+        var productname = $('#baoname').val();
+        var producttext = $('#buytext').val();
+        var productcf = $('#cf4').val();
+        var userid = $.cookie('userid');
 
-        $(this).ajaxSubmit({
-            beforSubmit:showRequest(),
-            success:showResponse(),
-            dataType:'json'
-        });
-        return false;
+        if(productmoney == ''){
+            alert('请输入上架宝贝的金额！');
+            return ;
+        }
+         if(productname == ''){
+            alert('请输入您上架宝贝的名称~');
+            return ;
+        }
+         if(producttext == ''){
+            alert('您确定不要说明一下吗？');
+            return ;
+        }
+         if(productcf == ''){
+            alert('请给您的宝贝分一下类吧~');
+            return ;
+        }
+        $.ajaxFileUpload({
+            url:'ajax/addproduct',
+            type:'post',
+            data:{userid:userid,productmoney:productmoney,
+                productname:productname,producttext:producttext,
+                productcf:productcf},
+            secureuri: false,
+            fileElementId:['img1','img2','img3'],
+            dataType:'json',
+            success:function (data, status) {
+                // body...
+                if(data.ret=='success'){
+                    alert('恭喜您！╰(*´︶~信息修改成功!');
+                    returnm();
+                }else{
+                    alert('（╯‵□′）╯︵┴─┴网络错误，修改失败...');
+                }
+            },
+            error: function (data, status) {
+                // body...
+                alert('（╯‵□′）╯︵┴─┴网络错误，修改失败...');
+            }
+        })
     });
+    // $('#AddProductFrom').submit(function () {
+    //     function showRequest(formData, jqForm){
+    //         console.log(jqForm)
+    //         var form = jqForm[0];
+    //         if(!form.baoname.value && !form.baomoney.value){
+    //             return true;
+    //         }
+    //         return false;
+    //         alert('请仔细确认您的信息是否填写正确');
+    //     }
+
+    //     function showResponse(data){
+    //         if(data.ret=='success'){
+    //             alert('恭喜您！╰(*´︶`*)╯♡宝贝已成功发布~');
+    //         }else{
+    //             alert('发布失败（╯‵□′）╯︵┴─┴请仔细检查您提交的宝贝信息');
+    //         }
+    //     }
+
+    //     $(this).ajaxSubmit({
+    //         beforSubmit:showRequest(),
+    //         success:showResponse(),
+    //         dataType:'json'
+    //     });
+    //     return false;
+    // });
 }
 
 // 计算当前时间
@@ -465,10 +506,9 @@ function Modify_the_info () {
         // 切换到上传等待界面
         var Waiting = $('#newuserimg').parent();
         Waiting.children().hide();
-        // Waiting.children('input')..hide();
-        // Waiting.children('span')..hide();
         var waitimg = $('<div>').css({'width':'100px','height':'100px'}).prependTo(Waiting);
         $('<img>').attr('src','static/images/Waiting.gif').appendTo(waitimg);
+
         $.ajaxFileUpload({
             url:'ajax/modifyuserinfo',
             type:'post',

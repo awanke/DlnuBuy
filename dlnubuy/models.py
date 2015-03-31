@@ -25,6 +25,7 @@ class Users(models.Model):
 # 出售宝贝的信息表
 class Product(models.Model):
     id = models.AutoField(primary_key=True)
+    userid = models.IntegerField(max_length=100, null=False)
     pdname = models.CharField(max_length=200, null=False)
     money = models.IntegerField(max_length=100, null=False)
 
@@ -41,9 +42,9 @@ class Product(models.Model):
     category = models.IntegerField()
 
     # 下面这3个字段保存的是对宝贝描述的3张图片，由于目前系统不完善，就只限制用户上传的照片数量了
-    pdimg = models.ImageField()
-    pdimg2 = models.ImageField()
-    pdimg3 = models.ImageField()
+    pdimg = models.ImageField(default='static/images/users/user.jpg')
+    pdimg2 = models.ImageField(default='static/images/users/user.jpg')
+    pdimg3 = models.ImageField(default='static/images/users/user.jpg')
 
 # 交易记录表
 class Buy(models.Model):
