@@ -443,7 +443,7 @@ function Modify_the_info () {
     $('<input>').attr({'type':'text','class':'baoname','placeholder':'请输入新的校区',
                                             'id':'newschool'}).css('margin-left','0px').appendTo(mp);
     $('<span>').text('请输入你所在的校区，例如：金石滩，开发区').appendTo(mp);
-    var divp= $('<div>').css({'margin-top':'6px','text-align':'left','font-size':'20px'}).appendTo(mp);
+    var divp= $('<div>').attr('id','Yes').css({'margin-top':'6px','text-align':'left','font-size':'20px'}).appendTo(mp);
 
     var yes = $('<span>').text('确认').addClass('fl')
                 .css({'height':'30px','width':'50px','cursor':'pointer','color':'red'}).appendTo(divp);
@@ -462,6 +462,13 @@ function Modify_the_info () {
             return;
         }
 
+        // 切换到上传等待界面
+        var Waiting = $('#newuserimg').parent();
+        Waiting.children().hide();
+        // Waiting.children('input')..hide();
+        // Waiting.children('span')..hide();
+        var waitimg = $('<div>').css({'width':'100px','height':'100px'}).prependTo(Waiting);
+        $('<img>').attr('src','static/images/Waiting.gif').appendTo(waitimg);
         $.ajaxFileUpload({
             url:'ajax/modifyuserinfo',
             type:'post',

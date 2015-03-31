@@ -98,6 +98,7 @@ def modifyPhone(request):
 
 def modifyuserinfo(request):
     rsdic = {}
+    pdb.set_trace()
     uid = int(request.POST['uid'])
     uschool = request.POST['news'].encode('utf-8')
     img = request.FILES['newuserimg']
@@ -108,7 +109,6 @@ def modifyuserinfo(request):
         newschooladd = '开发区校区'
     else:
         newschooladd = '金石滩校区'
-
     userimgadd = write_to_infoimg(img, request.POST['uid'].encode('utf-8'), 'user')
     try:
         usernew = models.Users.objects.get(id=uid)
