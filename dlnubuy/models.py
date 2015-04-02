@@ -42,9 +42,9 @@ class Product(models.Model):
     category = models.IntegerField()
 
     # 下面这3个字段保存的是对宝贝描述的3张图片，由于目前系统不完善，就只限制用户上传的照片数量了
-    pdimg = models.ImageField(default='static/images/users/user.jpg')
-    pdimg2 = models.ImageField(default='static/images/users/user.jpg')
-    pdimg3 = models.ImageField(default='static/images/users/user.jpg')
+    pdimg = models.ImageField(default='static/images/warp/000001.jpg')
+    pdimg2 = models.ImageField(default='static/images/warp/000001.jpg')
+    pdimg3 = models.ImageField(default='static/images/warp/000001.jpg')
 
 # 交易记录表
 class Buy(models.Model):

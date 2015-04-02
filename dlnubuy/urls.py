@@ -19,5 +19,8 @@ urlpatterns += patterns('dlnubuy.ajax_views',
        url(r'^ajax/get_classification', 'getClassification'),
        url(r'^ajax/modifypassword', 'modifyPassword'),
        url(r'^ajax/modifyphone', 'modifyPhone'),
-       url(r'^ajax/modifyuserinfo', 'modifyuserinfo')
+       url(r'^ajax/modifyuserinfo', 'modifyuserinfo'),
+       url(r'^test/input_db_user', 'input_db_user'),
+       url(r'^test/input_db_product', 'input_db_product'),
+       url(r'^test/input_db_buy', 'input_db_buy')
 )

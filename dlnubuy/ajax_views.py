@@ -210,3 +210,54 @@ def write_to_infoimg(file, uid, type):
                 destination.write(chunk)
             destination.close()
             return 'static/images/warp/'+uid+'.jpg'
+
+# 添加测试数据
+def input_db_user(request):
+
+    i = 1
+    for j in range(10):
+        username = 'test'+str(i)
+        password = '123456'
+        userphone = '18642636963'
+        user = models.Users(username=username, password=password, userphone=userphone)
+        user.save()
+        i += 1
+    return HttpResponse()
+
+def input_db_product(request):
+    i = 1
+    m = 100
+    for j in range(35):
+        user_id = '1'
+        baoname = 'test'+str(i)
+        baomoney = 150 + i
+        buytext = '这些是导入的测试数据'
+        category = 101015
+        products = models.Product()
+        products.userid = user_id
+        products.pdname = baoname
+        products.money = baomoney
+        products.description = buytext
+        products.requirement = buytext
+        products.category = category
+        products.pdimg = 'static/images/warp/warp_'+str(m)+'_226.jpg'
+        products.pdimg2 = 'static/images/warp/warp_'+str(m+1)+'_226.jpg'
+        products.save()
+        i += 1
+        m += 1
+    return HttpResponse()
+
+def input_db_buy(request):
+
+    i = 1
+    for j in range(10):
+        pdid = 48 + i
+        buy = models.Buy()
+        buy.pdid = pdid
+        buy.transaction_status = str(0)
+        buy.buyid = 3
+        buy.esllid = 4
+        buy.buymoney = 150 + i
+        buy.save()
+        i += 1
+    return HttpResponse()
