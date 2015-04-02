@@ -333,32 +333,6 @@ function addproduct(){
             }
         })
     });
-    // $('#AddProductFrom').submit(function () {
-    //     function showRequest(formData, jqForm){
-    //         console.log(jqForm)
-    //         var form = jqForm[0];
-    //         if(!form.baoname.value && !form.baomoney.value){
-    //             return true;
-    //         }
-    //         return false;
-    //         alert('请仔细确认您的信息是否填写正确');
-    //     }
-
-    //     function showResponse(data){
-    //         if(data.ret=='success'){
-    //             alert('恭喜您！╰(*´︶`*)╯♡宝贝已成功发布~');
-    //         }else{
-    //             alert('发布失败（╯‵□′）╯︵┴─┴请仔细检查您提交的宝贝信息');
-    //         }
-    //     }
-
-    //     $(this).ajaxSubmit({
-    //         beforSubmit:showRequest(),
-    //         success:showResponse(),
-    //         dataType:'json'
-    //     });
-    //     return false;
-    // });
 }
 
 // 计算当前时间
