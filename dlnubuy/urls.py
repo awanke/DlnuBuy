@@ -1,6 +1,6 @@
 #coding=utf-8
-from django.conf.urls import patterns, include, url
-import os
+from django.conf.urls import patterns, url
+
 
 urlpatterns = patterns('dlnubuy.views',
        url(r'^$', "index"),
@@ -11,6 +11,7 @@ urlpatterns = patterns('dlnubuy.views',
        url(r'^login.html',"login"),
        url(r'^users.html', "users")
 )
+
 urlpatterns += patterns('dlnubuy.ajax_views',
        url(r'^ajax/registeruser', 'register'),
        url(r'^ajax/loginuser', 'loginuser'),
@@ -22,5 +23,8 @@ urlpatterns += patterns('dlnubuy.ajax_views',
        url(r'^ajax/modifyuserinfo', 'modifyuserinfo'),
        url(r'^test/input_db_user', 'input_db_user'),
        url(r'^test/input_db_product', 'input_db_product'),
-       url(r'^test/input_db_buy', 'input_db_buy')
+       url(r'^test/input_db_buy', 'input_db_buy'),
+       url(r'^ajax/get_user_buyinfo', 'get_user_buyinfo'),
+       url(r'^ajax/get_buyinfo', 'get_buyinfo'),
+       url(r'^ajax/delete_buy_info', 'delete_buy_info')
 )

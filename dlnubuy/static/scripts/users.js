@@ -10,7 +10,7 @@ $(function(){
     if (username==undefined) {
         location.href = 'login.html';
     } else{
-        $.post('ajax/loginTag', {uid: uid,username:username}, function(data) {
+        $.post('ajax/loginTag', {uid: uid,username:username}, function (data) {
             $('.ibx-uc-itool-phone').text('联系电话：'+data['phone']);
             $('.ibx-uc-itool-name').text(data['username']);
             $('.ibx-uc-itool-school').text(data['school']);
@@ -50,7 +50,7 @@ $(function(){
     });
 
     //加载测试的数据
-    var dataInt = {
+    var data = {
         'data':[
             {'buyphoto':'user.jpg',
                 'buyname':'fuhuixiang',
@@ -59,7 +59,7 @@ $(function(){
                 'buylevel':0,'buyschooling':'开发区校区','succeedtime':'剩余1小时',
                 'begintime':'14-4-2','pdimg':'static/images/warp/warp_002_226.jpg',
                 'pdimg2':'static/images/warp/warp_002_226.jpg','pdimg3':'static/images/warp/warp_002_226.jpg',
-                'money':'33.00','pdname':'快学Scala','eval':1,'message':'宝贝很好哦'}
+                'money':'33.00','pdname':'快学Scala','eval':1,'message':'宝贝很好哦','pdid':'43'}
         ]
     };
 
@@ -73,9 +73,8 @@ $(function(){
         }
     });
 
-    if(buycheckscrollside()){
-        buyaddpubuliu(dataInt);
-    }
+    //判断是否需要继续加载瀑布流
+    buycheckscrollside();
 
     $('#buytext').focus(function(){
         $(this).empty();
@@ -87,8 +86,8 @@ $(function(){
 });
 
 //加载新的瀑布流内容
-function buyaddpubuliu(dataInt){
-    $(dataInt.data).each(function(index, value){
+function buyaddpubuliu (data){
+    $(data.data).each(function (index, value){
 
         //第一级
         var us_panel = $('<div>').addClass('us-panel').appendTo($('.us-main'));
@@ -104,7 +103,7 @@ function buyaddpubuliu(dataInt){
 
         //第五级
         var ibx_uc_uimg = $('<div>').addClass('ibx-uc-uimg').appendTo($(ibx_inner));
-        $('<img>').addClass('ibx-uc-img').attr('src','static/images/users/'+$(value).attr('buyphoto')).appendTo($(ibx_uc_uimg));
+        $('<img>').addClass('ibx-uc-img').attr('src',$(value).attr('buyphoto')).appendTo($(ibx_uc_uimg));
 
         var ibx_uc_unick = $('<div>').addClass('ibx-uc-unick').appendTo($(ibx_inner));
         $('<a>').addClass('ibx-uc-nick').text($(value).attr('buyname')).appendTo($(ibx_uc_unick));
@@ -160,20 +159,41 @@ function buyaddpubuliu(dataInt){
         $('<span>').addClass('ibx_cal_name').text($(value).attr('pdname')).appendTo($(ibx_cal_pay));
 
         var ibx_cal_operate = $('<div>').addClass('ibx-cal-operate').appendTo($(ibx_cal_box_R));
-        if($(value).attr('eval') == 1){
-            $('<a>').addClass('delete').attr('href','#').text('取消交易').appendTo($(ibx_cal_operate));
+        if($(value).attr('eval') == 0){
+            $('<a>').addClass('delete').attr('value',$(value).attr('pdid')).text('取消交易').appendTo($(ibx_cal_operate));
         }else{
-            $('<a>').addClass('succeed').attr('href','#').text('交易已完成').appendTo($(ibx_cal_operate));
+            $('<a>').addClass('succeed').attr('value',$(value).attr('pdid')).text('交易已完成').appendTo($(ibx_cal_operate));
         }
         $('<span>').addClass('ibx-cal-name').text($(value).attr('message')).appendTo($(ibx_cal_operate));
 
-        return false;
+        // return false;
     });
 }
 
 //判断是否需要继续加载瀑布流
 function buycheckscrollside(){
-    return true;
+
+    var uid = $.cookie('userid');
+    var returnTag = $.post('ajax/get_user_buyinfo', {uid:uid}, function (data) {
+        if(data['ret'] == 'have'){
+            $.post('ajax/get_buyinfo', {uid:uid}, function (data) {
+                if(data['ret'] == 'success'){
+                     buyaddpubuliu(data);
+                     $('.delete').click(function (event) {
+                         var value = $(event.toElement).attr('value')
+                         var remove = $(event.toElement)
+                         delete_buy_info(value, remove)
+                     });
+                }else{
+                    alert('查询错误！');
+                }           
+            }, 'json');
+            return true;
+        }else{
+            alert('非常抱歉，您现在还没有上架的宝贝~');
+            return false;
+        }
+    }, 'json');
 }
 
 //添加宝贝的函数
@@ -525,4 +545,20 @@ function Modify_the_info () {
             Modify_the_info ();
         });
     }
+}
+
+// 删除交易记录
+function delete_buy_info (value, remove) {
+    var pdid = value
+
+    if(confirm("你确定真的要删除这条信息吗？")){
+        $.post('ajax/delete_buy_info',{pdid:pdid}, function (data) {
+            if(data['ret'] == 'success'){
+                alert('这个宝贝已删除！');
+                remove.parent().parent().parent().parent().parent().parent().parent().parent().remove()
+            }else{
+                alert('网络错误，删除失败，请稍后再试！');
+            }
+        }, 'json');
+    }  
 }

@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.conf import settings
 import redis
 import json, pdb
+from django.utils import timezone
 
 
 # Create your views here.
@@ -26,12 +27,13 @@ def register(request):
 
     return HttpResponse(json.dumps(rsdic))
 
-def loginuser (request):
+
+def loginuser(request):
     rsdic = {}
     mlsUser = request.POST['mlsUser'].encode('utf-8')
     password = request.POST['password'].encode('utf-8')
     username = models.Users.objects.all().filter(password=password, username=mlsUser)
-    if(username.count()!=0):
+    if(username.count() != 0):
         rsdic['ret'] = 'success'
         Uid = models.Users.objects.get(username=mlsUser).id
         write_to_cache(Uid)
@@ -40,12 +42,13 @@ def loginuser (request):
         rsdic['ret'] = 'error'
     return HttpResponse(json.dumps(rsdic))
 
+
 def loginTag(request):
     rsdic = {}
     user_id = int(request.POST['uid'])
     user = models.Users.objects.all().filter(id=user_id)
     rdata = read_from_cache(user_id)
-    if(rdata!=None):
+    if(rdata is not None):
         rsdic['ret'] = 'online'
         for u in user:
             rsdic['phone'] = u.userphone
@@ -69,7 +72,7 @@ def addproduct(request):
     i = 0
     fads = []
     for f in files:
-        uid = user_id +'_'+str(i)
+        uid = user_id + '_' + str(i)
         fad = write_to_infoimg(f, uid, 'product')
         fads.append(fad)
         i += 1
@@ -78,11 +81,11 @@ def addproduct(request):
         if len(fads) < 4:
             fads.append('0')
         products.pdimg = fads[0]
-        if fads[1]!= '0':
+        if fads[1] != '0':
             products.pdimg2 = fads[1]
         else:
             products.pdimg2 = fads[0]
-        if fads[2]!='0':
+        if fads[2] != '0':
             products.pdimg3 = fads[2]
         else:
             products.pdimg3 = fads[0]
@@ -179,10 +182,13 @@ def getClassification(request):
 
 #read cache user id
 def read_from_cache(user_id):
-    r = redis.StrictRedis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_DB)
+    host = settings.REDIS_HOST
+    port = settings.REDIS_PORT
+    db = settings.REDIS_DB
+    r = redis.StrictRedis(host=host, port=port, db=db)
     key = 'user_id_of_'+str(user_id)
     value = r.get(key)
-    if value == None:
+    if value is None:
         data = None
     else:
         data = value
@@ -191,7 +197,10 @@ def read_from_cache(user_id):
 
 #write cache user id
 def write_to_cache(user_id):
-    r = redis.StrictRedis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_DB)
+    host = settings.REDIS_HOST
+    port = settings.REDIS_PORT
+    db = settings.REDIS_DB
+    r = redis.StrictRedis(host=host, port=port, db=db)
     key = 'user_id_of_' + str(user_id)
     r.set(key, key)
 
@@ -211,8 +220,79 @@ def write_to_infoimg(file, uid, type):
             destination.close()
             return 'static/images/warp/'+uid+'.jpg'
 
+
+def get_user_buyinfo(request):
+    rsdic = {}
+    uid = int(request.POST['uid'])
+    try:
+        models.Product.objects.all().filter(userid=uid)
+        rsdic['ret'] = 'have'
+    except:
+        rsdic['ret'] = 'no'
+    return HttpResponse(json.dumps(rsdic))
+
+
+def get_buyinfo(request):
+    rsdic = {}
+    uid = request.POST['uid']
+    buyinfos = models.Product.objects.all().filter(userid=uid)
+    users = models.Users.objects.get(id=uid)
+    try:
+        arry = []
+        for buyinfo in buyinfos:
+            data = {}
+            data['buyphoto'] = str(users.userimg)
+            data['buyname'] = users.username
+            data['buyphone'] = users.userphone
+            data['buyschool'] = users.schoolAddress
+            status = models.Buy.objects.get(pdid=int(buyinfo.id))
+            data['buylevel'] = status.transaction_status
+            data['buyschooling'] = users.schoolAddress
+            time = int(((timezone.now() - buyinfo.begintime)).total_seconds() // 3600)
+            data['succeedtime'] = '剩余'+str(time)+'小时'
+            data['begintime'] = str(buyinfo.begintime)[2:10]
+            data['pdimg'] = str(buyinfo.pdimg)
+            data['pdimg2'] = str(buyinfo.pdimg2)
+            data['pdimg3'] = str(buyinfo.pdimg3)
+            data['money'] = buyinfo.money
+            data['pdname'] = buyinfo.pdname
+            data['eval'] = status.transaction_status
+            data['message'] = buyinfo.requirement
+            data['pdid'] = buyinfo.id
+            arry.append(data)
+        rsdic['data'] = arry
+        rsdic['ret'] = 'success'
+    except:
+        rsdic['ret'] = 'error'
+    return HttpResponse(json.dumps(rsdic))
+
+
+def delete_buy_info(request):
+    rsdic = {}
+    pdid = int(request.POST['pdid'])
+    try:
+        models.Product.objects.get(id=pdid).delete()
+        models.Buy.objects.get(pdid=pdid).delete()
+        rsdic['ret'] = 'success'
+        rsdic['pdid'] = pdid
+    except:
+        rsdic['ret'] = 'error'
+    return HttpResponse(json.dumps(rsdic))
+
+
+
+
+
+
+
+
+
+
+
+
+
 # 添加测试数据
-def input_db_user(request):
+def input_db_user (request):
 
     i = 1
     for j in range(10):
@@ -223,6 +303,7 @@ def input_db_user(request):
         user.save()
         i += 1
     return HttpResponse()
+
 
 def input_db_product(request):
     i = 1
@@ -246,6 +327,7 @@ def input_db_product(request):
         i += 1
         m += 1
     return HttpResponse()
+
 
 def input_db_buy(request):
 
