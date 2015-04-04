@@ -4,6 +4,7 @@ from django.utils import timezone
 
 # Create your models here.
 
+
 # 用户信息表
 class Users(models.Model):
 
@@ -21,6 +22,7 @@ class Users(models.Model):
 
     # 这个保存的是用户的头像
     userimg = models.ImageField(default='static/images/users/user.jpg')
+
 
 # 出售宝贝的信息表
 class Product(models.Model):
@@ -46,6 +48,7 @@ class Product(models.Model):
     pdimg2 = models.ImageField(default='static/images/warp/000001.jpg')
     pdimg3 = models.ImageField(default='static/images/warp/000001.jpg')
 
+
 # 交易记录表
 class Buy(models.Model):
     id = models.AutoField(primary_key=True)
@@ -64,12 +67,13 @@ class Buy(models.Model):
     # 成交价格
     buymoney = models.IntegerField(null=False)
 
+
 # 宝贝分类表
 class Classification(models.Model):
     id = models.AutoField(primary_key=True)
 
     # 这个是分类的具体名称
-    CFname = models.CharField(max_length=300,null=False)
+    CFname = models.CharField(max_length=300, null=False)
 
     # 分类编号
     CFnumber = models.IntegerField(null=False)

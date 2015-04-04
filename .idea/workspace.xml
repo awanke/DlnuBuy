@@ -35,8 +35,8 @@
       <file leaf-file-name="ajax_views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dlnubuy/ajax_views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45572916" vertical-offset="4993" max-vertical-offset="6422">
-              <caret line="272" column="8" selection-start-line="272" selection-start-column="8" selection-end-line="272" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.20240137" vertical-offset="4993" max-vertical-offset="6422">
+              <caret line="269" column="29" selection-start-line="269" selection-start-column="29" selection-end-line="269" selection-end-column="29" />
               <folding>
                 <element signature="e#14#40#0" expanded="true" />
                 <element signature="e#9267#9545#0" expanded="false" />
@@ -52,58 +52,6 @@
               <caret line="331" column="7" selection-start-line="331" selection-start-column="7" selection-end-line="331" selection-end-column="7" />
               <folding>
                 <marker date="1428055574334" expanded="true" signature="311:623" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="1447:1943" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="1483:1914" placeholder="[...]" />
-                <marker date="1428055574334" expanded="true" signature="1517:1962" placeholder="{&quot;buyphoto&quot;: 'user.jpg'...}" />
-                <marker date="1428055574334" expanded="true" signature="1872:1943" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="1896:1914" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="2095:2112" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="2288:7431" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="2301:7410" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="5496:5850" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="5854:5941" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="7288:7414" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="7280:7302" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="12613:15033" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="13560:13645" placeholder="{&quot;id&quot;: 'newpassword'...}" />
-                <marker date="1428055574334" expanded="true" signature="13902:14276" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="13916:13938" placeholder="/*...*/" />
-                <marker date="1428055574334" expanded="true" signature="14129:14265" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="14190:14203" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="14222:14234" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="14252:14257" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="14409:14550" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="14454:14476" placeholder="/*...*/" />
-                <marker date="1428055574334" expanded="true" signature="14650:14932" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="14756:14835" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="14753:14775" placeholder="/*...*/" />
-                <marker date="1428055574334" expanded="true" signature="15218:16831" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="15428:15504" placeholder="{&quot;id&quot;: 'newphone'...}" />
-                <marker date="1428055574334" expanded="true" signature="15709:16105" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="15719:15755" placeholder="/*...*/" />
-                <marker date="1428055574334" expanded="true" signature="15866:15935" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="16002:16094" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="16028:16063" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="16081:16086" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="16235:16379" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="16283:16305" placeholder="/*...*/" />
-                <marker date="1428055574334" expanded="true" signature="16475:16755" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="16579:16713" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="16576:16598" placeholder="/*...*/" />
-                <marker date="1428055574334" expanded="true" signature="17477:17559" placeholder="{&quot;id&quot;: 'newschool'...}" />
-                <marker date="1428055574334" expanded="true" signature="17805:18959" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="17808:17811" placeholder="/*...*/" />
-                <marker date="1428055574334" expanded="true" signature="18131:18163" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="18450:18918" placeholder="{&quot;url&quot;: 'ajax/modifyuserinfo'...}" />
-                <marker date="1428055574334" expanded="true" signature="18729:18851" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="18816:18845" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="18849:18854" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="18900:18935" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="19091:19234" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="19138:19160" placeholder="/*...*/" />
-                <marker date="1428055574334" expanded="true" signature="19394:19682" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="19582:19705" placeholder="{...}" />
-                <marker date="1428055574334" expanded="true" signature="19585:19607" placeholder="/*...*/" />
               </folding>
             </state>
           </provider>
@@ -112,12 +60,10 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dlnubuy/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="703">
-              <caret line="55" column="36" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="742" max-vertical-offset="1539">
+              <caret line="58" column="36" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
               <folding>
-                <element signature="e#146#683#0" expanded="false" />
-                <element signature="e#729#1475#0" expanded="false" />
-                <element signature="e#1981#2265#0" expanded="false" />
+                <element signature="e#1985#2270#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -126,7 +72,7 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dlnubuy/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="319" max-vertical-offset="684">
+            <state vertical-scroll-proportion="0.0" vertical-offset="551" max-vertical-offset="684">
               <caret line="29" column="1" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="45" />
               <folding />
             </state>
@@ -200,6 +146,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -248,7 +195,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -258,7 +204,7 @@
     <property name="dynamic.classpath" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="options.lastSelected" value="vcs.Git" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -615,25 +561,25 @@
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3804841" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3251634" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36838123" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25718608" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39869282" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3251634" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39869282" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -659,6 +605,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/dlnubuy/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="551" max-vertical-offset="684">
+          <caret line="29" column="1" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dlnubuy/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="91" max-vertical-offset="570">
@@ -982,58 +936,6 @@
           <caret line="331" column="7" selection-start-line="331" selection-start-column="7" selection-end-line="331" selection-end-column="7" />
           <folding>
             <marker date="1428055574334" expanded="true" signature="311:623" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="1447:1943" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="1483:1914" placeholder="[...]" />
-            <marker date="1428055574334" expanded="true" signature="1517:1962" placeholder="{&quot;buyphoto&quot;: 'user.jpg'...}" />
-            <marker date="1428055574334" expanded="true" signature="1872:1943" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="1896:1914" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="2095:2112" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="2288:7431" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="2301:7410" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="5496:5850" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="5854:5941" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="7288:7414" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="7280:7302" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="12613:15033" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="13560:13645" placeholder="{&quot;id&quot;: 'newpassword'...}" />
-            <marker date="1428055574334" expanded="true" signature="13902:14276" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="13916:13938" placeholder="/*...*/" />
-            <marker date="1428055574334" expanded="true" signature="14129:14265" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="14190:14203" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="14222:14234" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="14252:14257" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="14409:14550" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="14454:14476" placeholder="/*...*/" />
-            <marker date="1428055574334" expanded="true" signature="14650:14932" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="14756:14835" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="14753:14775" placeholder="/*...*/" />
-            <marker date="1428055574334" expanded="true" signature="15218:16831" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="15428:15504" placeholder="{&quot;id&quot;: 'newphone'...}" />
-            <marker date="1428055574334" expanded="true" signature="15709:16105" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="15719:15755" placeholder="/*...*/" />
-            <marker date="1428055574334" expanded="true" signature="15866:15935" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="16002:16094" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="16028:16063" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="16081:16086" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="16235:16379" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="16283:16305" placeholder="/*...*/" />
-            <marker date="1428055574334" expanded="true" signature="16475:16755" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="16579:16713" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="16576:16598" placeholder="/*...*/" />
-            <marker date="1428055574334" expanded="true" signature="17477:17559" placeholder="{&quot;id&quot;: 'newschool'...}" />
-            <marker date="1428055574334" expanded="true" signature="17805:18959" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="17808:17811" placeholder="/*...*/" />
-            <marker date="1428055574334" expanded="true" signature="18131:18163" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="18450:18918" placeholder="{&quot;url&quot;: 'ajax/modifyuserinfo'...}" />
-            <marker date="1428055574334" expanded="true" signature="18729:18851" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="18816:18845" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="18849:18854" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="18900:18935" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="19091:19234" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="19138:19160" placeholder="/*...*/" />
-            <marker date="1428055574334" expanded="true" signature="19394:19682" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="19582:19705" placeholder="{...}" />
-            <marker date="1428055574334" expanded="true" signature="19585:19607" placeholder="/*...*/" />
           </folding>
         </state>
       </provider>
@@ -1055,12 +957,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dlnubuy/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="703">
-          <caret line="55" column="36" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="742" max-vertical-offset="1539">
+          <caret line="58" column="36" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
           <folding>
-            <element signature="e#146#683#0" expanded="false" />
-            <element signature="e#729#1475#0" expanded="false" />
-            <element signature="e#1981#2265#0" expanded="false" />
+            <element signature="e#1985#2270#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1075,8 +975,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dlnubuy/ajax_views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45572916" vertical-offset="4993" max-vertical-offset="6422">
-          <caret line="272" column="8" selection-start-line="272" selection-start-column="8" selection-end-line="272" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.20240137" vertical-offset="4993" max-vertical-offset="6422">
+          <caret line="269" column="29" selection-start-line="269" selection-start-column="29" selection-end-line="269" selection-end-column="29" />
           <folding>
             <element signature="e#14#40#0" expanded="true" />
             <element signature="e#9267#9545#0" expanded="false" />

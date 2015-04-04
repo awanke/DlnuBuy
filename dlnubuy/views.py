@@ -10,20 +10,26 @@ import json,pdb
 
 # Create your views here.
 
+
 def index(request):
     return render_to_response('index.html',)
+
 
 def product_list(request):
     return render_to_response('product_list.html')
 
+
 def product(request):
     return render_to_response('product.html')
+
 
 def register(request):
     return render_to_response('register.html')
 
+
 def login(request):
     return render_to_response('login.html')
+
 
 def users(request):
     return render_to_response('users.html')
