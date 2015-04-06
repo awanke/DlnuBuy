@@ -3,6 +3,23 @@
  */
 $(function(){
 
+     //从cookie中取得用户名
+    var username = $.cookie('username');
+    var uid = $.cookie('userid');
+
+    if(username!=null && uid!=null){
+        $.post('ajax/loginTag',{
+            username:username,
+            uid:uid
+        },function(data){
+            if(data['ret']=='online'){
+                $('#loginTags').attr('href','users.html?id='+data['id']).text('['+data['username']+']');
+            }else{
+                loacation.href = 'login.html';
+            }
+        },"json");
+    }
+
     //根据下拉判断是否显示隐藏导航
     $(window).scroll(function(){
 
@@ -30,46 +47,14 @@ $(function(){
     //在滚动的时候动态加载新的瀑布图片
     waterfall();
 
-    //加载测试的数据
-    var dataInt={
-        'data':[
-            {'src':'warp_030_226.jpg',
-                'money':'￥155.00',
-                'pic_load':'#','title':'这个是新添加的测试','title_href':'#','volume':'0','span':'666',
-                'user_img':'images/icon/collection.png','user_name':'我的名字叫做测试',
-                'user_info':'         分享了一个宝贝      ',
-                'user_href':'#','user_id':'110'},
-            {'src':'warp_020_226.jpg',
-                'money':'￥355.00',
-                'pic_load':'#','title':'这个是新添加的测试2','title_href':'#','volume':0,'span':'666',
-                'user_img':'images/icon/collection.png','user_name':'我的名字叫做测试2',
-                'user_info':'         分享了一个宝贝       ',
-                'user_href':'#','user_id':'110'},
-            {'src':'warp_044_226.jpg',
-                'money':'￥455.00',
-                'pic_load':'#','title':'这个是新添加的测试3','title_href':'#','volume':0,'span':'666',
-                'user_img':'images/icon/collection.png','user_name':'我的名字叫做测试3',
-                'user_info':'         分享了一个宝贝       ',
-                'user_href':'#','user_id':'110'},
-            {'src':'warp_027_226.jpg',
-                'money':'￥151.00',
-                'pic_load':'#','title':'这个是新添加的测试4','title_href':'#','volume':0,'span':'666',
-                'user_img':'images/icon/collection.png','user_name':'我的名字叫做测试4',
-                'user_info':'         分享了一个宝贝       ',
-                'user_href':'#','user_id':'110'},
-            {'src':'warp_087_226.jpg',
-                'money':'￥155.00',
-                'pic_load':'#','title':'这个是新添加的测试5','title_href':'#','volume':0,'span':'666',
-                'user_img':'images/icon/collection.png','user_name':'我的名字叫做测试5',
-                'user_info':'         分享了一个宝贝       ',
-                'user_href':'#','user_id':'110'}
-        ]};
-
     //监听滚动条
     window.onscroll=function(){
         if(checkscrollside()){
-            addpubuliu(dataInt);
-            waterfall();
+            var cate = $.query.get('category');
+            $.post('ajax/get_Allbuyinfo', {cate:cate}, function (data) {
+                addpubuliu(data);
+                waterfall();
+            }, 'json');            
         };
     }
 
@@ -127,8 +112,8 @@ function checkscrollside(){
 }
 
 //加载新的瀑布流内容
-function addpubuliu(dataInt) {
-    $.each(dataInt.data, function (index, value) {
+function addpubuliu(data) {
+    $.each(data.data, function (index, value) {
         //第一级
         var Pin = $('<div>').addClass('pin').appendTo($('#main'));
 
@@ -139,7 +124,7 @@ function addpubuliu(dataInt) {
         var Pic = $('<div>').addClass('np_pic').appendTo($(Box));
         $('<div>').addClass('price').text($(value).attr('money')).appendTo($(Pic));
         var a_load = $('<a>').addClass('pic_load').attr('target', '_blank').attr('href', $(value).attr('pic_load')).appendTo($(Pic));
-        $('<img>').attr('src', 'static/images/warp/' + $(value).attr('src')).appendTo($(Pic));
+        $('<img>').attr('src', $(value).attr('src')).appendTo($(Pic));
 
         //第三级
         var title = $('<div>').addClass('title').appendTo($(Box));
@@ -164,7 +149,7 @@ function addpubuliu(dataInt) {
         var share = $('<div>').addClass('np_share').appendTo($(Box));
         var user = $('<a>').addClass('avatar32_f trans07').attr('target', '_blank').attr('href', 'static/'+ $(value).attr('user_href'))
             .attr('user_id', $(value).attr('user_id')).appendTo($(share));
-        $('<img>').attr('src', 'static/'+ $(value).attr('user_img')).appendTo($(user));
+        $('<img>').attr('src', $(value).attr('user_img')).appendTo($(user));
         var p2 = $('<p>').attr('style', 'margin-left: 42px;').appendTo($(share));
         $('<a>').attr('target', '_blank').attr('href',  'static/'+$(value).attr('user_href')).text($(value).attr('user_name')).appendTo($(p2));
         $('<p>').addClass('t_idt').text($(value).attr('user_info')).appendTo($(share));

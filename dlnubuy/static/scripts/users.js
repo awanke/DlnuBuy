@@ -49,19 +49,6 @@ $(function(){
         Modify_the_phone()
     });
 
-    //加载测试的数据
-    var data = {
-        'data':[
-            {'buyphoto':'user.jpg',
-                'buyname':'fuhuixiang',
-                'buyphone':'18888888',
-                'buyschool':'金石滩校区',
-                'buylevel':0,'buyschooling':'开发区校区','succeedtime':'剩余1小时',
-                'begintime':'14-4-2','pdimg':'static/images/warp/warp_002_226.jpg',
-                'pdimg2':'static/images/warp/warp_002_226.jpg','pdimg3':'static/images/warp/warp_002_226.jpg',
-                'money':'33.00','pdname':'快学Scala','eval':1,'message':'宝贝很好哦','pdid':'43'}
-        ]
-    };
 
     //根据下拉判断是否显示隐藏导航
     $(window).scroll(function(){
@@ -174,7 +161,7 @@ function buyaddpubuliu (data){
 function buycheckscrollside(){
 
     var uid = $.cookie('userid');
-    var returnTag = $.post('ajax/get_user_buyinfo', {uid:uid}, function (data) {
+    $.post('ajax/get_user_buyinfo', {uid:uid}, function (data) {
         if(data['ret'] == 'have'){
             $.post('ajax/get_buyinfo', {uid:uid}, function (data) {
                 if(data['ret'] == 'success'){

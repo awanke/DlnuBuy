@@ -40,6 +40,9 @@ class Product(models.Model):
     # 卖家对宝贝的留言
     requirement = models.TextField()
 
+    # 有多少人喜欢这个宝贝
+    likes = models.IntegerField(max_length=999, default=0)
+
     # 这个是宝贝的分类，以数字的形式保存，另外会有一张种类表来保存具体的种类
     category = models.IntegerField()
 

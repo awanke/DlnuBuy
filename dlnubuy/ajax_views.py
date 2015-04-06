@@ -280,6 +280,36 @@ def delete_buy_info(request):
     return HttpResponse(json.dumps(rsdic))
 
 
+def get_Allbuyinfo(request):
+    rsdic = {}
+
+    cate = request.POST['cate'][:2]
+    try:
+        products = models.Product.objects.filter(category__startswith=cate)
+        arry = []
+        for product in products:
+            data = {}
+            data['src'] = str(product.pdimg)
+            data['money'] = '￥' + str(product.money)
+            data['title'] = product.description
+            volume = models.Buy.objects.get(pdid=product.id)
+            data['volume'] = int(volume.transaction_status)
+            data['span'] = int(product.likes)
+            data['pic_load'] = '#'
+            user = models.Users.objects.get(id=product.userid)
+            data['user_img'] = str(user.userimg)
+            data['user_name'] = user.username
+            data['user_info'] = product.requirement
+            data['user_href'] = '#'
+            data['user_id'] = user.id
+            arry.append(data)
+        rsdic['data'] = arry
+        rsdic['ret'] = 'succsee'
+    except:
+        rsdic['ret'] = 'error'
+        rsdic['data'] = ''
+    return HttpResponse(json.dumps(rsdic))
+
 
 
 

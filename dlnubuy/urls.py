@@ -26,5 +26,6 @@ urlpatterns += patterns('dlnubuy.ajax_views',
        url(r'^test/input_db_buy', 'input_db_buy'),
        url(r'^ajax/get_user_buyinfo', 'get_user_buyinfo'),
        url(r'^ajax/get_buyinfo', 'get_buyinfo'),
-       url(r'^ajax/delete_buy_info', 'delete_buy_info')
+       url(r'^ajax/delete_buy_info', 'delete_buy_info'),
+       url(r'^ajax/get_Allbuyinfo', 'get_Allbuyinfo')
 )
