@@ -220,6 +220,9 @@ ul{
     width: 230px; position: fixed; min-height: 100%; background: #e1e1e1; right: -230px; top:36px;
     z-index: 5; opacity: 0;
 }
+.plan{
+    text-align: center;margin: 20px 0;
+}
 .nav-content .nav-con-close {
     float: left;
     cursor: pointer;

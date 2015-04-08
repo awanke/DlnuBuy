@@ -27,5 +27,9 @@ urlpatterns += patterns('dlnubuy.ajax_views',
        url(r'^ajax/get_user_buyinfo', 'get_user_buyinfo'),
        url(r'^ajax/get_buyinfo', 'get_buyinfo'),
        url(r'^ajax/delete_buy_info', 'delete_buy_info'),
-       url(r'^ajax/get_Allbuyinfo', 'get_Allbuyinfo')
+       url(r'^ajax/get_Allbuyinfo', 'get_Allbuyinfo'),
+       url(r'^ajax/get_user_info_plan', 'get_user_info_plan'),
+       url(r'^ajax/get_user_asset_plan', 'get_user_asset_plan'),
+       url(r'^ajax/get_user_brand_plan', 'get_user_brand_plan'),
+       url(r'^add/proudctlike', 'proudctlike')
 )

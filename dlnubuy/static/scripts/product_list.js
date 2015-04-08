@@ -54,6 +54,7 @@ $(function(){
             $.post('ajax/get_Allbuyinfo', {cate:cate}, function (data) {
                 addpubuliu(data);
                 waterfall();
+                add_proudctlike();
             }, 'json');            
         };
     }
@@ -141,7 +142,7 @@ function addpubuliu(data) {
         } else {
             $('<a>').addClass('fr red_f').text('正在交易').appendTo($(comm));
         }
-        var likes = $('<a>').addClass('fl poster_likes likes').attr('href', 'javascript:void(0)').appendTo($(comm));
+        var likes = $('<a>').addClass('fl poster_likes likes').attr({'pid':$(value).attr('pdid'),'name':'pdname'}).appendTo($(comm));
         $('<b>').addClass('likes_status').text('喜  欢').appendTo($(likes));
         $('<span>').addClass('red_f poster_like_num').text($(value).attr('span')).appendTo($(likes));
 
@@ -178,7 +179,22 @@ function Sidebar(){
     });
 
     prof.click(function(){
-        var prof_content = $('#prof-content');
+        var prof_content = $('#prof-content').empty();
+        bindClose(prof_content)
+        var uid = $.cookie('userid');
+
+        $.post('ajax/get_user_info_plan', {uid:uid}, function (data) {
+            if(data.ret == 'success'){
+                var plan = $('<div>').css('margin','60% 0').appendTo($(prof_content));
+                var div = $('<div>').css('text-align','center').appendTo($(plan))
+                $('<img>').attr('src',data['userimg']).appendTo($(div))
+                $('<div>').css('font-size','40px').addClass('plan').text(data['username']).appendTo($(plan));
+                $('<div>').css('font-size','18px').addClass('plan').text(data['userphone']).appendTo($(plan));
+                $('<div>').css('font-size','25px').addClass('plan').text(data['schoolAddress']).appendTo($(plan));
+            }else{
+                $('<div>').text('对不起网络错误，请从新刷新！！！').appendTo($(prof_content));
+            }
+        }, 'json');
 
         if($('.nav-content').is('.sidebar-move-left')){
             $('.nav-content').removeClass('sidebar-move-left');
@@ -193,7 +209,26 @@ function Sidebar(){
     });
 
     asset.click(function(){
-        var asset_content = $('#asset-content');
+        var asset_content = $('#asset-content').empty();
+        bindClose(asset_content)
+        var uid = $.cookie('userid');
+
+        $.post('ajax/get_user_asset_plan', {uid:uid}, function (data) {
+            if(data.ret == 'success'){
+                var plan = $('<div>').css('margin','40% 0').appendTo($(asset_content));
+                $('<div>').css({'text-align': 'center','font-size': '25px','margin-bottom':'50px'}).text('正在交易的宝贝').appendTo($(plan));
+                $.each(data.data, function (index, value) {
+                    var div = $('<div>').css({'text-align': 'center','font-size': '18px','margin': '20px 0'}).appendTo($(plan));
+                    $('<a>').attr('href','#').text($(value).attr('name')).appendTo($(div));
+                    $('<span>').css({'color': 'red','display': 'block','font-size': '10px'}).text('还有'+$(value).attr('time')+'个小时结束').appendTo($(div));
+                })
+            }else{
+                var plan = $('<div>').css('margin','40% 0').appendTo($(asset_content));
+                $('<div>').css({'text-align': 'center','font-size': '25px','margin-bottom':'50px'}).text('正在交易的宝贝').appendTo($(plan));
+                $('<div>').css({'text-align': 'center','font-size': '25px','margin-bottom':'50px'}).text('p(´⌒｀｡q)').appendTo($(plan));
+                $('<div>').css({'text-align': 'center','font-size': '25px','margin-bottom':'50px'}).text('你没有宝贝出售哦~~').appendTo($(plan));
+            }
+        }, 'json');
 
         if($('.nav-content').is('.sidebar-move-left')){
             $('.nav-content').removeClass('sidebar-move-left');
@@ -207,7 +242,27 @@ function Sidebar(){
     });
 
     brand.click(function(){
-        var brand_content = $('#brand-content');
+        var brand_content = $('#brand-content').empty();
+        bindClose(brand_content)
+        var cate = $.query.get('category');
+
+        $.post('ajax/get_user_brand_plan', {cate:cate}, function (data) {
+            if(data.ret == 'success'){
+                var plan = $('<div>').css('margin','40% 0').appendTo($(brand_content));
+                $('<div>').css({'text-align': 'center','font-size': '20px','margin-bottom':'45px'}).text('当前页面有好多分类哦').appendTo($(plan));
+                $('<div>').css({'text-align': 'center','font-size': '18px','margin-bottom':'40px'}).text('快来选一个吧~~').appendTo($(plan));
+                $('<div>').css({'text-align': 'center','font-size': '15px','margin-bottom':'50px'}).text('╰(*´︶`*)╯').appendTo($(plan));
+                $.each(data.data, function (index, value) {
+                    var div = $('<div>').css({'text-align': 'center','font-size': '18px','margin': '20px 0'}).appendTo($(plan));
+                    $('<a>').attr('href','#').css('color','red').text($(value).attr('name')).appendTo($(div));
+                })
+            }else{
+                var plan = $('<div>').css('margin','40% 0').appendTo($(brand_content));
+                $('<div>').css({'text-align': 'center','font-size': '25px','margin-bottom':'50px'}).text('网络错误了...').appendTo($(plan));
+                $('<div>').css({'text-align': 'center','font-size': '25px','margin-bottom':'50px'}).text('p(´⌒｀｡q)').appendTo($(plan));
+                $('<div>').css({'text-align': 'center','font-size': '25px','margin-bottom':'50px'}).text('请重新刷新页面哦~~').appendTo($(plan));
+            }
+        }, 'json');
 
         if($('.nav-content').is('.sidebar-move-left')){
             $('.nav-content').removeClass('sidebar-move-left');
@@ -235,7 +290,13 @@ function Sidebar(){
     });
 
     foot.click(function(){
-        var foot_content = $('#foot-content');
+        var foot_content = $('#foot-content').empty();
+        bindClose(foot_content)
+
+        var plan = $('<div>').css('margin','60% 0').appendTo($(foot_content));
+        $('<div>').css({'text-align': 'center','font-size': '20px','margin-bottom':'45px'}).text('最近的浏览记录哦~').appendTo($(plan));
+        $('<div>').css({'text-align': 'center','font-size': '20px','margin':'60px 0'}).text('p(´⌒｀｡q)').appendTo($(plan));
+        $('<div>').css({'text-align': 'center','font-size': '20px','margin':'60px 0'}).text('最近好像什么都没有看过哦~~').appendTo($(plan));
 
         if($('.nav-content').is('.sidebar-move-left')){
             $('.nav-content').removeClass('sidebar-move-left');
@@ -249,7 +310,15 @@ function Sidebar(){
     });
 
     calendar.click(function(){
-        var calendar_content = $('#calendar-content');
+        var calendar_content = $('#calendar-content').empty();
+        bindClose(calendar_content)
+
+        var plan = $('<div>').css('margin','60% 0').appendTo($(calendar_content));
+        $('<div>').css({'text-align': 'center','font-size': '20px','margin-bottom':'45px'}).text('日历哦~~').appendTo($(plan));
+        $('<div>').css({'text-align': 'center','font-size': '20px','margin-bottom':'45px'}).text('今天是：').appendTo($(plan));
+        $('<div>').css({'text-align': 'center','font-size': '20px','margin-bottom':'45px'}).text(GetDateString()).appendTo($(plan));
+        $('<div>').css({'text-align': 'center','font-size': '16px','margin-bottom':'45px','color':'#f69'}).text(GetcDateString()).appendTo($(plan));
+
 
         if($('.nav-content').is('.sidebar-move-left')){
             $('.nav-content').removeClass('sidebar-move-left');
@@ -262,4 +331,29 @@ function Sidebar(){
         }
     });
 
+}
+
+function bindClose(argument) {
+    var arg = argument
+    var dele = $('<div>').addClass('nav-con-close').appendTo(arg);
+    $('<div>').addClass('close_i').appendTo($(dele))
+    dele.click(function(){
+        $('.nav-content').removeClass('sidebar-move-left');
+        $('#sidebar').css('border-left','');
+        $('.nav-content').addClass('sidebar-move-right');
+    });
+}
+
+function add_proudctlike() {
+    $('a[name=pdname]').click(function (event) {
+        var events = event.target.parentElement;
+        var pid = $(events).attr('pid');
+
+        $.post('add/proudctlike',{pid:pid},function (data) {
+            if(data.ret == 'success'){
+                $(events).children('span').text(data['num']);
+                $(events).children('b').css('background-color','#ccc');
+            }
+        }, 'json');
+    });
 }

@@ -5,6 +5,7 @@ from django.conf import settings
 import redis
 import json, pdb
 from django.utils import timezone
+from django.db.models import Q
 
 
 # Create your views here.
@@ -302,6 +303,7 @@ def get_Allbuyinfo(request):
             data['user_info'] = product.requirement
             data['user_href'] = '#'
             data['user_id'] = user.id
+            data['pdid'] = str(product.id)
             arry.append(data)
         rsdic['data'] = arry
         rsdic['ret'] = 'succsee'
@@ -311,10 +313,73 @@ def get_Allbuyinfo(request):
     return HttpResponse(json.dumps(rsdic))
 
 
+def get_user_info_plan(request):
+    rsdic = {}
+    uid = request.POST['uid']
+    try:
+        users = models.Users.objects.get(id=uid)
+        rsdic['username'] = users.username
+        rsdic['userphone'] = users.userphone
+        rsdic['schoolAddress'] = users.schoolAddress
+        rsdic['userimg'] = str(users.userimg)
+        rsdic['ret'] = 'success'
+    except:
+        rsdic['ret'] = 'error'
+    return HttpResponse(json.dumps(rsdic))
 
 
+def get_user_asset_plan(request):
+    rsdic = {}
+    uid = request.POST['uid']
+    try:
+        products = models.Product.objects.all().filter(userid=uid)
+        arry = []
+        for product in products:
+            data = {}
+            data['name'] = product.pdname
+            data['id'] = str(product.id)
+            time = int(((timezone.now() - product.begintime)).total_seconds() // 3600)
+            if time <= 0:
+                continue
+            else:
+                data['time'] = time
+            arry.append(data)
+        rsdic['data'] = arry
+        rsdic['ret'] = 'success'
+    except:
+        rsdic['ret'] = 'error'
+    return HttpResponse(json.dumps(rsdic))
 
 
+def get_user_brand_plan(request):
+    rsdic = {}
+    cate = request.POST['cate'][:2]
+    try:
+        cates = models.Classification.objects.filter(CFnumber__startswith=cate, level__lte=3)
+        arry = []
+        for cate in cates:
+            data = {}
+            data['name'] = cate.CFname
+            data['id'] = cate.CFnumber
+            arry.append(data)
+        rsdic['data'] = arry
+        rsdic['ret'] = 'success'
+    except:
+        rsdic['ret'] = 'error'
+    return HttpResponse(json.dumps(rsdic))
+
+
+def proudctlike(request):
+    rsdic = {}
+    pid = request.POST['pid']
+    try:
+        product = models.Product.objects.get(id=pid)
+        product.likes = product.likes + 1
+        rsdic['num'] = product.likes
+        rsdic['ret'] = 'success'
+    except:
+        rsdic['ret'] = 'error'
+    return HttpResponse(json.dumps(rsdic))
 
 
 
@@ -322,7 +387,7 @@ def get_Allbuyinfo(request):
 
 
 # 添加测试数据
-def input_db_user (request):
+def input_db_user(request):
 
     i = 1
     for j in range(10):
