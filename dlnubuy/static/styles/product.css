@@ -83,10 +83,9 @@ blockquote, body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, hr
 .nav a{
     height: 36px; display: inline-block; padding: 0px 35px; color: #ffffff;
 }
-.nav .active{
+.nav>li>a:hover{
     background-color: #ebcccc;
 }
-
 /*产品详情展示*/
 .clearfix{
     clear: both;
@@ -107,7 +106,7 @@ blockquote, body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, hr
     width: 440px;float: left;display: inline;
 }
 .pm-pic{
-     border: none;position: relative; z-index: 1;
+     border: none;position: relative; z-index: 1; cursor: pointer;
     margin: 0 10px 0 0 ; overflow: hidden; background: #f7f7f7;
 }
 .pm-s425{

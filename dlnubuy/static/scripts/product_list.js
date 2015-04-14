@@ -3,7 +3,7 @@
  */
 $(function(){
 
-     //从cookie中取得用户名
+    //从cookie中取得用户名
     var username = $.cookie('username');
     var uid = $.cookie('userid');
 
@@ -38,6 +38,14 @@ $(function(){
         }
     });
 
+    // 首次加载的时候
+    var cate = $.query.get('category');
+    $.post('ajax/get_Allbuyinfo', {cate:cate}, function (data) {
+        $('#main').empty();
+        addpubuliu(data);
+        waterfall();
+        add_proudctlike();
+    }, 'json');
 
     //自动返回顶端
     $('.returnTop').click(function(){
@@ -130,7 +138,7 @@ function addpubuliu(data) {
         //第三级
         var title = $('<div>').addClass('title').appendTo($(Box));
         var p1 = $('<p>').appendTo($(title));
-        $('<a>').attr('target', '_blank').attr('href', 'static/'+$(value).attr('title_href')).text($(value).attr('title')).appendTo($(p1));
+        $('<a>').attr('target', '_blank').attr('href', 'product.html?pid='+$(value).attr('pdid')).text($(value).attr('title')).appendTo($(p1));
 
         //第三级
         $('<div>').addClass('clear_f').appendTo($(Box));
@@ -148,11 +156,11 @@ function addpubuliu(data) {
 
         //第三级
         var share = $('<div>').addClass('np_share').appendTo($(Box));
-        var user = $('<a>').addClass('avatar32_f trans07').attr('target', '_blank').attr('href', 'static/'+ $(value).attr('user_href'))
+        var user = $('<a>').addClass('avatar32_f trans07').attr('style', 'cursor: pointer;')
             .attr('user_id', $(value).attr('user_id')).appendTo($(share));
         $('<img>').attr('src', $(value).attr('user_img')).appendTo($(user));
         var p2 = $('<p>').attr('style', 'margin-left: 42px;').appendTo($(share));
-        $('<a>').attr('target', '_blank').attr('href',  'static/'+$(value).attr('user_href')).text($(value).attr('user_name')).appendTo($(p2));
+        $('<a>').attr('style', 'cursor: pointer;').text($(value).attr('user_name')).appendTo($(p2));
         $('<p>').addClass('t_idt').text($(value).attr('user_info')).appendTo($(share));
         $('<div>').addClass('clear_f').appendTo($(share));
     });
@@ -182,19 +190,25 @@ function Sidebar(){
         var prof_content = $('#prof-content').empty();
         bindClose(prof_content)
         var uid = $.cookie('userid');
-
-        $.post('ajax/get_user_info_plan', {uid:uid}, function (data) {
-            if(data.ret == 'success'){
-                var plan = $('<div>').css('margin','60% 0').appendTo($(prof_content));
-                var div = $('<div>').css('text-align','center').appendTo($(plan))
-                $('<img>').attr('src',data['userimg']).appendTo($(div))
-                $('<div>').css('font-size','40px').addClass('plan').text(data['username']).appendTo($(plan));
-                $('<div>').css('font-size','18px').addClass('plan').text(data['userphone']).appendTo($(plan));
-                $('<div>').css('font-size','25px').addClass('plan').text(data['schoolAddress']).appendTo($(plan));
-            }else{
-                $('<div>').text('对不起网络错误，请从新刷新！！！').appendTo($(prof_content));
-            }
-        }, 'json');
+        if(uid == undefined){
+            var plan = $('<div>').css('margin','40% 0').appendTo($(prof_content));
+            $('<div>').css({'text-align': 'center','font-size': '25px','margin-bottom':'50px'}).text('您还没有登陆').appendTo($(plan));
+            $('<div>').css({'text-align': 'center','font-size': '25px','margin-bottom':'50px'}).text('p(´⌒｀｡q)').appendTo($(plan));
+            $('<div>').css({'text-align': 'center','font-size': '25px','margin-bottom':'50px'}).text('请先去登陆之后查看哦~~').appendTo($(plan));
+        }else{
+            $.post('ajax/get_user_info_plan', {uid:uid}, function (data) {
+                if(data.ret == 'success'){
+                    var plan = $('<div>').css('margin','60% 0').appendTo($(prof_content));
+                    var div = $('<div>').css('text-align','center').appendTo($(plan))
+                    $('<img>').attr('src',data['userimg']).appendTo($(div))
+                    $('<div>').css('font-size','40px').addClass('plan').text(data['username']).appendTo($(plan));
+                    $('<div>').css('font-size','18px').addClass('plan').text(data['userphone']).appendTo($(plan));
+                    $('<div>').css('font-size','25px').addClass('plan').text(data['schoolAddress']).appendTo($(plan));
+                }else{
+                    $('<div>').text('对不起网络错误，请从新刷新！！！').appendTo($(prof_content));
+                }
+            }, 'json');
+        }        
 
         if($('.nav-content').is('.sidebar-move-left')){
             $('.nav-content').removeClass('sidebar-move-left');
@@ -213,7 +227,13 @@ function Sidebar(){
         bindClose(asset_content)
         var uid = $.cookie('userid');
 
-        $.post('ajax/get_user_asset_plan', {uid:uid}, function (data) {
+        if (uid == undefined) {
+            var plan = $('<div>').css('margin','40% 0').appendTo($(asset_content));
+            $('<div>').css({'text-align': 'center','font-size': '25px','margin-bottom':'50px'}).text('您还没有登陆').appendTo($(plan));
+            $('<div>').css({'text-align': 'center','font-size': '25px','margin-bottom':'50px'}).text('p(´⌒｀｡q)').appendTo($(plan));
+            $('<div>').css({'text-align': 'center','font-size': '25px','margin-bottom':'50px'}).text('请先去登陆之后查看哦~~').appendTo($(plan));
+        }else{
+            $.post('ajax/get_user_asset_plan', {uid:uid}, function (data) {
             if(data.ret == 'success'){
                 var plan = $('<div>').css('margin','40% 0').appendTo($(asset_content));
                 $('<div>').css({'text-align': 'center','font-size': '25px','margin-bottom':'50px'}).text('正在交易的宝贝').appendTo($(plan));
@@ -229,6 +249,7 @@ function Sidebar(){
                 $('<div>').css({'text-align': 'center','font-size': '25px','margin-bottom':'50px'}).text('你没有宝贝出售哦~~').appendTo($(plan));
             }
         }, 'json');
+        }        
 
         if($('.nav-content').is('.sidebar-move-left')){
             $('.nav-content').removeClass('sidebar-move-left');

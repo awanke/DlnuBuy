@@ -78,10 +78,9 @@
 .nav a{
     height: 36px; display: inline-block; padding: 0px 35px; color: #ffffff;
 }
-.nav .active{
+.nav>li>a:hover{
     background-color: #ebcccc;
 }
-
 /*瀑布流布局*/
 #main{
     position: relative; text-align: center; margin: 0 auto;

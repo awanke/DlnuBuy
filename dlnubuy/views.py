@@ -20,7 +20,32 @@ def product_list(request):
 
 
 def product(request):
-    return render_to_response('product.html')
+    products = {}
+    user = {}
+    pdimg_list = []
+    pid = request.GET.get('pid')
+    try:
+        product = models.Product.objects.get(id=pid)
+        products['name'] = product.pdname
+        products['money'] = product.money
+        products['description'] = product.description
+        products['requirement'] = product.requirement
+        products['pdimg'] = str(product.pdimg)
+        pdimg_list.append(product.pdimg)
+        if str(product.pdimg2)[-10:] != '000001.jpg':
+            pdimg_list.append(str(product.pdimg2))
+        if str(product.pdimg3)[-10:] != '000001.jpg':
+            pdimg_list.append(str(product.pdimg3))
+        u = models.Users.objects.get(id=product.userid)
+        user['name'] = u.username
+        user['userphone'] = u.userphone
+        user['school'] = u.schoolAddress
+        template = 'product.html'
+        c = Context({'product': products, 'user': user, 'pdimg_list':pdimg_list})
+    except:
+        template = 'index.html'
+        c = Context()
+    return render_to_response(template, c)
 
 
 def register(request):

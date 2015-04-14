@@ -32,6 +32,13 @@ $(function(){
         }
     });
 
+    // 首次加载的时候
+    $.post('ajax/get_Allbuy', function (data) {
+        addpubuliu(data);
+        waterfall();
+        add_proudctlike()
+    }, 'json');
+
     //自动返回顶端
     $('.returnTop').click(function(){
         retunTop();
@@ -51,45 +58,13 @@ $(function(){
     //在滚动的时候动态加载新的瀑布图片
     waterfall();
 
-    //加载测试的数据
-    var dataInt={
-        'data':[
-            {'src':'warp_030_226.jpg',
-            'money':'￥155.00',
-            'pic_load':'#','title':'这个是新添加的测试','title_href':'#','volume':'0','span':'666',
-            'user_img':'images/icon/collection.png','user_name':'我的名字叫做测试',
-            'user_info':'         分享了一个宝贝      ',
-            'user_href':'#','user_id':'110'},
-            {'src':'warp_020_226.jpg',
-                'money':'￥355.00',
-                'pic_load':'#','title':'这个是新添加的测试2','title_href':'#','volume':0,'span':'666',
-                'user_img':'images/icon/collection.png','user_name':'我的名字叫做测试2',
-                'user_info':'         分享了一个宝贝       ',
-                'user_href':'#','user_id':'110'},
-            {'src':'warp_044_226.jpg',
-                'money':'￥455.00',
-                'pic_load':'#','title':'这个是新添加的测试3','title_href':'#','volume':0,'span':'666',
-                'user_img':'images/icon/collection.png','user_name':'我的名字叫做测试3',
-                'user_info':'         分享了一个宝贝       ',
-                'user_href':'#','user_id':'110'},
-            {'src':'warp_027_226.jpg',
-                'money':'￥151.00',
-                'pic_load':'#','title':'这个是新添加的测试4','title_href':'#','volume':0,'span':'666',
-                'user_img':'images/icon/collection.png','user_name':'我的名字叫做测试4',
-                'user_info':'         分享了一个宝贝       ',
-                'user_href':'#','user_id':'110'},
-            {'src':'warp_087_226.jpg',
-                'money':'￥155.00',
-                'pic_load':'#','title':'这个是新添加的测试5','title_href':'#','volume':0,'span':'666',
-                'user_img':'images/icon/collection.png','user_name':'我的名字叫做测试5',
-                'user_info':'         分享了一个宝贝       ',
-                'user_href':'#','user_id':'110'}
-        ]};
-
     window.onscroll=function(){
         if(checkscrollside()){
-            addpubuliu(dataInt);
-            waterfall();
+            $.post('ajax/get_Allbuy', function (data) {
+                addpubuliu(data);
+                waterfall();
+                add_proudctlike()
+            }, 'json');
         };
     }
 });
@@ -225,8 +200,8 @@ function lunbo(){
 }
 
 //加载新的瀑布流内容
-function addpubuliu(dataInt){
-    $.each( dataInt.data, function( index, value ){
+function addpubuliu(data){
+    $.each(data.data, function (index, value) {
         //第一级
         var Pin = $('<div>').addClass('pin').appendTo($('#main'));
 
@@ -236,36 +211,50 @@ function addpubuliu(dataInt){
         //第三级
         var Pic = $('<div>').addClass('np_pic').appendTo($(Box));
         $('<div>').addClass('price').text($(value).attr('money')).appendTo($(Pic));
-        var a_load = $('<a>').addClass('pic_load').attr('target','_blank').attr('href',$(value).attr('pic_load')).appendTo($(Pic));
-        $('<img>').attr('src','static/images/warp/' +$(value).attr('src')).appendTo($(Pic));
+        var a_load = $('<a>').addClass('pic_load').attr('target', '_blank').attr('href', $(value).attr('pic_load')).appendTo($(Pic));
+        $('<img>').attr('src', $(value).attr('src')).appendTo($(Pic));
 
         //第三级
         var title = $('<div>').addClass('title').appendTo($(Box));
         var p1 = $('<p>').appendTo($(title));
-        $('<a>').attr('target','_blank').attr('href',$(value).attr('title_href')).text($(value).attr('title')).appendTo($(p1));
+        $('<a>').attr('target', '_blank').attr('href', 'product.html?pid='+$(value).attr('pdid')).text($(value).attr('title')).appendTo($(p1));
 
         //第三级
         $('<div>').addClass('clear_f').appendTo($(Box));
 
         //第三级
         var comm = $('<div>').addClass('comm_num').appendTo($(Box));
-        if($(value).attr('volume') == 1){
+        if ($(value).attr('volume') == 1) {
             $('<a>').addClass('fr').text('出售中').appendTo($(comm));
-        }else{
+        } else {
             $('<a>').addClass('fr red_f').text('正在交易').appendTo($(comm));
         }
-        var likes = $('<a>').addClass('fl poster_likes likes').attr('href','javascript:void(0)').appendTo($(comm));
+        var likes = $('<a>').addClass('fl poster_likes likes').attr({'pid':$(value).attr('pdid'),'name':'pdname'}).appendTo($(comm));
         $('<b>').addClass('likes_status').text('喜  欢').appendTo($(likes));
         $('<span>').addClass('red_f poster_like_num').text($(value).attr('span')).appendTo($(likes));
 
         //第三级
         var share = $('<div>').addClass('np_share').appendTo($(Box));
-        var user = $('<a>').addClass('avatar32_f trans07').attr('target','_blank').attr('href','static/'+$(value).attr('user_href'))
-            .attr('user_id',$(value).attr('user_id')).appendTo($(share));
-        $('<img>').attr('src','static/'+$(value).attr('user_img')).appendTo($(user));
-        var p2 = $('<p>').attr('style','margin-left: 42px;').appendTo($(share));
-        $('<a>').attr('target','_blank').attr('href','static/'+$(value).attr('user_href')).text($(value).attr('user_name')).appendTo($(p2));
+        var user = $('<a>').addClass('avatar32_f trans07').attr('style', 'cursor: pointer;')
+            .attr('user_id', $(value).attr('user_id')).appendTo($(share));
+        $('<img>').attr('src', $(value).attr('user_img')).appendTo($(user));
+        var p2 = $('<p>').attr('style', 'margin-left: 42px;').appendTo($(share));
+        $('<a>').attr('style', 'cursor: pointer;').text($(value).attr('user_name')).appendTo($(p2));
         $('<p>').addClass('t_idt').text($(value).attr('user_info')).appendTo($(share));
         $('<div>').addClass('clear_f').appendTo($(share));
+    });
+}
+
+function add_proudctlike() {
+    $('a[name=pdname]').click(function (event) {
+        var events = event.target.parentElement;
+        var pid = $(events).attr('pid');
+
+        $.post('add/proudctlike',{pid:pid},function (data) {
+            if(data.ret == 'success'){
+                $(events).children('span').text(data['num']);
+                $(events).children('b').css('background-color','#ccc');
+            }
+        }, 'json');
     });
 }

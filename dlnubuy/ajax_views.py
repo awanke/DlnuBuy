@@ -5,7 +5,7 @@ from django.conf import settings
 import redis
 import json, pdb
 from django.utils import timezone
-from django.db.models import Q
+import datetime
 
 
 # Create your views here.
@@ -382,59 +382,111 @@ def proudctlike(request):
     return HttpResponse(json.dumps(rsdic))
 
 
+def productTime(request):
+    rsdic = {}
+    pid = request.POST['pid']
+    try:
+        pdtime = models.Product.objects.get(id=pid)
+        time7 = pdtime.begintime + datetime.timedelta(days=7)
+        timeout = (time7 - timezone.now()).total_seconds()
+        if timeout > 0:
+            timeoutD = timeout // 86400
+            timeoutH = (timeout % 86400) // 3600
+            timeoutM = (timeout % 86400 % 3600) // 60
+            timeoutMm = timeout % 86400 % 3600 % 60
+            rsdic['timeoutD'] = timeoutD
+            rsdic['timeoutH'] = timeoutH
+            rsdic['timeoutM'] = timeoutM
+            rsdic['timeoutMm'] = int(timeoutMm)
+            rsdic['time'] = '0'
+        else:
+            rsdic['time'] = '对不起，这个宝贝已经下架了！！'
+        rsdic['ret'] = 'success'
+    except:
+        rsdic['ret'] = 'error'
+    return HttpResponse(json.dumps(rsdic))
 
 
+def get_Allbuyinfos(request):
+    rsdic = {}
+    try:
+        newmonth = timezone.now() - datetime.timedelta(days=30)
+        products = models.Product.objects.filter(begintime__gte=newmonth).order_by('begintime')
+        arry = []
+        for product in products:
+            data = {}
+            data['src'] = str(product.pdimg)
+            data['money'] = '￥' + str(product.money)
+            data['title'] = product.description
+            volume = models.Buy.objects.get(pdid=product.id)
+            data['volume'] = int(volume.transaction_status)
+            data['span'] = int(product.likes)
+            data['pic_load'] = '#'
+            user = models.Users.objects.get(id=product.userid)
+            data['user_img'] = str(user.userimg)
+            data['user_name'] = user.username
+            data['user_info'] = product.requirement
+            data['user_href'] = '#'
+            data['user_id'] = user.id
+            data['pdid'] = str(product.id)
+            arry.append(data)
+        rsdic['data'] = arry
+        rsdic['ret'] = 'succsee'
+    except:
+        rsdic['ret'] = 'error'
+        rsdic['data'] = ''
+    return HttpResponse(json.dumps(rsdic))
 
 
 # 添加测试数据
-def input_db_user(request):
+# def input_db_user(request):
 
-    i = 1
-    for j in range(10):
-        username = 'test'+str(i)
-        password = '123456'
-        userphone = '18642636963'
-        user = models.Users(username=username, password=password, userphone=userphone)
-        user.save()
-        i += 1
-    return HttpResponse()
-
-
-def input_db_product(request):
-    i = 1
-    m = 100
-    for j in range(35):
-        user_id = '1'
-        baoname = 'test'+str(i)
-        baomoney = 150 + i
-        buytext = '这些是导入的测试数据'
-        category = 101015
-        products = models.Product()
-        products.userid = user_id
-        products.pdname = baoname
-        products.money = baomoney
-        products.description = buytext
-        products.requirement = buytext
-        products.category = category
-        products.pdimg = 'static/images/warp/warp_'+str(m)+'_226.jpg'
-        products.pdimg2 = 'static/images/warp/warp_'+str(m+1)+'_226.jpg'
-        products.save()
-        i += 1
-        m += 1
-    return HttpResponse()
+#     i = 1
+#     for j in range(10):
+#         username = 'test'+str(i)
+#         password = '123456'
+#         userphone = '18642636963'
+#         user = models.Users(username=username, password=password, userphone=userphone)
+#         user.save()
+#         i += 1
+#     return HttpResponse()
 
 
-def input_db_buy(request):
+# def input_db_product(request):
+#     i = 1
+#     m = 100
+#     for j in range(35):
+#         user_id = '1'
+#         baoname = 'test'+str(i)
+#         baomoney = 150 + i
+#         buytext = '这些是导入的测试数据'
+#         category = 101015
+#         products = models.Product()
+#         products.userid = user_id
+#         products.pdname = baoname
+#         products.money = baomoney
+#         products.description = buytext
+#         products.requirement = buytext
+#         products.category = category
+#         products.pdimg = 'static/images/warp/warp_'+str(m)+'_226.jpg'
+#         products.pdimg2 = 'static/images/warp/warp_'+str(m+1)+'_226.jpg'
+#         products.save()
+#         i += 1
+#         m += 1
+#     return HttpResponse()
 
-    i = 1
-    for j in range(10):
-        pdid = 48 + i
-        buy = models.Buy()
-        buy.pdid = pdid
-        buy.transaction_status = str(0)
-        buy.buyid = 3
-        buy.esllid = 4
-        buy.buymoney = 150 + i
-        buy.save()
-        i += 1
-    return HttpResponse()
+
+# def input_db_buy(request):
+
+#     i = 1
+#     for j in range(10):
+#         pdid = 48 + i
+#         buy = models.Buy()
+#         buy.pdid = pdid
+#         buy.transaction_status = str(0)
+#         buy.buyid = 3
+#         buy.esllid = 4
+#         buy.buymoney = 150 + i
+#         buy.save()
+#         i += 1
+#     return HttpResponse()

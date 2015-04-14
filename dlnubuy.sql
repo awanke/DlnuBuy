@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2015-03-25 16:20:07
+Date: 2015-04-14 11:16:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -197,7 +197,7 @@ CREATE TABLE `django_migrations` (
   `name` varchar(255) NOT NULL,
   `applied` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of django_migrations
@@ -206,6 +206,8 @@ INSERT INTO `django_migrations` VALUES ('1', 'contenttypes', '0001_initial', '20
 INSERT INTO `django_migrations` VALUES ('2', 'auth', '0001_initial', '2015-03-24 09:33:53');
 INSERT INTO `django_migrations` VALUES ('3', 'sessions', '0001_initial', '2015-03-24 09:33:53');
 INSERT INTO `django_migrations` VALUES ('4', 'dlnubuy', '0001_initial', '2015-03-24 09:34:25');
+INSERT INTO `django_migrations` VALUES ('5', 'dlnubuy', '0002_auto_20150331_1433', '2015-03-31 06:33:46');
+INSERT INTO `django_migrations` VALUES ('6', 'dlnubuy', '0003_auto_20150405_0948', '2015-04-05 01:48:51');
 
 -- ----------------------------
 -- Table structure for django_session
@@ -236,11 +238,46 @@ CREATE TABLE `dlnubuy_buy` (
   `esllid` int(11) NOT NULL,
   `buymoney` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dlnubuy_buy
 -- ----------------------------
+INSERT INTO `dlnubuy_buy` VALUES ('21', '37', '2015-04-02 05:24:15', '1', '1', '2', '151');
+INSERT INTO `dlnubuy_buy` VALUES ('22', '40', '2015-04-02 05:24:15', '1', '1', '2', '152');
+INSERT INTO `dlnubuy_buy` VALUES ('23', '41', '2015-04-02 05:24:15', '1', '1', '2', '153');
+INSERT INTO `dlnubuy_buy` VALUES ('24', '42', '2015-04-02 05:24:15', '1', '1', '2', '154');
+INSERT INTO `dlnubuy_buy` VALUES ('25', '43', '2015-04-02 05:24:15', '1', '1', '2', '155');
+INSERT INTO `dlnubuy_buy` VALUES ('26', '44', '2015-04-02 05:24:15', '1', '1', '2', '156');
+INSERT INTO `dlnubuy_buy` VALUES ('27', '45', '2015-04-02 05:24:15', '1', '1', '2', '157');
+INSERT INTO `dlnubuy_buy` VALUES ('28', '46', '2015-04-02 05:24:15', '1', '1', '2', '158');
+INSERT INTO `dlnubuy_buy` VALUES ('29', '47', '2015-04-02 05:24:15', '1', '1', '2', '159');
+INSERT INTO `dlnubuy_buy` VALUES ('30', '48', '2015-04-02 05:24:15', '1', '1', '2', '160');
+INSERT INTO `dlnubuy_buy` VALUES ('31', '49', '2015-04-02 05:26:26', '0', '3', '4', '151');
+INSERT INTO `dlnubuy_buy` VALUES ('32', '50', '2015-04-02 05:26:26', '0', '3', '4', '152');
+INSERT INTO `dlnubuy_buy` VALUES ('33', '51', '2015-04-02 05:26:26', '0', '3', '4', '153');
+INSERT INTO `dlnubuy_buy` VALUES ('34', '52', '2015-04-02 05:26:26', '0', '3', '4', '154');
+INSERT INTO `dlnubuy_buy` VALUES ('35', '53', '2015-04-02 05:26:26', '0', '3', '4', '155');
+INSERT INTO `dlnubuy_buy` VALUES ('36', '54', '2015-04-02 05:26:26', '0', '3', '4', '156');
+INSERT INTO `dlnubuy_buy` VALUES ('37', '55', '2015-04-02 05:26:26', '0', '3', '4', '157');
+INSERT INTO `dlnubuy_buy` VALUES ('38', '38', '2015-04-02 05:26:26', '0', '3', '4', '158');
+INSERT INTO `dlnubuy_buy` VALUES ('39', '39', '2015-04-02 05:26:26', '0', '3', '4', '159');
+INSERT INTO `dlnubuy_buy` VALUES ('40', '58', '2015-04-02 05:26:26', '0', '3', '4', '160');
+INSERT INTO `dlnubuy_buy` VALUES ('41', '59', '2015-04-02 05:26:26', '0', '3', '4', '160');
+INSERT INTO `dlnubuy_buy` VALUES ('42', '60', '2015-04-02 05:26:26', '0', '3', '4', '160');
+INSERT INTO `dlnubuy_buy` VALUES ('43', '61', '2015-04-02 05:26:26', '0', '3', '4', '160');
+INSERT INTO `dlnubuy_buy` VALUES ('44', '62', '2015-04-02 05:26:26', '0', '3', '4', '160');
+INSERT INTO `dlnubuy_buy` VALUES ('45', '63', '2015-04-02 05:26:26', '0', '3', '4', '160');
+INSERT INTO `dlnubuy_buy` VALUES ('46', '64', '2015-04-02 05:26:26', '0', '3', '4', '160');
+INSERT INTO `dlnubuy_buy` VALUES ('48', '65', '2015-04-02 05:26:26', '0', '3', '4', '160');
+INSERT INTO `dlnubuy_buy` VALUES ('50', '66', '2015-04-02 05:26:26', '0', '3', '4', '160');
+INSERT INTO `dlnubuy_buy` VALUES ('51', '67', '2015-04-02 05:26:26', '0', '3', '4', '160');
+INSERT INTO `dlnubuy_buy` VALUES ('52', '68', '2015-04-02 05:26:26', '0', '3', '4', '160');
+INSERT INTO `dlnubuy_buy` VALUES ('53', '69', '2015-04-02 05:26:26', '0', '3', '4', '160');
+INSERT INTO `dlnubuy_buy` VALUES ('54', '70', '2015-04-02 05:26:26', '0', '3', '4', '160');
+INSERT INTO `dlnubuy_buy` VALUES ('55', '71', '2015-04-02 05:26:26', '0', '3', '4', '160');
+INSERT INTO `dlnubuy_buy` VALUES ('56', '56', '2015-04-02 05:26:26', '0', '3', '4', '160');
+INSERT INTO `dlnubuy_buy` VALUES ('57', '57', '2015-04-02 05:26:26', '0', '3', '4', '160');
 
 -- ----------------------------
 -- Table structure for dlnubuy_classification
@@ -253,7 +290,7 @@ CREATE TABLE `dlnubuy_classification` (
   `level` int(11) NOT NULL,
   `parent` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=170 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dlnubuy_classification
@@ -263,169 +300,117 @@ INSERT INTO `dlnubuy_classification` VALUES ('2', '生活百货', '200000', '1',
 INSERT INTO `dlnubuy_classification` VALUES ('3', '遗弃猫狗', '300000', '1', '0');
 INSERT INTO `dlnubuy_classification` VALUES ('4', '户外健身', '400000', '1', '0');
 INSERT INTO `dlnubuy_classification` VALUES ('5', '工艺品', '500000', '1', '0');
-INSERT INTO `dlnubuy_classification` VALUES ('6', '教辅类', '101000', '2', '100000');
-INSERT INTO `dlnubuy_classification` VALUES ('7', '图书类', '102000', '2', '100000');
-INSERT INTO `dlnubuy_classification` VALUES ('8', '英语专项', '101010', '3', '101000');
-INSERT INTO `dlnubuy_classification` VALUES ('9', '阅读理解', '101011', '4', '101010');
-INSERT INTO `dlnubuy_classification` VALUES ('10', '英语词汇', '101012', '4', '101010');
-INSERT INTO `dlnubuy_classification` VALUES ('11', '英语语法', '101013', '4', '101010');
-INSERT INTO `dlnubuy_classification` VALUES ('12', '口语/听力', '101014', '4', '101010');
-INSERT INTO `dlnubuy_classification` VALUES ('13', '英语写作', '101015', '4', '101010');
-INSERT INTO `dlnubuy_classification` VALUES ('14', '考研', '101020', '3', '101000');
-INSERT INTO `dlnubuy_classification` VALUES ('15', '考研英语', '101021', '4', '101020');
-INSERT INTO `dlnubuy_classification` VALUES ('16', '考研数学', '101022', '4', '101020');
-INSERT INTO `dlnubuy_classification` VALUES ('17', '考研政治', '101023', '4', '101020');
-INSERT INTO `dlnubuy_classification` VALUES ('18', '考研专业课', '101024', '4', '101020');
-INSERT INTO `dlnubuy_classification` VALUES ('19', '外语考试', '101030', '3', '101000');
-INSERT INTO `dlnubuy_classification` VALUES ('20', '日语考试', '101031', '4', '101030');
-INSERT INTO `dlnubuy_classification` VALUES ('21', '四/六级考试', '101032', '4', '101030');
-INSERT INTO `dlnubuy_classification` VALUES ('22', '托福考试', '101033', '4', '101030');
-INSERT INTO `dlnubuy_classification` VALUES ('23', 'GRE考试', '101034', '4', '101030');
-INSERT INTO `dlnubuy_classification` VALUES ('24', '公务员考试', '101040', '3', '101000');
-INSERT INTO `dlnubuy_classification` VALUES ('25', '申论', '101041', '4', '101040');
-INSERT INTO `dlnubuy_classification` VALUES ('26', '行测', '101042', '4', '101040');
-INSERT INTO `dlnubuy_classification` VALUES ('27', '国考', '101043', '4', '101040');
-INSERT INTO `dlnubuy_classification` VALUES ('28', '省考', '101044', '4', '101040');
-INSERT INTO `dlnubuy_classification` VALUES ('29', '财税外贸类', '101050', '3', '101000');
-INSERT INTO `dlnubuy_classification` VALUES ('30', '初级会计职称', '101051', '4', '101050');
-INSERT INTO `dlnubuy_classification` VALUES ('31', '会计从业', '101052', '4', '101050');
-INSERT INTO `dlnubuy_classification` VALUES ('32', '证券从业', '101053', '4', '101050');
-INSERT INTO `dlnubuy_classification` VALUES ('33', '注册会计', '101054', '4', '101050');
-INSERT INTO `dlnubuy_classification` VALUES ('34', '银行从业', '101055', '4', '101050');
-INSERT INTO `dlnubuy_classification` VALUES ('35', '建筑工程类', '101060', '3', '101000');
-INSERT INTO `dlnubuy_classification` VALUES ('36', '国二建造', '101061', '4', '101060');
-INSERT INTO `dlnubuy_classification` VALUES ('37', '国一建造', '101062', '4', '101060');
-INSERT INTO `dlnubuy_classification` VALUES ('38', '注册电气', '101063', '4', '101060');
-INSERT INTO `dlnubuy_classification` VALUES ('39', '注册结构', '101064', '4', '101060');
-INSERT INTO `dlnubuy_classification` VALUES ('40', '造价工程', '101065', '4', '101060');
-INSERT INTO `dlnubuy_classification` VALUES ('41', '注册安全', '101066', '4', '101060');
-INSERT INTO `dlnubuy_classification` VALUES ('42', '注册建筑', '101067', '4', '101060');
-INSERT INTO `dlnubuy_classification` VALUES ('43', '教师资格', '101070', '3', '101000');
-INSERT INTO `dlnubuy_classification` VALUES ('44', '幼教', '101071', '4', '101070');
-INSERT INTO `dlnubuy_classification` VALUES ('45', '司法考试', '101072', '4', '101070');
-INSERT INTO `dlnubuy_classification` VALUES ('46', '计算机等级考试', '101080', '3', '101000');
-INSERT INTO `dlnubuy_classification` VALUES ('47', '计算机二级', '101081', '4', '101080');
-INSERT INTO `dlnubuy_classification` VALUES ('48', '其他', '101082', '4', '101080');
-INSERT INTO `dlnubuy_classification` VALUES ('49', '小说类', '102010', '3', '102000');
-INSERT INTO `dlnubuy_classification` VALUES ('50', '历史小说', '102011', '4', '102010');
-INSERT INTO `dlnubuy_classification` VALUES ('51', '社会小说', '102012', '4', '102010');
-INSERT INTO `dlnubuy_classification` VALUES ('52', '官场小说', '102013', '4', '102010');
-INSERT INTO `dlnubuy_classification` VALUES ('53', '都市小说', '102014', '4', '102010');
-INSERT INTO `dlnubuy_classification` VALUES ('54', '侦探/悬疑/推理', '102015', '4', '102010');
-INSERT INTO `dlnubuy_classification` VALUES ('55', '中国当代小说', '102016', '4', '102010');
-INSERT INTO `dlnubuy_classification` VALUES ('56', '中国近代小说', '102017', '4', '102010');
-INSERT INTO `dlnubuy_classification` VALUES ('57', '作品集', '102018', '4', '102010');
-INSERT INTO `dlnubuy_classification` VALUES ('58', '文学类', '102020', '3', '102000');
-INSERT INTO `dlnubuy_classification` VALUES ('59', '名家作品', '102021', '4', '102020');
-INSERT INTO `dlnubuy_classification` VALUES ('60', '当代随笔', '102022', '4', '102020');
-INSERT INTO `dlnubuy_classification` VALUES ('61', '古诗词', '102023', '4', '102020');
-INSERT INTO `dlnubuy_classification` VALUES ('62', '纪实文学', '102024', '4', '102020');
-INSERT INTO `dlnubuy_classification` VALUES ('63', '当代诗歌', '102025', '4', '102020');
-INSERT INTO `dlnubuy_classification` VALUES ('64', '文集', '102026', '4', '102020');
-INSERT INTO `dlnubuy_classification` VALUES ('65', '传记类', '102030', '3', '102000');
-INSERT INTO `dlnubuy_classification` VALUES ('66', '财经人物', '102031', '4', '102030');
-INSERT INTO `dlnubuy_classification` VALUES ('67', '领袖首脑', '102032', '4', '102030');
-INSERT INTO `dlnubuy_classification` VALUES ('68', '军事人物', '102033', '4', '102030');
-INSERT INTO `dlnubuy_classification` VALUES ('69', '政治人物', '102034', '4', '102030');
-INSERT INTO `dlnubuy_classification` VALUES ('70', '历史人物', '102035', '4', '102030');
-INSERT INTO `dlnubuy_classification` VALUES ('71', '历代帝王', '102036', '4', '102030');
-INSERT INTO `dlnubuy_classification` VALUES ('72', '艺术类', '102040', '3', '102000');
-INSERT INTO `dlnubuy_classification` VALUES ('73', '绘画', '102041', '4', '102040');
-INSERT INTO `dlnubuy_classification` VALUES ('74', '摄影', '102042', '4', '102040');
-INSERT INTO `dlnubuy_classification` VALUES ('75', '书法/纂刻', '102043', '4', '102040');
-INSERT INTO `dlnubuy_classification` VALUES ('76', '音乐', '102044', '4', '102040');
-INSERT INTO `dlnubuy_classification` VALUES ('77', '设计', '102045', '4', '102040');
-INSERT INTO `dlnubuy_classification` VALUES ('78', '收藏', '102046', '4', '102040');
-INSERT INTO `dlnubuy_classification` VALUES ('79', '艺术理论', '102047', '4', '102040');
-INSERT INTO `dlnubuy_classification` VALUES ('80', '青春文学', '102050', '3', '102000');
-INSERT INTO `dlnubuy_classification` VALUES ('81', '校园', '102051', '4', '102050');
-INSERT INTO `dlnubuy_classification` VALUES ('82', '爱情/感情', '102052', '4', '102050');
-INSERT INTO `dlnubuy_classification` VALUES ('83', '玄幻/新武侠', '102053', '4', '102050');
-INSERT INTO `dlnubuy_classification` VALUES ('84', '漫画/动漫', '102060', '3', '102000');
-INSERT INTO `dlnubuy_classification` VALUES ('85', '大陆漫画', '102061', '4', '102060');
-INSERT INTO `dlnubuy_classification` VALUES ('86', '日韩漫画', '102062', '4', '102060');
-INSERT INTO `dlnubuy_classification` VALUES ('87', '成功/励志', '102070', '3', '102000');
-INSERT INTO `dlnubuy_classification` VALUES ('88', '人在职场', '102071', '4', '102070');
-INSERT INTO `dlnubuy_classification` VALUES ('89', '成功激励', '102072', '4', '102070');
-INSERT INTO `dlnubuy_classification` VALUES ('90', '心灵修养', '102073', '4', '102070');
-INSERT INTO `dlnubuy_classification` VALUES ('91', '青少年励志', '102074', '4', '102070');
-INSERT INTO `dlnubuy_classification` VALUES ('92', '人生哲学', '102075', '4', '102070');
-INSERT INTO `dlnubuy_classification` VALUES ('93', '人际交往', '102076', '4', '102070');
-INSERT INTO `dlnubuy_classification` VALUES ('94', '管理类', '102080', '3', '102000');
-INSERT INTO `dlnubuy_classification` VALUES ('95', '市场/营销', '102081', '4', '102000');
-INSERT INTO `dlnubuy_classification` VALUES ('96', '会计', '102082', '4', '102080');
-INSERT INTO `dlnubuy_classification` VALUES ('97', '证券/投资', '102083', '4', '102080');
-INSERT INTO `dlnubuy_classification` VALUES ('98', '建筑', '102090', '3', '102000');
-INSERT INTO `dlnubuy_classification` VALUES ('99', '建筑史与文化', '102091', '4', '102090');
-INSERT INTO `dlnubuy_classification` VALUES ('100', '建筑科学', '102092', '4', '102090');
-INSERT INTO `dlnubuy_classification` VALUES ('101', '建筑外观设计', '102093', '4', '102090');
-INSERT INTO `dlnubuy_classification` VALUES ('102', '室内设计', '102094', '4', '102090');
-INSERT INTO `dlnubuy_classification` VALUES ('103', '计算机/网络', '102100', '3', '102000');
-INSERT INTO `dlnubuy_classification` VALUES ('104', '程序设计', '102101', '4', '102100');
-INSERT INTO `dlnubuy_classification` VALUES ('105', '数据库', '102102', '4', '102100');
-INSERT INTO `dlnubuy_classification` VALUES ('106', '软件工程', '102103', '4', '102100');
-INSERT INTO `dlnubuy_classification` VALUES ('107', '办公用书', '102104', '4', '102100');
-INSERT INTO `dlnubuy_classification` VALUES ('108', '图形图像/多媒体', '102105', '4', '102100');
-INSERT INTO `dlnubuy_classification` VALUES ('109', '工业技术', '102110', '3', '102000');
-INSERT INTO `dlnubuy_classification` VALUES ('110', '电子通信', '102111', '4', '102110');
-INSERT INTO `dlnubuy_classification` VALUES ('111', '电子技术', '102112', '4', '102110');
-INSERT INTO `dlnubuy_classification` VALUES ('112', '机械仪表', '102113', '4', '102110');
-INSERT INTO `dlnubuy_classification` VALUES ('113', '家具日用', '201000', '2', '200000');
-INSERT INTO `dlnubuy_classification` VALUES ('114', '整理收纳', '201010', '3', '201000');
-INSERT INTO `dlnubuy_classification` VALUES ('115', '整理箱收纳盒', '201011', '4', '201010');
-INSERT INTO `dlnubuy_classification` VALUES ('116', '压缩袋防尘罩', '201012', '4', '201010');
-INSERT INTO `dlnubuy_classification` VALUES ('117', '衣架烫衣板', '201013', '4', '201010');
-INSERT INTO `dlnubuy_classification` VALUES ('118', '置物架', '201014', '4', '201010');
-INSERT INTO `dlnubuy_classification` VALUES ('119', '缝纫用品', '201015', '4', '201010');
-INSERT INTO `dlnubuy_classification` VALUES ('120', '清洁护理', '201020', '3', '201000');
-INSERT INTO `dlnubuy_classification` VALUES ('121', '清洁工具', '201021', '4', '201020');
-INSERT INTO `dlnubuy_classification` VALUES ('122', '暖宝宝', '201022', '4', '201020');
-INSERT INTO `dlnubuy_classification` VALUES ('123', '收纳', '201023', '4', '201020');
-INSERT INTO `dlnubuy_classification` VALUES ('124', '家具', '201030', '3', '201000');
-INSERT INTO `dlnubuy_classification` VALUES ('125', '书柜衣架', '201031', '4', '201030');
-INSERT INTO `dlnubuy_classification` VALUES ('126', '休息沙发', '201032', '4', '201030');
-INSERT INTO `dlnubuy_classification` VALUES ('127', '椅子凳子', '201033', '4', '201030');
-INSERT INTO `dlnubuy_classification` VALUES ('128', '猫', '301000', '2', '300000');
-INSERT INTO `dlnubuy_classification` VALUES ('129', '狗', '302000', '2', '300000');
-INSERT INTO `dlnubuy_classification` VALUES ('130', '其他', '303000', '2', '300000');
-INSERT INTO `dlnubuy_classification` VALUES ('131', '小猫', '301010', '3', '301000');
-INSERT INTO `dlnubuy_classification` VALUES ('132', '大猫', '301020', '3', '301000');
-INSERT INTO `dlnubuy_classification` VALUES ('133', '公猫', '301011', '4', '301010');
-INSERT INTO `dlnubuy_classification` VALUES ('134', '母猫', '301012', '4', '301010');
-INSERT INTO `dlnubuy_classification` VALUES ('135', '公猫', '301021', '4', '301020');
-INSERT INTO `dlnubuy_classification` VALUES ('136', '母猫', '301022', '4', '301020');
-INSERT INTO `dlnubuy_classification` VALUES ('137', '大狗', '302010', '3', '302000');
-INSERT INTO `dlnubuy_classification` VALUES ('138', '公狗', '302011', '4', '302010');
-INSERT INTO `dlnubuy_classification` VALUES ('139', '母狗', '302012', '4', '302010');
-INSERT INTO `dlnubuy_classification` VALUES ('140', '小狗', '302020', '3', '302020');
-INSERT INTO `dlnubuy_classification` VALUES ('141', '公狗', '302021', '4', '302020');
-INSERT INTO `dlnubuy_classification` VALUES ('142', '母狗', '302022', '4', '302020');
-INSERT INTO `dlnubuy_classification` VALUES ('143', '兔子', '303010', '3', '303000');
-INSERT INTO `dlnubuy_classification` VALUES ('144', '蜥蜴', '303020', '3', '303000');
-INSERT INTO `dlnubuy_classification` VALUES ('145', '小兔子', '303011', '4', '303010');
-INSERT INTO `dlnubuy_classification` VALUES ('146', '不能吃', '303021', '4', '303020');
-INSERT INTO `dlnubuy_classification` VALUES ('147', '户外装备', '401000', '2', '400000');
-INSERT INTO `dlnubuy_classification` VALUES ('148', '帐篷', '401010', '3', '401000');
-INSERT INTO `dlnubuy_classification` VALUES ('149', '双人帐篷', '401011', '4', '401010');
-INSERT INTO `dlnubuy_classification` VALUES ('150', '多人帐篷', '401012', '4', '401010');
-INSERT INTO `dlnubuy_classification` VALUES ('151', '球类', '402000', '2', '400000');
-INSERT INTO `dlnubuy_classification` VALUES ('152', '室内', '402010', '3', '402000');
-INSERT INTO `dlnubuy_classification` VALUES ('153', '篮球', '402011', '4', '402010');
-INSERT INTO `dlnubuy_classification` VALUES ('154', '足球', '402012', '4', '402010');
-INSERT INTO `dlnubuy_classification` VALUES ('156', '排球', '402013', '4', '402010');
-INSERT INTO `dlnubuy_classification` VALUES ('157', '乒乓球', '402014', '4', '402010');
-INSERT INTO `dlnubuy_classification` VALUES ('158', '羽毛球', '402015', '4', '402010');
-INSERT INTO `dlnubuy_classification` VALUES ('159', '自行车', '403000', '2', '400000');
-INSERT INTO `dlnubuy_classification` VALUES ('160', '山地', '403010', '3', '403000');
-INSERT INTO `dlnubuy_classification` VALUES ('161', '山地', '403011', '4', '403010');
-INSERT INTO `dlnubuy_classification` VALUES ('162', '公路', '403020', '3', '403000');
-INSERT INTO `dlnubuy_classification` VALUES ('163', '公路', '403021', '4', '403020');
-INSERT INTO `dlnubuy_classification` VALUES ('164', '手工艺', '501000', '2', '500000');
-INSERT INTO `dlnubuy_classification` VALUES ('165', '陶艺', '501010', '3', '501000');
-INSERT INTO `dlnubuy_classification` VALUES ('166', '陶艺', '501011', '4', '501010');
-INSERT INTO `dlnubuy_classification` VALUES ('167', '笔墨', '501020', '3', '501000');
-INSERT INTO `dlnubuy_classification` VALUES ('168', '绘画', '501021', '4', '501020');
-INSERT INTO `dlnubuy_classification` VALUES ('169', '书法', '501022', '4', '501020');
+INSERT INTO `dlnubuy_classification` VALUES ('6', '教辅资料', '101000', '2', '100000');
+INSERT INTO `dlnubuy_classification` VALUES ('7', '考研教材', '101010', '3', '101000');
+INSERT INTO `dlnubuy_classification` VALUES ('8', '考研数学', '101011', '4', '101010');
+INSERT INTO `dlnubuy_classification` VALUES ('9', '图书', '102000', '2', '100000');
+INSERT INTO `dlnubuy_classification` VALUES ('10', '言情小说', '102010', '3', '102000');
+INSERT INTO `dlnubuy_classification` VALUES ('11', '不一样的美男', '102011', '4', '102010');
+INSERT INTO `dlnubuy_classification` VALUES ('12', '外语考试', '101020', '3', '101000');
+INSERT INTO `dlnubuy_classification` VALUES ('13', '英语四/六级', '101021', '4', '101020');
+INSERT INTO `dlnubuy_classification` VALUES ('14', '托福考试', '101022', '4', '101020');
+INSERT INTO `dlnubuy_classification` VALUES ('15', 'GRE考试', '101023', '4', '101020');
+INSERT INTO `dlnubuy_classification` VALUES ('16', '考研英语', '101012', '4', '101010');
+INSERT INTO `dlnubuy_classification` VALUES ('17', '考研政治', '101013', '4', '101010');
+INSERT INTO `dlnubuy_classification` VALUES ('18', '考研专业课', '101014', '4', '101010');
+INSERT INTO `dlnubuy_classification` VALUES ('19', '公务员考试', '101030', '3', '101000');
+INSERT INTO `dlnubuy_classification` VALUES ('20', '其他类考试', '101040', '3', '101000');
+INSERT INTO `dlnubuy_classification` VALUES ('21', '储物', '201000', '2', '200000');
+INSERT INTO `dlnubuy_classification` VALUES ('22', '书房', '202000', '2', '200000');
+INSERT INTO `dlnubuy_classification` VALUES ('23', '灯具', '203000', '2', '200000');
+INSERT INTO `dlnubuy_classification` VALUES ('24', '烹饪', '204000', '2', '200000');
+INSERT INTO `dlnubuy_classification` VALUES ('25', '居家日用', '205000', '2', '200000');
+INSERT INTO `dlnubuy_classification` VALUES ('26', '猫', '301000', '2', '300000');
+INSERT INTO `dlnubuy_classification` VALUES ('27', '狗', '302000', '2', '300000');
+INSERT INTO `dlnubuy_classification` VALUES ('28', '其他', '303000', '2', '300000');
+INSERT INTO `dlnubuy_classification` VALUES ('29', '户外装备', '401000', '2', '400000');
+INSERT INTO `dlnubuy_classification` VALUES ('30', '体育娱乐', '402000', '2', '400000');
+INSERT INTO `dlnubuy_classification` VALUES ('31', '乐器', '501000', '2', '500000');
+INSERT INTO `dlnubuy_classification` VALUES ('32', '饰品', '502000', '2', '500000');
+INSERT INTO `dlnubuy_classification` VALUES ('33', '鞋架', '201010', '3', '201000');
+INSERT INTO `dlnubuy_classification` VALUES ('34', '衣帽架', '201020', '3', '201000');
+INSERT INTO `dlnubuy_classification` VALUES ('35', '收纳家具', '201030', '3', '201000');
+INSERT INTO `dlnubuy_classification` VALUES ('36', '书柜书架', '202010', '3', '202000');
+INSERT INTO `dlnubuy_classification` VALUES ('37', '书桌', '202020', '3', '202000');
+INSERT INTO `dlnubuy_classification` VALUES ('38', '电脑桌椅', '202030', '3', '202000');
+INSERT INTO `dlnubuy_classification` VALUES ('39', '台灯', '203010', '3', '203000');
+INSERT INTO `dlnubuy_classification` VALUES ('40', '简射灯', '203020', '3', '203000');
+INSERT INTO `dlnubuy_classification` VALUES ('41', '各种锅', '204010', '3', '204000');
+INSERT INTO `dlnubuy_classification` VALUES ('42', '各种壶', '204020', '3', '204000');
+INSERT INTO `dlnubuy_classification` VALUES ('43', '水具', '204030', '3', '204000');
+INSERT INTO `dlnubuy_classification` VALUES ('44', '收纳箱', '205010', '3', '205000');
+INSERT INTO `dlnubuy_classification` VALUES ('45', '日用品', '205020', '3', '205000');
+INSERT INTO `dlnubuy_classification` VALUES ('46', '野猫', '301010', '3', '301000');
+INSERT INTO `dlnubuy_classification` VALUES ('47', '家猫', '301020', '3', '301000');
+INSERT INTO `dlnubuy_classification` VALUES ('48', '野狗', '302010', '3', '302000');
+INSERT INTO `dlnubuy_classification` VALUES ('49', '家狗', '302020', '3', '302000');
+INSERT INTO `dlnubuy_classification` VALUES ('50', '野生', '303010', '3', '303000');
+INSERT INTO `dlnubuy_classification` VALUES ('51', '家养', '303020', '3', '303000');
+INSERT INTO `dlnubuy_classification` VALUES ('52', '帐篷', '401010', '3', '401000');
+INSERT INTO `dlnubuy_classification` VALUES ('53', '户外背包', '401020', '3', '401000');
+INSERT INTO `dlnubuy_classification` VALUES ('54', '睡袋', '401030', '3', '401000');
+INSERT INTO `dlnubuy_classification` VALUES ('55', '工具', '401040', '3', '401000');
+INSERT INTO `dlnubuy_classification` VALUES ('56', '篮球', '402010', '3', '402000');
+INSERT INTO `dlnubuy_classification` VALUES ('57', '足球', '402020', '3', '402000');
+INSERT INTO `dlnubuy_classification` VALUES ('58', '乒乓球', '402030', '3', '402000');
+INSERT INTO `dlnubuy_classification` VALUES ('59', '网球', '402040', '3', '402000');
+INSERT INTO `dlnubuy_classification` VALUES ('60', '轮滑', '402050', '3', '402000');
+INSERT INTO `dlnubuy_classification` VALUES ('61', '羽毛球', '402060', '3', '402000');
+INSERT INTO `dlnubuy_classification` VALUES ('62', '其他', '402070', '3', '402000');
+INSERT INTO `dlnubuy_classification` VALUES ('63', '口琴', '501010', '3', '501000');
+INSERT INTO `dlnubuy_classification` VALUES ('64', '吉他', '501020', '3', '501000');
+INSERT INTO `dlnubuy_classification` VALUES ('65', '乐器配件', '501030', '3', '501000');
+INSERT INTO `dlnubuy_classification` VALUES ('66', '手链', '502010', '3', '502000');
+INSERT INTO `dlnubuy_classification` VALUES ('67', '耳饰', '502020', '3', '502000');
+INSERT INTO `dlnubuy_classification` VALUES ('68', '其他', '502030', '3', '502000');
+INSERT INTO `dlnubuy_classification` VALUES ('69', '财会类考试', '101041', '4', '101040');
+INSERT INTO `dlnubuy_classification` VALUES ('70', '建筑类考试', '101042', '4', '101040');
+INSERT INTO `dlnubuy_classification` VALUES ('71', '申论', '101031', '4', '101030');
+INSERT INTO `dlnubuy_classification` VALUES ('72', '行测', '101032', '4', '101030');
+INSERT INTO `dlnubuy_classification` VALUES ('73', '鞋架', '201011', '4', '201010');
+INSERT INTO `dlnubuy_classification` VALUES ('74', '衣帽架', '201021', '4', '201020');
+INSERT INTO `dlnubuy_classification` VALUES ('75', '收纳用品', '201031', '4', '201030');
+INSERT INTO `dlnubuy_classification` VALUES ('76', '书柜', '202011', '4', '202010');
+INSERT INTO `dlnubuy_classification` VALUES ('77', '书架', '202012', '4', '202010');
+INSERT INTO `dlnubuy_classification` VALUES ('78', '书桌', '202021', '4', '202020');
+INSERT INTO `dlnubuy_classification` VALUES ('79', '电脑桌椅', '202031', '4', '202030');
+INSERT INTO `dlnubuy_classification` VALUES ('80', '充电台灯', '203011', '4', '203010');
+INSERT INTO `dlnubuy_classification` VALUES ('81', '射灯', '203021', '4', '203020');
+INSERT INTO `dlnubuy_classification` VALUES ('82', '小锅', '204011', '4', '204010');
+INSERT INTO `dlnubuy_classification` VALUES ('83', '水壶', '204021', '4', '204020');
+INSERT INTO `dlnubuy_classification` VALUES ('84', '茶具', '204031', '4', '204030');
+INSERT INTO `dlnubuy_classification` VALUES ('85', '整理箱', '205011', '4', '205010');
+INSERT INTO `dlnubuy_classification` VALUES ('86', '螺丝刀', '205021', '4', '205020');
+INSERT INTO `dlnubuy_classification` VALUES ('87', '公猫', '301011', '4', '301010');
+INSERT INTO `dlnubuy_classification` VALUES ('88', '母猫', '301012', '4', '301010');
+INSERT INTO `dlnubuy_classification` VALUES ('89', '公狗', '302011', '4', '302010');
+INSERT INTO `dlnubuy_classification` VALUES ('90', '母狗', '302012', '4', '302010');
+INSERT INTO `dlnubuy_classification` VALUES ('91', '公猫', '301021', '4', '301020');
+INSERT INTO `dlnubuy_classification` VALUES ('92', '母猫', '301022', '4', '301020');
+INSERT INTO `dlnubuy_classification` VALUES ('93', '公狗', '302021', '4', '302020');
+INSERT INTO `dlnubuy_classification` VALUES ('94', '母狗', '302022', '4', '302020');
+INSERT INTO `dlnubuy_classification` VALUES ('95', '野生', '303011', '4', '303010');
+INSERT INTO `dlnubuy_classification` VALUES ('96', '家养', '303021', '4', '303020');
+INSERT INTO `dlnubuy_classification` VALUES ('97', '多人帐篷', '401011', '4', '401010');
+INSERT INTO `dlnubuy_classification` VALUES ('98', '双人帐篷', '401012', '4', '401010');
+INSERT INTO `dlnubuy_classification` VALUES ('99', '户外登山包', '401021', '4', '401010');
+INSERT INTO `dlnubuy_classification` VALUES ('100', '单人睡袋', '401031', '4', '401030');
+INSERT INTO `dlnubuy_classification` VALUES ('101', '多人睡袋', '401032', '4', '401030');
+INSERT INTO `dlnubuy_classification` VALUES ('102', '登山工具', '401041', '4', '401040');
+INSERT INTO `dlnubuy_classification` VALUES ('103', '垂钓工具', '401042', '4', '401040');
+INSERT INTO `dlnubuy_classification` VALUES ('104', '篮球', '402011', '4', '402010');
+INSERT INTO `dlnubuy_classification` VALUES ('105', '足球', '402021', '4', '402020');
+INSERT INTO `dlnubuy_classification` VALUES ('106', '乒乓球', '402031', '4', '402030');
+INSERT INTO `dlnubuy_classification` VALUES ('107', '网球', '402041', '4', '402040');
+INSERT INTO `dlnubuy_classification` VALUES ('108', '轮滑用品', '402051', '4', '402050');
+INSERT INTO `dlnubuy_classification` VALUES ('109', '羽毛球', '402061', '4', '402060');
+INSERT INTO `dlnubuy_classification` VALUES ('110', '其他', '402071', '4', '402070');
+INSERT INTO `dlnubuy_classification` VALUES ('111', '口琴', '501011', '4', '501010');
+INSERT INTO `dlnubuy_classification` VALUES ('112', '吉他', '501021', '4', '501020');
+INSERT INTO `dlnubuy_classification` VALUES ('113', '各种配件', '501031', '4', '501030');
+INSERT INTO `dlnubuy_classification` VALUES ('114', '各种手链', '502011', '4', '502010');
+INSERT INTO `dlnubuy_classification` VALUES ('115', '各种挂饰', '502021', '4', '502020');
+INSERT INTO `dlnubuy_classification` VALUES ('116', '其它', '502031', '4', '502030');
 
 -- ----------------------------
 -- Table structure for dlnubuy_product
@@ -442,12 +427,49 @@ CREATE TABLE `dlnubuy_product` (
   `pdimg` varchar(100) NOT NULL,
   `pdimg2` varchar(100) NOT NULL,
   `pdimg3` varchar(100) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `likes` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dlnubuy_product
 -- ----------------------------
+INSERT INTO `dlnubuy_product` VALUES ('37', 'test1', '151', '2015-04-08 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_100_226.jpg', 'static/images/warp/warp_101_226.jpg', 'static/images/warp/000001.jpg', '1', '666');
+INSERT INTO `dlnubuy_product` VALUES ('38', 'test2', '152', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_101_226.jpg', 'static/images/warp/warp_102_226.jpg', 'static/images/warp/000001.jpg', '1', '999');
+INSERT INTO `dlnubuy_product` VALUES ('39', 'test3', '153', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_102_226.jpg', 'static/images/warp/warp_103_226.jpg', 'static/images/warp/000001.jpg', '1', '111');
+INSERT INTO `dlnubuy_product` VALUES ('40', 'test4', '154', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_103_226.jpg', 'static/images/warp/warp_104_226.jpg', 'static/images/warp/000001.jpg', '1', '222');
+INSERT INTO `dlnubuy_product` VALUES ('41', 'test5', '155', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_104_226.jpg', 'static/images/warp/warp_105_226.jpg', 'static/images/warp/000001.jpg', '1', '333');
+INSERT INTO `dlnubuy_product` VALUES ('42', 'test6', '156', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_105_226.jpg', 'static/images/warp/warp_106_226.jpg', 'static/images/warp/000001.jpg', '1', '444');
+INSERT INTO `dlnubuy_product` VALUES ('43', 'test7', '157', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_106_226.jpg', 'static/images/warp/warp_107_226.jpg', 'static/images/warp/000001.jpg', '1', '555');
+INSERT INTO `dlnubuy_product` VALUES ('44', 'test8', '158', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_107_226.jpg', 'static/images/warp/warp_108_226.jpg', 'static/images/warp/000001.jpg', '1', '666');
+INSERT INTO `dlnubuy_product` VALUES ('45', 'test9', '159', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_108_226.jpg', 'static/images/warp/warp_109_226.jpg', 'static/images/warp/000001.jpg', '2', '777');
+INSERT INTO `dlnubuy_product` VALUES ('46', 'test10', '160', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_109_226.jpg', 'static/images/warp/warp_110_226.jpg', 'static/images/warp/000001.jpg', '2', '888');
+INSERT INTO `dlnubuy_product` VALUES ('47', 'test11', '161', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_110_226.jpg', 'static/images/warp/warp_111_226.jpg', 'static/images/warp/000001.jpg', '2', '999');
+INSERT INTO `dlnubuy_product` VALUES ('48', 'test12', '162', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_111_226.jpg', 'static/images/warp/warp_112_226.jpg', 'static/images/warp/000001.jpg', '2', '11');
+INSERT INTO `dlnubuy_product` VALUES ('49', 'test13', '163', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_112_226.jpg', 'static/images/warp/warp_113_226.jpg', 'static/images/warp/000001.jpg', '2', '22');
+INSERT INTO `dlnubuy_product` VALUES ('50', 'test14', '164', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_113_226.jpg', 'static/images/warp/warp_114_226.jpg', 'static/images/warp/000001.jpg', '2', '33');
+INSERT INTO `dlnubuy_product` VALUES ('51', 'test15', '165', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_114_226.jpg', 'static/images/warp/warp_115_226.jpg', 'static/images/warp/000001.jpg', '2', '44');
+INSERT INTO `dlnubuy_product` VALUES ('52', 'test16', '166', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_115_226.jpg', 'static/images/warp/warp_116_226.jpg', 'static/images/warp/000001.jpg', '2', '55');
+INSERT INTO `dlnubuy_product` VALUES ('53', 'test17', '167', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_116_226.jpg', 'static/images/warp/warp_117_226.jpg', 'static/images/warp/000001.jpg', '2', '66');
+INSERT INTO `dlnubuy_product` VALUES ('54', 'test18', '168', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_117_226.jpg', 'static/images/warp/warp_118_226.jpg', 'static/images/warp/000001.jpg', '2', '77');
+INSERT INTO `dlnubuy_product` VALUES ('55', 'test19', '169', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_118_226.jpg', 'static/images/warp/warp_119_226.jpg', 'static/images/warp/000001.jpg', '2', '88');
+INSERT INTO `dlnubuy_product` VALUES ('56', 'test20', '170', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_119_226.jpg', 'static/images/warp/warp_120_226.jpg', 'static/images/warp/000001.jpg', '2', '99');
+INSERT INTO `dlnubuy_product` VALUES ('57', 'test21', '171', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_120_226.jpg', 'static/images/warp/warp_121_226.jpg', 'static/images/warp/000001.jpg', '2', '100');
+INSERT INTO `dlnubuy_product` VALUES ('58', 'test22', '172', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '101011', 'static/images/warp/warp_121_226.jpg', 'static/images/warp/warp_122_226.jpg', 'static/images/warp/000001.jpg', '2', '200');
+INSERT INTO `dlnubuy_product` VALUES ('59', 'test23', '173', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '102011', 'static/images/warp/warp_122_226.jpg', 'static/images/warp/warp_123_226.jpg', 'static/images/warp/000001.jpg', '2', '300');
+INSERT INTO `dlnubuy_product` VALUES ('60', 'test24', '174', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '102011', 'static/images/warp/warp_123_226.jpg', 'static/images/warp/warp_124_226.jpg', 'static/images/warp/000001.jpg', '2', '400');
+INSERT INTO `dlnubuy_product` VALUES ('61', 'test25', '175', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '102011', 'static/images/warp/warp_124_226.jpg', 'static/images/warp/warp_125_226.jpg', 'static/images/warp/000001.jpg', '2', '500');
+INSERT INTO `dlnubuy_product` VALUES ('62', 'test26', '176', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '102011', 'static/images/warp/warp_125_226.jpg', 'static/images/warp/warp_126_226.jpg', 'static/images/warp/000001.jpg', '2', '600');
+INSERT INTO `dlnubuy_product` VALUES ('63', 'test27', '177', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '102011', 'static/images/warp/warp_126_226.jpg', 'static/images/warp/warp_127_226.jpg', 'static/images/warp/000001.jpg', '2', '700');
+INSERT INTO `dlnubuy_product` VALUES ('64', 'test28', '178', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '102011', 'static/images/warp/warp_127_226.jpg', 'static/images/warp/warp_128_226.jpg', 'static/images/warp/000001.jpg', '2', '800');
+INSERT INTO `dlnubuy_product` VALUES ('65', 'test29', '179', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '102011', 'static/images/warp/warp_128_226.jpg', 'static/images/warp/warp_129_226.jpg', 'static/images/warp/000001.jpg', '2', '900');
+INSERT INTO `dlnubuy_product` VALUES ('66', 'test30', '180', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '102011', 'static/images/warp/warp_129_226.jpg', 'static/images/warp/warp_130_226.jpg', 'static/images/warp/000001.jpg', '2', '50');
+INSERT INTO `dlnubuy_product` VALUES ('67', 'test31', '181', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '102011', 'static/images/warp/warp_130_226.jpg', 'static/images/warp/warp_131_226.jpg', 'static/images/warp/000001.jpg', '2', '60');
+INSERT INTO `dlnubuy_product` VALUES ('68', 'test32', '182', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '102011', 'static/images/warp/warp_131_226.jpg', 'static/images/warp/warp_132_226.jpg', 'static/images/warp/000001.jpg', '2', '70');
+INSERT INTO `dlnubuy_product` VALUES ('69', 'test33', '183', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '102011', 'static/images/warp/warp_132_226.jpg', 'static/images/warp/warp_133_226.jpg', 'static/images/warp/000001.jpg', '2', '80');
+INSERT INTO `dlnubuy_product` VALUES ('70', 'test34', '184', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '102011', 'static/images/warp/warp_133_226.jpg', 'static/images/warp/warp_134_226.jpg', 'static/images/warp/000001.jpg', '2', '90');
+INSERT INTO `dlnubuy_product` VALUES ('71', 'test35', '185', '2015-04-02 03:28:14', '这些是导入的测试数据', '这些是导入的测试数据', '102011', 'static/images/warp/warp_134_226.jpg', 'static/images/warp/warp_135_226.jpg', 'static/images/warp/000001.jpg', '2', '88');
 
 -- ----------------------------
 -- Table structure for dlnubuy_users
@@ -462,8 +484,19 @@ CREATE TABLE `dlnubuy_users` (
   `schoolAddress` varchar(200) NOT NULL,
   `userimg` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dlnubuy_users
 -- ----------------------------
+INSERT INTO `dlnubuy_users` VALUES ('1', 'jonnyf', '123456', '18642636963', '2015-03-26 01:38:23', '金石滩校区', 'static/images/users/user.jpg');
+INSERT INTO `dlnubuy_users` VALUES ('2', 'test1', '123456', '18642636963', '2015-04-02 03:09:26', '金石滩校区', 'static/images/users/user.jpg');
+INSERT INTO `dlnubuy_users` VALUES ('3', 'test2', '123456', '18642636963', '2015-04-02 03:09:26', '金石滩校区', 'static/images/users/user.jpg');
+INSERT INTO `dlnubuy_users` VALUES ('4', 'test3', '123456', '18642636963', '2015-04-02 03:09:26', '金石滩校区', 'static/images/users/user.jpg');
+INSERT INTO `dlnubuy_users` VALUES ('5', 'test4', '123456', '18642636963', '2015-04-02 03:09:26', '金石滩校区', 'static/images/users/user.jpg');
+INSERT INTO `dlnubuy_users` VALUES ('6', 'test5', '123456', '18642636963', '2015-04-02 03:09:26', '金石滩校区', 'static/images/users/user.jpg');
+INSERT INTO `dlnubuy_users` VALUES ('7', 'test6', '123456', '18642636963', '2015-04-02 03:09:26', '金石滩校区', 'static/images/users/user.jpg');
+INSERT INTO `dlnubuy_users` VALUES ('8', 'test7', '123456', '18642636963', '2015-04-02 03:09:26', '金石滩校区', 'static/images/users/user.jpg');
+INSERT INTO `dlnubuy_users` VALUES ('9', 'test8', '123456', '18642636963', '2015-04-02 03:09:26', '金石滩校区', 'static/images/users/user.jpg');
+INSERT INTO `dlnubuy_users` VALUES ('10', 'test9', '123456', '18642636963', '2015-04-02 03:09:26', '金石滩校区', 'static/images/users/user.jpg');
+INSERT INTO `dlnubuy_users` VALUES ('11', 'test10', '123456', '18642636963', '2015-04-02 03:09:26', '金石滩校区', 'static/images/users/user.jpg');
