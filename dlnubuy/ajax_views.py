@@ -1,5 +1,5 @@
 #coding=utf-8
-from dlnubuy import models
+from dlnubuy import models, encryptionF
 from django.http import HttpResponse
 from django.conf import settings
 import redis
@@ -18,7 +18,7 @@ def register(request):
     user = models.Users()
     user.userphone = mobile
     user.username = nickname
-    user.password = password
+    user.password = encryptionF.encrypt(15, password)
 
     try:
         user.save()
@@ -33,7 +33,7 @@ def loginuser(request):
     rsdic = {}
     mlsUser = request.POST['mlsUser'].encode('utf-8')
     password = request.POST['password'].encode('utf-8')
-    username = models.Users.objects.all().filter(password=password, username=mlsUser)
+    username = models.Users.objects.all().filter(password=encryptionF.encrypt(15, password), username=mlsUser)
     if(username.count() != 0):
         rsdic['ret'] = 'success'
         Uid = models.Users.objects.get(username=mlsUser).id
@@ -111,8 +111,9 @@ def modifyPassword(request):
     newpassword = request.POST['newp'].encode('utf-8')
     try:
         user = models.Users.objects.get(id=uid)
-        if(oldpassword == user.password):
-            user.password = newpassword
+        password = encryptionF.decrypt(15, user.password)
+        if(oldpassword == password):
+            user.password = encryptionF.encrypt(15, newpassword)
             user.save()
             rsdic['ret'] = 'success'
         else:
@@ -436,57 +437,3 @@ def get_Allbuyinfos(request):
         rsdic['ret'] = 'error'
         rsdic['data'] = ''
     return HttpResponse(json.dumps(rsdic))
-
-
-# 添加测试数据
-# def input_db_user(request):
-
-#     i = 1
-#     for j in range(10):
-#         username = 'test'+str(i)
-#         password = '123456'
-#         userphone = '18642636963'
-#         user = models.Users(username=username, password=password, userphone=userphone)
-#         user.save()
-#         i += 1
-#     return HttpResponse()
-
-
-# def input_db_product(request):
-#     i = 1
-#     m = 100
-#     for j in range(35):
-#         user_id = '1'
-#         baoname = 'test'+str(i)
-#         baomoney = 150 + i
-#         buytext = '这些是导入的测试数据'
-#         category = 101015
-#         products = models.Product()
-#         products.userid = user_id
-#         products.pdname = baoname
-#         products.money = baomoney
-#         products.description = buytext
-#         products.requirement = buytext
-#         products.category = category
-#         products.pdimg = 'static/images/warp/warp_'+str(m)+'_226.jpg'
-#         products.pdimg2 = 'static/images/warp/warp_'+str(m+1)+'_226.jpg'
-#         products.save()
-#         i += 1
-#         m += 1
-#     return HttpResponse()
-
-
-# def input_db_buy(request):
-
-#     i = 1
-#     for j in range(10):
-#         pdid = 48 + i
-#         buy = models.Buy()
-#         buy.pdid = pdid
-#         buy.transaction_status = str(0)
-#         buy.buyid = 3
-#         buy.esllid = 4
-#         buy.buymoney = 150 + i
-#         buy.save()
-#         i += 1
-#     return HttpResponse()
