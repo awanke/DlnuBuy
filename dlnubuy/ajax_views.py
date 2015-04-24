@@ -2,10 +2,11 @@
 from dlnubuy import models, encryptionF
 from django.http import HttpResponse
 from django.conf import settings
-import redis
-import json, pdb
+import json
 from django.utils import timezone
 import datetime
+from dlnubuy import rediscacheF
+import pdb
 
 
 # Create your views here.
@@ -25,7 +26,6 @@ def register(request):
         rsdic['ret'] = 'success'
     except:
         rsdic['ret'] = 'error'
-
     return HttpResponse(json.dumps(rsdic))
 
 
@@ -37,7 +37,8 @@ def loginuser(request):
     if(username.count() != 0):
         rsdic['ret'] = 'success'
         Uid = models.Users.objects.get(username=mlsUser).id
-        write_to_cache(Uid)
+        w = rediscacheF.redisCache()
+        w.write_to_cache(Uid)
         rsdic['id'] = Uid
     else:
         rsdic['ret'] = 'error'
@@ -48,7 +49,8 @@ def loginTag(request):
     rsdic = {}
     user_id = int(request.POST['uid'])
     user = models.Users.objects.all().filter(id=user_id)
-    rdata = read_from_cache(user_id)
+    r = rediscacheF.redisCache()
+    rdata = r.read_from_cache(user_id)
     if(rdata is not None):
         rsdic['ret'] = 'online'
         for u in user:
@@ -182,31 +184,6 @@ def getClassification(request):
     return HttpResponse(json.dumps(rsdic))
 
 
-#read cache user id
-def read_from_cache(user_id):
-    host = settings.REDIS_HOST
-    port = settings.REDIS_PORT
-    db = settings.REDIS_DB
-    r = redis.StrictRedis(host=host, port=port, db=db)
-    key = 'user_id_of_'+str(user_id)
-    value = r.get(key)
-    if value is None:
-        data = None
-    else:
-        data = value
-    return data
-
-
-#write cache user id
-def write_to_cache(user_id):
-    host = settings.REDIS_HOST
-    port = settings.REDIS_PORT
-    db = settings.REDIS_DB
-    r = redis.StrictRedis(host=host, port=port, db=db)
-    key = 'user_id_of_' + str(user_id)
-    r.set(key, key)
-
-
 # 保存用户上传的图片
 def write_to_infoimg(file, uid, type):
     if type == 'user':
@@ -247,8 +224,11 @@ def get_buyinfo(request):
             data['buyname'] = users.username
             data['buyphone'] = users.userphone
             data['buyschool'] = users.schoolAddress
-            status = models.Buy.objects.get(pdid=int(buyinfo.id))
-            data['buylevel'] = status.transaction_status
+            status = models.Buy.objects.filter(pdid=int(buyinfo.id))
+            if status.count() == 0:
+                continue
+            else:
+                data['buylevel'] = status.transaction_status
             data['buyschooling'] = users.schoolAddress
             time = int(((timezone.now() - buyinfo.begintime)).total_seconds() // 3600)
             data['succeedtime'] = '剩余'+str(time)+'小时'
@@ -294,8 +274,11 @@ def get_Allbuyinfo(request):
             data['src'] = str(product.pdimg)
             data['money'] = '￥' + str(product.money)
             data['title'] = product.description
-            volume = models.Buy.objects.get(pdid=product.id)
-            data['volume'] = int(volume.transaction_status)
+            volume = models.Buy.objects.filter(pdid=product.id)
+            if volume.count() == 0:
+                continue
+            else:
+                data['volume'] = int(volume.transaction_status)
             data['span'] = int(product.likes)
             data['pic_load'] = '#'
             user = models.Users.objects.get(id=product.userid)
@@ -387,8 +370,13 @@ def productTime(request):
     rsdic = {}
     pid = request.POST['pid']
     try:
-        pdtime = models.Product.objects.get(id=pid)
-        time7 = pdtime.begintime + datetime.timedelta(days=7)
+        pdtime = models.Buy.objects.get(pdid=pid)
+        if pdtime.transaction_status == '1':
+            time7 = pdtime.buytime + datetime.timedelta(hours=12)
+            rsdic['tratus'] = '1'
+        else:
+            time7 = pdtime.buytime + datetime.timedelta(days=7)
+            rsdic['tratus'] = '0'
         timeout = (time7 - timezone.now()).total_seconds()
         if timeout > 0:
             timeoutD = timeout // 86400
@@ -419,8 +407,11 @@ def get_Allbuyinfos(request):
             data['src'] = str(product.pdimg)
             data['money'] = '￥' + str(product.money)
             data['title'] = product.description
-            volume = models.Buy.objects.get(pdid=product.id)
-            data['volume'] = int(volume.transaction_status)
+            volume = models.Buy.objects.filter(pdid=product.id)
+            if volume.count() == 0:
+                continue
+            else:
+                data['volume'] = int(volume.transaction_status)
             data['span'] = int(product.likes)
             data['pic_load'] = '#'
             user = models.Users.objects.get(id=product.userid)
@@ -436,4 +427,51 @@ def get_Allbuyinfos(request):
     except:
         rsdic['ret'] = 'error'
         rsdic['data'] = ''
+    return HttpResponse(json.dumps(rsdic))
+
+
+def buyproudect(request):
+    rsdic = {}
+    pid = request.POST['pid']
+    uid = request.POST['uid']
+    try:
+        product = models.Buy.objects.get(pdid=pid)
+        if product.transaction_status == '0':
+            product.transaction_status = 1
+            time = timezone.now()
+            product.buytime = time
+            product.esllid(uid)
+            product.save()
+            rsdic['ret'] = 'success'
+        else:
+            rsdic['ret'] = 'no'
+    except:
+        rsdic['ret'] = 'error'
+    return HttpResponse(json.dumps(rsdic))
+
+
+def YoNproudect(request):
+    rsdic = {}
+    pid = request.POST['pid']
+    try:
+        buyproduct = models.Buy.objects.get(pdid=pid)
+        if buyproduct.transaction_status == '0':
+            time = (buyproduct.buytime - timezone.now()).total_seconds()
+            if abs(time) > 604800:
+                models.Buy.objects.get(pdid=pid).delete()
+                rsdic['buyproduct'] = 'no'
+            else:
+                rsdic['buyproduct'] = 'x'
+        else:
+            r = rediscacheF.redisCache()
+            t = r.read_from_product(pid)
+            if t is True:
+                rsdic['buyproduct'] = 'no2'
+            else:
+                rsdic['buyproduct'] = 'yes'
+                models.Buy.objects.get(pdid=pid).delete()
+        rsdic['ret'] = 'success'
+    except:
+        rsdic['ret'] = 'success'
+        rsdic['buyproduct'] = 'no'
     return HttpResponse(json.dumps(rsdic))

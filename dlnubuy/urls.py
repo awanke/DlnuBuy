@@ -30,5 +30,7 @@ urlpatterns += patterns('dlnubuy.ajax_views',
        url(r'^ajax/get_user_asset_plan', 'get_user_asset_plan'),
        url(r'^ajax/get_user_brand_plan', 'get_user_brand_plan'),
        url(r'^add/proudctlike', 'proudctlike'),
-       url(r'^ajax/productTime', 'productTime')
+       url(r'^ajax/productTime', 'productTime'),
+       url(r'^ajax/buyproudect', 'buyproudect'),
+       url(r'^ajax/yes_or_no_buyproduct', 'YoNproudect')
 )

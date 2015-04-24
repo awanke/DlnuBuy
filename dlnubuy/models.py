@@ -61,10 +61,10 @@ class Buy(models.Model):
     # 交易状态，当为1的时候是交易完成，0的时候是交易正在进行
     transaction_status = models.CharField(max_length=10, default=0)
 
-    # 买家id
+    # 卖家id
     buyid = models.IntegerField(null=False)
 
-    # 卖家id
+    # 买家id
     esllid = models.IntegerField(null=False)
 
     # 成交价格

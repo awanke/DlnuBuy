@@ -19,7 +19,8 @@ $(function(){
         },"json");
     }
 
-    Countdowntime();
+    YoNbuy();
+
     //监听滚动条
     $(window).scroll(function(){
         //导航栏的高度
@@ -31,10 +32,14 @@ $(function(){
         }
 
         Positioning();
-
-        // 计算剩余时间
-        remainTime();
     });
+
+    $('[name=apply]').click(function(event) {
+        buyproudect()
+    });
+
+    // 计算剩余时间
+    remainTime();
 })
 
 //网页定位导航特效
@@ -67,19 +72,23 @@ function Positioning(){
 function remainTime () {
     var pid = $.query.get('pid');
     $.post('ajax/productTime', {'pid': pid}, function (data) {
-        if(data['ret'] = 'success'){
+        if(data['ret'] == 'success'){
             if(data['time'] = '0'){
                 var times = $('.countdown').children('var')
                 $(times.get(0)).text(data['timeoutD']);
                 $(times.get(1)).text(data['timeoutH']);
                 $(times.get(2)).text(data['timeoutM']);
                 $(times.get(3)).text(data['timeoutMm']);
-                // Countdowntime()
+                if(data['tratus'] == '1'){
+                    $('[name=apply]').text('这个宝贝已被预订！！');
+                    $('.status-tip').css('background-position', '-2px -81px');
+                }
             }else{
                 $('.countdown').empty().text(data['time']);
             }
         }else{
             $('.countdown').empty().text('对不起，这个宝贝已经下架了！！');
+            $('.status-tip').css('background-position', '-2px -81px');
         }
     }, 'json');
 }
@@ -89,38 +98,39 @@ function Countdowntime() {
 
     var timeoutTT = setInterval(function(){
 
-        var newtime0 = $($('.countdown').children('var').get(0)).text()
-        if(newtime0 >= 0){
-            $($('.countdown').children('var').get(0)).text(newtime0)
+        var daytime = $($('.countdown').children('var').get(0)).text()
+        if(daytime >= 0){
+            $($('.countdown').children('var').get(0)).text(daytime)
         }else{
             $($('.countdown').children('var').get(0)).text(00)
             clearInterval(timeoutTT);
+            YoNbuy();
         }
 
-        var newtime1 = $($('.countdown').children('var').get(1)).text()
-        if(newtime1 >= 0){
-            $($('.countdown').children('var').get(1)).text(newtime1)
+        var hourtime = $($('.countdown').children('var').get(1)).text()
+        if(hourtime >= 0){
+            $($('.countdown').children('var').get(1)).text(hourtime)
         }else{
-            var newtime1s = $($('.countdown').children('var').get(0)).text() - 1
-            $($('.countdown').children('var').get(0)).text(newtime1s)
+            var hourtimes = $($('.countdown').children('var').get(0)).text() - 1
+            $($('.countdown').children('var').get(0)).text(hourtimes)
             $($('.countdown').children('var').get(1)).text(60)
         }
 
-        var newtime2 = $($('.countdown').children('var').get(2)).text()
-        if(newtime2 >= 0){
-            $($('.countdown').children('var').get(2)).text(newtime2)
+        var mintime = $($('.countdown').children('var').get(2)).text()
+        if(mintime >= 0){
+            $($('.countdown').children('var').get(2)).text(mintime)
         }else{
-            var newtim2s = $($('.countdown').children('var').get(1)).text() - 1
-            $($('.countdown').children('var').get(1)).text(newtim2s)
+            var mintimes = $($('.countdown').children('var').get(1)).text() - 1
+            $($('.countdown').children('var').get(1)).text(mintimes)
             $($('.countdown').children('var').get(2)).text(60)
         }
 
-        var newtime3 = $($('.countdown').children('var').get(3)).text() - 1
-        if(newtime3 >= 0){
-            $($('.countdown').children('var').get(3)).text(newtime3)
+        var miaotime = $($('.countdown').children('var').get(3)).text() - 1
+        if(miaotime >= 0){
+            $($('.countdown').children('var').get(3)).text(miaotime)
         }else{
-            var newtime3s = $($('.countdown').children('var').get(2)).text() - 1
-            $($('.countdown').children('var').get(2)).text(newtime3s)
+            var miaotimes = $($('.countdown').children('var').get(2)).text() - 1
+            $($('.countdown').children('var').get(2)).text(miaotimes)
             $($('.countdown').children('var').get(3)).text(60)
         }
     }, 1000);
@@ -129,4 +139,52 @@ function Countdowntime() {
 function selectphoto (event) {
     var newphoto = $(event.currentTarget).children().attr('src');
     $('#F_ImgBooth').attr('src',newphoto);
+}
+
+// 我要购买
+function buyproudect () {
+    //从cookie中取得用户名
+    var username = $.cookie('username');
+    var uid = $.cookie('userid');
+    var pid = $.query.get('pid');
+
+    if (username == undefined || uid == undefined){
+        location.href = 'login.html';
+    }else{
+        $.post('ajax/buyproudect', {pid:pid,uid:uid},function (data) {
+            if(data['ret'] == 'success'){
+
+                // 修改当前倒计时，显示为交易倒计时
+                $($('.countdown').children('var').get(1)).text(11);
+                $($('.countdown').children('var').get(2)).text(59);
+                $($('.countdown').children('var').get(3)).text(59);
+                $('[name=apply]').text('这个宝贝已被预订！！');
+                $('.status-tip').css('background-position', '-2px -81px');
+            }
+        }, 'json');
+    }
+}
+
+// 确认是否下架
+function YoNbuy() {
+    var pid = $.query.get('pid');
+    $.post('ajax/yes_or_no_buyproduct',{pid:pid},function (data) {
+        if(data['ret'] == 'success'){
+            if(data['buyproduct'] == 'yes'){
+                $('[name=apply]').text('这个宝贝已售出！');
+                $('.status-tip').css('background-position', '-2px -81px');
+            }else if(data['buyproduct'] == 'no'){
+                $('[name=apply]').text('这个宝贝已下架！');
+                $('.status-tip').css('background-position', '-2px -81px');
+            }else if(data['buyproduct'] == 'no2'){
+                $('[name=apply]').text('这个宝贝正在交易！');
+                $('.status-tip').css('background-position', '-2px -81px');
+                Countdowntime();
+            }else{
+                $('[name=apply]').text('我要这个宝贝 ！');
+                $('.status-tip').css('background-position', '-2px -102px');
+                Countdowntime();
+            }
+        }
+    }, 'json');
 }
