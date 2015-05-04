@@ -34,9 +34,12 @@ $(function(){
 
     // 首次加载的时候
     $.post('ajax/get_Allbuy', function (data) {
-        addpubuliu(data);
-        waterfall();
-        add_proudctlike()
+        if(data.data.length>0){
+            $('#loading').hide();
+            addpubuliu(data);
+            waterfall();
+            add_proudctlike();
+        }
     }, 'json');
 
     //自动返回顶端
@@ -61,9 +64,11 @@ $(function(){
     window.onscroll=function(){
         if(checkscrollside()){
             $.post('ajax/get_Allbuy', function (data) {
-                addpubuliu(data);
-                waterfall();
-                add_proudctlike()
+                if(data.data.length>0){
+                    addpubuliu(data);
+                    waterfall();
+                    add_proudctlike();
+                }
             }, 'json');
         };
     }

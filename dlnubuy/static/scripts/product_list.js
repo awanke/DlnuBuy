@@ -41,10 +41,12 @@ $(function(){
     // 首次加载的时候
     var cate = $.query.get('category');
     $.post('ajax/get_Allbuyinfo', {cate:cate}, function (data) {
-        $('#main').empty();
-        addpubuliu(data);
-        waterfall();
-        add_proudctlike();
+        if(data.data.length>0){
+            $('#loading').hide();
+            addpubuliu(data);
+            waterfall();
+            add_proudctlike();
+        }
     }, 'json');
 
     //自动返回顶端
@@ -60,9 +62,11 @@ $(function(){
         if(checkscrollside()){
             var cate = $.query.get('category');
             $.post('ajax/get_Allbuyinfo', {cate:cate}, function (data) {
-                addpubuliu(data);
-                waterfall();
-                add_proudctlike();
+                if(data.data.length>0){
+                    addpubuliu(data);
+                    waterfall();
+                    add_proudctlike();
+                }
             }, 'json');            
         };
     }

@@ -228,7 +228,7 @@ def get_buyinfo(request):
             if status.count() == 0:
                 continue
             else:
-                data['buylevel'] = status.transaction_status
+                data['buylevel'] = status.get().transaction_status
             data['buyschooling'] = users.schoolAddress
             time = int(((timezone.now() - buyinfo.begintime)).total_seconds() // 3600)
             data['succeedtime'] = '剩余'+str(time)+'小时'
@@ -238,7 +238,7 @@ def get_buyinfo(request):
             data['pdimg3'] = str(buyinfo.pdimg3)
             data['money'] = buyinfo.money
             data['pdname'] = buyinfo.pdname
-            data['eval'] = status.transaction_status
+            data['eval'] = status.get().transaction_status
             data['message'] = buyinfo.requirement
             data['pdid'] = buyinfo.id
             arry.append(data)
@@ -274,11 +274,11 @@ def get_Allbuyinfo(request):
             data['src'] = str(product.pdimg)
             data['money'] = '￥' + str(product.money)
             data['title'] = product.description
-            volume = models.Buy.objects.filter(pdid=product.id)
-            if volume.count() == 0:
-                continue
-            else:
+            try:
+                volume = models.Buy.objects.get(pdid=product.id)
                 data['volume'] = int(volume.transaction_status)
+            except:
+                continue
             data['span'] = int(product.likes)
             data['pic_load'] = '#'
             user = models.Users.objects.get(id=product.userid)
@@ -407,11 +407,11 @@ def get_Allbuyinfos(request):
             data['src'] = str(product.pdimg)
             data['money'] = '￥' + str(product.money)
             data['title'] = product.description
-            volume = models.Buy.objects.filter(pdid=product.id)
-            if volume.count() == 0:
-                continue
-            else:
+            try:
+                volume = models.Buy.objects.get(pdid=product.id)
                 data['volume'] = int(volume.transaction_status)
+            except:
+                continue
             data['span'] = int(product.likes)
             data['pic_load'] = '#'
             user = models.Users.objects.get(id=product.userid)
@@ -440,7 +440,7 @@ def buyproudect(request):
             product.transaction_status = 1
             time = timezone.now()
             product.buytime = time
-            product.esllid(uid)
+            product.esllid = int(uid)
             product.save()
             rsdic['ret'] = 'success'
         else:
