@@ -36,12 +36,8 @@ jQuery.extend({
 				jQuery('<input type="hidden" name="' + i + '" value="' + data[i] + '" />').appendTo(form);
 			}			
 		}		
-		//var oldElement = jQuery('#' + fileElementId);
-		//var newElement = jQuery(oldElement).clone();
-		//jQuery(oldElement).attr('id', fileId);
-		//jQuery(oldElement).before(newElement);
-		//jQuery(oldElement).appendTo(form);
 
+        // 这段代码是我自己加的，目的是为了解决多参数上传的问题
         if(typeof(fileElementId) == 'string'){
             fileElementId = [fileElementId];
         }

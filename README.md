@@ -9,15 +9,18 @@
 
 > Python 2.7+
 >
-> Requests
+> Django 1.7.5
 >
-> BeautifulSoup 4
+> django-haystack 2.3.1
 >
-> PyQt 4
+> django-redis 3.8.3
 > 
-> xlwt 1.0.0
-> 
-
+> MySQL-python 1.2.3
+>
+> redis 2.10.3
+>
+> Whoosh 2.6.0
+>
 ## Contributors
 
 > [JonnyF](http://jonnyf.com)

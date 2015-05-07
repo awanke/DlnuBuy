@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dlnubuy',
+    'haystack',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -102,3 +103,12 @@ USERIMG = 'C:\\Users\\Jonny\\Documents\\project\\dlnubuy\\dlnubuy\\static\\image
 
 # 这个路径是用户给宝贝上传的图片路径
 WARP = 'C:\\Users\\Jonny\\Documents\\project\\dlnubuy\\dlnubuy\\static\\images\\warp\\'
+
+# full text search
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'dlnubuy.whoosh_cn_backend.WhooshEngine',
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    },
+}
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

@@ -1,12 +1,10 @@
 #coding=utf-8
-from django.shortcuts import render
 from dlnubuy import models
-from django.http import HttpResponse
-from django.template import Context, loader,RequestContext
-from django.shortcuts import render,render_to_response
-from django.core.context_processors import csrf
-from django.conf import settings
+from django.template import Context
+from django.shortcuts import render_to_response
 import json,pdb
+from haystack.forms import SearchForm
+from search_indexes import ProductIndex
 
 # Create your views here.
 
@@ -58,3 +56,12 @@ def login(request):
 
 def users(request):
     return render_to_response('users.html')
+
+# 全局搜索
+def full_search(request):
+    keywords = request.GET['q'].encode('utf-8')
+    sform = SearchForm(request.GET)
+    posts = sform.search()
+    template = 'product_search_list.html'
+    c = Context({'posts': posts, 'list_header': '关键字 \'{}\' 搜索结果'.format(keywords)})
+    return render_to_response(template, c)

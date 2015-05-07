@@ -9,7 +9,8 @@ urlpatterns = patterns('dlnubuy.views',
        url(r'^product.html', "product"),
        url(r'^register.html', "register"),
        url(r'^login.html',"login"),
-       url(r'^users.html', "users")
+       url(r'^users.html', "users"),
+       url(r'^Product_Serach', "full_search")
 )
 
 urlpatterns += patterns('dlnubuy.ajax_views',
