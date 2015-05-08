@@ -31,7 +31,7 @@
                 <div id="searchbox">
                     <form action="Product_Serach/" method="get">
                         <input type="text" class="search_text fl" name="q">
-                        <input type="button" value="搜 索" class="search_btn fr">
+                        <input type="submit" value="搜 索" class="search_btn fr">
                     </form>
                 </div>
             </div>
@@ -449,10 +449,12 @@
         <a href="#"><img src="static/images/icon/logomin.png" alt="校园购"></a>
     </div>
     <div class="search_boxmin fl">
-        <input type="text" class="search_text fl">
-        <input type="button" value="搜 索" class="search_btn fr">
+        <form action="Product_Serach/" method="get">
+            <input type="text" class="search_text fl" name="q">
+            <input type="submit" value="搜 索" class="search_btn fr">
+        </form>
     </div>
-    <div class="returnBox">
+    <div class="returnBox fr">
         <div class="returnTop fl" style="padding: 5px; cursor: pointer;">
             <img src="static/images/icon/returnTop2.png">
         </div>

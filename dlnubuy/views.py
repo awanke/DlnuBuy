@@ -63,5 +63,5 @@ def full_search(request):
     sform = SearchForm(request.GET)
     posts = sform.search()
     template = 'product_search_list.html'
-    c = Context({'posts': posts, 'list_header': '关键字 \'{}\' 搜索结果'.format(keywords)})
+    c = Context({'posts': posts})
     return render_to_response(template, c)

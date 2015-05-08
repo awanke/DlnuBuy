@@ -28,8 +28,10 @@
                 <a href="#"><img src="static/images/logo2.png" alt="校园购"></a>
             </div>
             <div class="search_box fl">
-                <input type="text" class="search_text fl">
-                <input type="button" value="搜 索" class="search_btn fr">
+                <form action="Product_Serach/" method="get">
+                    <input type="text" class="search_text fl" name="q">
+                    <input type="submit" value="搜 索" class="search_btn fr">
+                </form>
             </div>
             <div class="shopCar fr">
                 <span class="shopText fl"></span><a href="#"> 购物车</a>
@@ -69,9 +71,7 @@
                     {% for pdimg in pdimg_list %}   
                     <li class="pm-selected">
                         <div class="pm-pic pm-s80" onclick="javascript:selectphoto(event);">
-                            <!-- <a href="javascript:selectphoto(event);"> -->
-                                <img src="{{pdimg}}" alt="这个是测试小的"/>
-                            <!-- </a> -->
+                            <img src="{{pdimg}}" alt="这个是测试小的"/>
                         </div>
                     </li>
                     {% endfor %}  
@@ -219,7 +219,6 @@
                     <ul class="tab-menu ks-switchable-nav" id="J_DetailTabMenu">
                         <li class="current first"><a href="#RemindTip"><s></s>宝贝的介绍</a></li>
                         <li><a href="#ItemNotice">购买须知</a></li>
-                        <!--<li><a href="#NoticeDetail">出售公告</a></li>-->
                         <li class="last"><a href="#J_RecordContent">购买记录</a></li>
                     </ul>
                 </div>
@@ -246,7 +245,6 @@
                                         {% for pdimg in pdimg_list %}
                                             <img src="{{pdimg}}" alt="#"/>
                                         {% endfor %}
-                                    <!-- <img src="#"><img src="#"><img src="#"> -->
                                     </span>
                                 </div>
                             </div>
@@ -269,23 +267,6 @@
                             {{product.requirement}}
                         </div>
                     </div>
-                    <!-- <div class="introduce-bid J_Content" id="J_RecordContent" has-data="0" data-from="#">
-                        <div class="pai-title">
-                            <div class="pai-title-text">购买记录</div>
-                            <div class="pai-title-line"></div>
-                        </div>
-                        <table class="record-table" id="J_RecordList">
-                            <thead>
-                            <tr>
-                                <th>状态</th>
-                                <th class="bid-number">订单号</th>
-                                <th class="offer-price">价格</th>
-                                <th class="price-time">时间</th>
-                            </tr>
-                            </thead>
-                            <tbody><tr><td colspan="4">没有更多出价记录...</td></tr></tbody>
-                        </table>
-                    </div> -->
                 </div>
             </div>
         </div>

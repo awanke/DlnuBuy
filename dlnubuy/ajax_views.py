@@ -6,6 +6,7 @@ import json
 from django.utils import timezone
 import datetime
 from dlnubuy import rediscacheF
+import autoScript
 import pdb
 
 
@@ -99,6 +100,7 @@ def addproduct(request):
         products.requirement = buytext
         products.category = category
         products.save()
+        autoScript.update_index()
         rsdic['ret'] = 'success'
     except:
         rsdic['ret'] = 'error'
@@ -255,6 +257,7 @@ def delete_buy_info(request):
     try:
         models.Product.objects.get(id=pdid).delete()
         models.Buy.objects.get(pdid=pdid).delete()
+        autoScript.update_index()
         rsdic['ret'] = 'success'
         rsdic['pdid'] = pdid
     except:
@@ -359,6 +362,7 @@ def proudctlike(request):
     try:
         product = models.Product.objects.get(id=pid)
         product.likes = product.likes + 1
+        product.save()
         rsdic['num'] = product.likes
         rsdic['ret'] = 'success'
     except:

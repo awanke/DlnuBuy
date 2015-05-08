@@ -59,7 +59,7 @@
 }
 .search_btn{
     width: 70px; height: 35px; font-size: 14px; font-family: "Microsoft YaHei","微软雅黑";
-    background-color: #f69; color: #f7f7f7;
+    background-color: #f69; color: #f7f7f7; cursor: pointer;
 }
 .shopCar{
     width: 165px; height: 35px; background-color: #ffffff; margin-top: 23px;
@@ -88,7 +88,7 @@
     width: 700px; border: 3px solid #f69; margin-top: 4px;margin-left: 150px;
 }
 .returnBox{
-    padding-top: 4px; position: absolute; padding-left: 1150px;
+    padding-top: 4px; position: absolute; left: 1150px;
 }
 
 /*导航*/

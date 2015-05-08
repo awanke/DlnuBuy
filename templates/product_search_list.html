@@ -3,12 +3,12 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>分类查找</title>
-    <link type="text/css" rel="stylesheet" href="static/styles/reset.css">
-    <link type="text/css" rel="stylesheet" href="static/styles/product_list.css">
-    <script type="text/javascript" src="static/scripts/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="static/scripts/jquery.cookie.min.js"></script>
-    <script type="text/javascript" src="static/scripts/query.js"></script>
-    <script type="text/javascript" src="static/scripts/product_search_list.js"></script>
+    <link type="text/css" rel="stylesheet" href="../static/styles/reset.css">
+    <link type="text/css" rel="stylesheet" href="../static/styles/product_list.css">
+    <script type="text/javascript" src="../static/scripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../static/scripts/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="../static/scripts/query.js"></script>
+    <script type="text/javascript" src="../static/scripts/product_search_list.js"></script>
 </head>
 <body>
 <div class="headerBar">
@@ -25,11 +25,13 @@
     <div class="logoBar">
         <div class="comWidth">
             <div class="logo fl">
-                <a href="#"><img src="static/images/logo2.png" alt="校园购"></a>
+                <a href="#"><img src="../static/images/logo2.png" alt="校园购"></a>
             </div>
             <div class="search_box fl">
-                <input type="text" class="search_text fl">
-                <input type="button" value="搜 索" class="search_btn fr">
+                <form action="../Product_Serach/" method="get">
+                    <input type="text" class="search_text fl" name="q">
+                    <input type="submit" value="搜 索" class="search_btn fr">
+                </form>
             </div>
             <div class="shopCar fr">
                 <span class="shopText fl"> 购物车</span>
@@ -40,15 +42,15 @@
     <div class="navBox">
         <div class="comWidth">
             <div class="shopClass fl">
-                <h3 ><a href="index.html" style="cursor: pointer"> 首&nbsp;&nbsp; 页</a></h3>
+                <h3 ><a href="../index.html" style="cursor: pointer"> 首&nbsp;&nbsp; 页</a></h3>
             </div>
             <ul class="nav fl">
-                <li><a href="product_list.html?category=100000">图书教辅</a></li>
-                <li><a href="product_list.html?category=100000">生活百货</a></li>
-                <li><a href="product_list.html?category=100000">遗弃猫狗</a></li>
-                <li><a href="product_list.html?category=100000">户外健身</a></li>
-                <li><a href="product_list.html?category=100000">工艺品</a></li>
-                <li><a href="product_list.html?category=100000">一起购</a></li>
+                <li><a href="../product_list.html?category=100000">图书教辅</a></li>
+                <li><a href="../product_list.html?category=100000">生活百货</a></li>
+                <li><a href="../product_list.html?category=100000">遗弃猫狗</a></li>
+                <li><a href="../product_list.html?category=100000">户外健身</a></li>
+                <li><a href="../product_list.html?category=100000">工艺品</a></li>
+                <li><a href="../product_list.html?category=100000">一起购</a></li>
             </ul>
         </div>
     </div>
@@ -56,18 +58,35 @@
 
 <div id="main">
 
-    <div>
-        {{ list_header }}
-    </div>
-
-    <div>
-        {% for i in posts %}
-            {{i.object.description}}
-            {{i.object.id}}
-        {% endfor %}
+{% if posts %}
+{% for i in posts %}
+<div class="pin">
+    <div class="box new_poster">
+        <div class="np_pic">
+            <div class="price">￥{{i.object.money}}</div>
+            <a class="pic_load" target="_blank" href="#"></a>
+            <img src="../{{i.object.pdimg}}">
+        </div>
+        <div class="title">
+            <p><a target="_blank" href="../product.html?pid={{i.object.id}}">{{i.object.description}}</a></p>
+        </div>
+        <div class="clear_f"></div>
+        <div class="comm_num">
+            <a class="fl poster_likes likes" pid="{{i.object.id}}" name="pdname">
+            <b class="likes_status">喜  欢</b>
+            <span class="red_f poster_like_num">{{i.object.likes}}</span>
+            </a>
+            <a href="../product.html?pid={{i.object.id}}">{{i.object.pdname}}</a>
+        </div>
     </div>
 </div>
+{% endfor %}
+{% endif %}
 
+</div>
+
+
+{% if not posts %}
 <div id="loading">
 <span class="blank15"></span>
 <div class="noresult">
@@ -75,20 +94,21 @@
     <p>您可以改变搜索关键词或减少分类条件的限制试试。</p>
 </div>
 </div>
+{% endif %}
 
 <div class="topBox">
     <div class="navBox">
         <div class="comWidth">
             <div class="shopClass fl">
-                <h3 ><a href="index.html" style="cursor: pointer"> 首&nbsp;&nbsp; 页</a></h3>
+                <h3 ><a href="../index.html" style="cursor: pointer"> 首&nbsp;&nbsp; 页</a></h3>
             </div>
             <ul class="nav fl">
-                <li><a href="#" class="active">图书教辅</a></li>
-                <li><a href="#">生活百货</a></li>
-                <li><a href="#">遗弃猫狗</a></li>
-                <li><a href="#">户外健身</a></li>
-                <li><a href="#">工艺品</a></li>
-                <li><a href="#">一起购</a></li>
+                <li><a href="../product_list.html?category=100000">图书教辅</a></li>
+                <li><a href="../product_list.html?category=100000">生活百货</a></li>
+                <li><a href="../product_list.html?category=100000">遗弃猫狗</a></li>
+                <li><a href="../product_list.html?category=100000">户外健身</a></li>
+                <li><a href="../product_list.html?category=100000">工艺品</a></li>
+                <li><a href="../product_list.html?category=100000">一起购</a></li>
             </ul>
         </div>
         <div class="returnBox">
